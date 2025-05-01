@@ -1,0 +1,132 @@
+Техническое задание на разработку Python-программы для парсинга изображений и характеристик товаров
+1. Введение
+1.1. Назначение
+Программа предназначена для парсинга изображений товаров и их характеристик с указанных веб-сайтов, сохранения изображений в локальные папки и формирования CSV-файла с данными. При повторном запуске программа должна обновлять существующие данные, дописывать недостающие, а не создавать их заново.
+
+1.2. Целевая платформа
+●	ОС: Windows 10 / + Linux (если это не усложнит разработку)
+●	Язык программирования: Python 3.9+
+2. Функциональные требования
+2.1. Парсинг данных
+●	Программа должна извлекать след характеристики (для iherb характеристики прописаны отдельно ниже):
+
+название товара, 
+цена, 
+url товара, 
+id товара/артикул, 
+категории товара, 
+все image_url, 
+цвет, 
+размер, 
+характеристики
+описание
+id (уникальный идентификатор)
+name (название)
+price (цена)
+article (артикул)
+description (описание)
+image_path (путь к папке с изображениями)
+url (ссылка на страницу товара)
+last_update (дата последнего обновления)
+
+Все эти данные должны быть в столбцах CSV
+
+2.2. Сохранение изображений
+●	Каждый товар должен сохраняться в отдельную папку с названием, соответствующим его артикулу/названию.
+●	Форматы изображений: .jpg, .png, .webp (конвертировать в .jpg или .png).
+●	Если изображения уже скачаны ранее, программа должна проверять их наличие и загружать только новые.
+●	Проверка дубликатов (по хешу или имени файла).
+●	Логирование ошибок загрузки.
+
+2.3. Генерация CSV-файла
+
+2.4. Обновление данных
+●	При повторном запуске программа должна:
+○	Проверять, есть ли товар в CSV.
+○	Обновлять цену, описание и другие изменяемые поля.
+○	Добавлять новые товары, если они появились.
+○	Скачивать новые изображения.
+
+Обязательна многопоточность и использование прокси в след. формате: выдаются по ссылке в виде json либо txt (для примера скидываю, нужную страну при необходимости настроим)
+https://asocks-list.org/WklAsyMtGVyCjINfclaieILqJ8Px96H5.json?limit=100&type=res&country=RU 
+https://asocks-list.org/WklAsyMtGVyCjINfclaieILqJ8Px96H5.txt?limit=100&type=res&country=RU 
+
+3.3. Входные данные
+●	Список URL-адресов для парсинга (можно задать в конфиге или через CLI).
+1. https://macys.com 
+2. https://asos.com 
+3. https://footlocker.com 
+4. https://www2.hm.com/en_us/ 
+5. https://ru.iherb.com категории для парсинга и список параметров для iherb см. ниже. 
+
+3.4. Выходные данные
+●	CSV с актуальными данными.
+●	Папки с изображениями.
+4. Дополнительные требования
+4.1. Логирование
+●	Запись ошибок и статусов в log.txt.
+4.2. Конфигурация
+●	Настройки должны храниться в config-файл:
+4.3. Способ запуска - предложить варианты.
+Если нужна доп. информация, спрашивайте. Просьба озвучить цену и сроки за готовый проект.
+
+
+Доп. информация по iherb:
+
+Категории iherb
+
+Пищевые добавки	url
+Витамины (4301)                       https://ru.iherb.com/c/supplements?cids=101072
+Кости, суставы и хрящи (2868)         https://ru.iherb.com/c/supplements?cids=100727
+Микроэлементы (2310)	                https://ru.iherb.com/c/supplements?cids=1800
+Здоровье детей (1814)	                https://ru.iherb.com/c/supplements?cids=100349
+Аминокислоты (1803)	                  https://ru.iherb.com/c/supplements?cids=1694
+Деятельность мозга (1795)     	      https://ru.iherb.com/c/supplements?cids=105803
+Женское здоровье (1389)	              https://ru.iherb.com/c/supplements?cids=8741
+Рыбий жир и омега (ЭПК и ДГК) (1136) 	https://ru.iherb.com/c/supplements?cids=1542
+Здоровье мужчины (855)	              https://ru.iherb.com/c/supplements?cids=3282
+Фосфолипиды (107)	                    https://ru.iherb.com/c/supplements?cids=102094
+
+Переменные из iherb
+
+Field	Type	Description
+productId	            int	    Unique ID of the product.
+brandName	            string	Name of the brand.
+title	                string	Product title.
+link        	        string	URL link to the product page.
+sku	                  string	Stock Keeping Unit (SKU) identifier.
+formattedPrice        string	Formatted display price of the product.
+isSpecial     	      bool	  Flag indicating if the product is marked as special.
+isTrial	              bool	  Flag indicating if the product is a trial sample.
+hasNewProductFlag	    bool	  Indicates if the product is marked as new.
+productCatalogImage	  string	URL of the product's catalog image.
+ratingValue	          float 	Average rating value of the product.
+reviewCount         	int	    Number of reviews for the product.
+currencyUsed	        string	Currency code used for the product price.
+countryUsed	          string	Country code representing the product's origin or sale location.
+price	                float	  Actual product price in float format.
+formattedTrialPrice	  string	Formatted price if the product is a trial sample.
+trialPrice	          float	  Actual trial price in float format.
+formattedSpecialPrice	string	Formatted price if the product is on special offer.
+specialPrice	        float	  Actual special offer price in float format.
+discountPercentValue	string	Discount percentage if applicable.
+hasDiscount	          bool	  Indicates if the product has a discount.
+shippingWeight	      float	  The weight of the product used for shipping calculations.
+packageQuantity	      string	Quantity description of the package.
+dimensions	          object	Product's physical dimensions (height, length, width, weight).
+lastUpdate	          string	The last update date and time of the product information.
+allDescription	      string	Full product description text.
+productImages	        List	  List of URLs for the product's images.
+variation	            object	Information about product variations (e.g., flavor, size).
+serving	              object	Information about serving size and description.
+categories	          List	  List of categories the product belongs to.
+supplementFacts     	object	Detailed supplement facts, including serving size and nutritional information.
+
+API магазинов
+H&M API  https://portal.api.hmgroup.com/ 
+
+iherb api https://rapidapi.com/daniel.hpassos/api/iherb-product-data-api
+
+Footlocker  https://github.com/footlocker
+
+macys https://developer.macys.com/files/Macys_API_Registration_Guide.pdf 
