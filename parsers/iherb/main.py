@@ -1,5 +1,10 @@
+from dotenv import load_dotenv
+import os
 from playwright.async_api import async_playwright
 from bs4 import BeautifulSoup
+
+load_dotenv()
+api_token = os.getenv("IHerbAPIToken")
 
 
 async def main():
@@ -26,6 +31,7 @@ async def main():
 
         product_cards = soup.select('div.product-cell-container')
 
+        count = 0
         for card in product_cards:
             name_tag = card.select_one('.product-title bdi')
             name = name_tag.get_text(strip=True) if name_tag else None
@@ -64,12 +70,29 @@ async def main():
                 "Rating": rating,
                 "Reviews": reviews
             })
+            count += 1
 
+        print(count)
         await page.close()
 
 
-import asyncio
+import requests
 
-asyncio.run(main())
+url = "https://iherb-product-data-api.p.rapidapi.com/api/IHerb/brands"
+
+querystring = {"page":"1"}
+
+headers = {
+	"x-rapidapi-key": "9489de4c00msh362246715bf3ad3p19b84ajsnf7030a94e799",
+	"x-rapidapi-host": "iherb-product-data-api.p.rapidapi.com"
+}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
+
+# import asyncio
+#
+# asyncio.run(main())
 
 
