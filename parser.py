@@ -48,19 +48,24 @@ class Parser:
   ):
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     image_path = f"data/images/{self.parser_name}/products/{id}"
-    self.products[id] = {
-      "product_id": id,
-      "category": category,
-      "name": name,
-      "price": price,
-      "article": article,
-      "description": description,
-      "image_path": image_path,
-      "url": url,
-      "color": color,
-      "sizes": sizes,
-      "last_update": current_time,
-    }
+    product = self.products.setdefault(id, {})
+    if description is None:
+      description = product.get("description", None)
+    product.update(
+      {
+        "product_id": id,
+        "url": url,
+        "category": category,
+        "name": name,
+        "price": price,
+        "article": article,
+        "color": color,
+        "sizes": sizes,
+        "description": description,
+        "image_path": image_path,
+        "last_update": current_time,
+      }
+    )
 
   def set_product_description(self, id, description):
     if id in self.products:
