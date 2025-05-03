@@ -1,7 +1,12 @@
+from logging import Logger
+from parser import Parser
 
-async def scrap_essential():
-  pass
+from config import Config
 
 
-async def scrap_full():
-  pass
+class FootlockerParser(Parser):
+  def __init__(self, client, logger: Logger, config: Config):
+    super().__init__("footlocker", client, logger, config)
+
+  async def parse(self):
+    pass

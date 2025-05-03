@@ -40,10 +40,10 @@ class Parser:
 
     self.load()
 
-  def parse(self):
+  async def parse(self):
     pass
 
-  def product_data(
+  def set_product(
     self, id, url, category, name, price, article, color, sizes, description=None
   ):
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -62,11 +62,11 @@ class Parser:
       "last_update": current_time,
     }
 
-  def product_description(self, id, description):
+  def set_product_description(self, id, description):
     if id in self.products:
       self.products[id]["description"] = description
 
-  def product_image(self, product_id, image_id, image_url):
+  def set_product_image(self, product_id, image_id, image_url):
     full_image_id = f"{self.parser_name}/products/{product_id}/{image_id}"
     self.images[full_image_id] = image_url
 

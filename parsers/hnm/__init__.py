@@ -16,7 +16,7 @@ class HNMParser(Parser):
     self.pages = self.get_state("pages", {})
     self.product_queue = self.get_state("product_description_queue", {})
 
-  def parse(self):
+  async def parse(self):
     pass
 
   async def scrap_category(self, category: dict):
@@ -49,12 +49,12 @@ class HNMParser(Parser):
       current_page += 1
       self.pages[category_name] = current_page
       self.save_state()
+      await asyncio.sleep(2)
 
-  async def scrap_description(self, product_page: str) -> str:
+  async def scrap_description(self, product_id: str, product_page: str):
     response = await self.client.get(product_page)
     if response.status_code != 200:
       self.logger.error(f"Failed to fetch {product_page}: {response.status_code}")
-      return None
 
     soup = BeautifulSoup(response.text, "html.parser")
     description = soup.find("div", {"id": "section-descriptionAccordion"})
@@ -63,7 +63,9 @@ class HNMParser(Parser):
       for tag in content.find_all(True):
         if "class" in tag.attrs:
           del tag.attrs["class"]
-      return str(content)
+      
+      description = str(content).replace("\n", "")
+      self.set_product_description(product_id, description)
+      self.logger.info(f"Parsed product description for {product_id}")
     else:
       self.logger.error(f"Failed to parse product description at {product_page}")
-      return None
