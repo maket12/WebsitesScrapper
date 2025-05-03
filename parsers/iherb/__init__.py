@@ -7,22 +7,17 @@ from curl_cffi import AsyncSession
 
 from .data import scrap_categories
 
-async def scrap_essential():
+async def scrap(client, full: bool = False, reset_state: bool = False):
   if not os.path.exists("data/iherb"):
     os.makedirs("data/iherb")
 
-  async with AsyncSession() as client:
-    if not os.path.exists("data/iherb/brand_map.json"):
-      await get_all_brands(client)
+  if not os.path.exists("data/iherb/brand_map.json"):
+    await get_all_brands(client)
 
-    if not os.path.exists("data/iherb/categories.json"):
-      with open("data/iherb/brand_map.json", "r", encoding="utf-8") as f:
-        brand_map = json.load(f)
-      await scrap_category_list(client, scrap_categories, brand_map)
-
-
-async def scrap_full():
-  pass
+  if not os.path.exists("data/iherb/categories.json"):
+    with open("data/iherb/brand_map.json", "r", encoding="utf-8") as f:
+      brand_map = json.load(f)
+    await scrap_category_list(client, scrap_categories, brand_map)
 
 
 async def scrap_category_list(client: AsyncSession, categories: list, brand_map: dict):
@@ -47,7 +42,6 @@ async def fetch_brand_names(client: AsyncSession, category: dict):
   print(f"Get brand names for category {category['name']} -> {category['url']}")
   resp = await client.post(
     "https://catalog.app.iherb.com/category/v2/supplements/filters",
-    impersonate="chrome",
     json={
       "categoryIds": [category["category_id"]],
       "healthTopicIds": [],
@@ -80,7 +74,7 @@ async def fetch_brand_names(client: AsyncSession, category: dict):
 
 async def get_all_brands(client: AsyncSession):
   print("Getting all brands...")
-  resp = await client.get("https://ru.iherb.com/catalog/brandsaz", impersonate="chrome")
+  resp = await client.get("https://ru.iherb.com/catalog/brandsaz")
   brands = parse_brands_html(resp.text)
   print("Brands found:", len(brands))
 
