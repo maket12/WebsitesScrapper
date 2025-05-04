@@ -1,5 +1,5 @@
 
-scrap_categories = [
+CATEGORIES = [
   {
     "name": "Витамины",
     "url": "https://ru.iherb.com/c/supplements?cids=101072",

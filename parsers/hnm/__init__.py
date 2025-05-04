@@ -4,7 +4,7 @@ from parser import Parser
 
 from config import Config
 
-from .data import categories
+from .data import CATEGORIES
 from bs4 import BeautifulSoup
 import asyncio
 
