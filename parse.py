@@ -7,24 +7,32 @@ from config import Config
 from parsers.hnm import HNMParser
 import atexit
 
-logging.basicConfig(filename="log.txt", level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
+logging.basicConfig(
+  level=logging.INFO,
+  format="%(asctime)s:%(levelname)s:%(message)s",
+  handlers=[
+    logging.FileHandler("log.txt"),
+    logging.StreamHandler()
+  ]
+)
 
 async def parse():
-  client = AsyncSession()
+  client = AsyncSession(impersonate="chrome")
   logger = logging.getLogger("parser")
+  logger.setLevel(logging.INFO)
   config = Config(is_full_parse=False, reset_state=False)
   hnm = HNMParser(client, logger, config)
-  
-  scrap_tasks = []
-  scrap_tasks.append(hnm.parse())
-  
-  await asyncio.gather(*scrap_tasks)
   
   def on_exit():
     logger.info("Saving everything...")
     hnm.save_all()
   
   atexit.register(on_exit)
+  
+  scrap_tasks = []
+  scrap_tasks.append(hnm.parse())
+  
+  await asyncio.gather(*scrap_tasks)
 
 
 if __name__ == "__main__":

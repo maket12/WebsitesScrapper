@@ -1,0 +1,2223 @@
+{
+  "1255289001": {
+    "1080683001": "manual",
+    "1097303010": "manual",
+    "1118405001": "manual",
+    "1123621001": "manual",
+    "1208972005": "manual",
+    "1212272001": "manual",
+    "1217073007": "manual",
+    "1228670001": "manual",
+    "1249646002": "dam",
+    "1252576002": "manual",
+    "1252577001": "manual",
+    "1253772002": "manual",
+    "1254994001": "manual",
+    "1255258002": "manual",
+    "1255282001": "manual",
+    "1255283001": "manual",
+    "1255283004": "manual",
+    "1256481001": "manual",
+    "1256484002": "manual",
+    "1265657001": "manual",
+    "1267648003": "manual",
+    "1267653001": "manual",
+    "1268229003": "manual",
+    "1268229006": "manual",
+    "name": "Black",
+    "rgb": "#272628",
+    "swatchDetails": {
+      "hex": "#272628",
+      "colorName": "Black",
+      "sku": "1255289001",
+      "thumbnail": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F75%2F3c%2F753c727e12e4e6d500d79fcde526ab66673c8212.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/miniature]",
+      "thumbnailImg": "https://image.hm.com/assets/hm/75/3c/753c727e12e4e6d500d79fcde526ab66673c8212.jpg"
+    },
+    "materialDetails": [
+      {
+        "name": "Polyester",
+        "description": "Polyester is a synthetic fiber made from crude oil (a fossil resource)."
+      },
+      {
+        "name": "Recycled polyester",
+        "description": "Recycled polyester is polyester made from PET bottles or end-of-life textile waste. The PET bottles or textile waste is mechanically recycled and processed into new yarn."
+      },
+      {
+        "name": "Spandex",
+        "description": "Elastane is an elastic synthetic fiber made from oil (a fossil resource)."
+      }
+    ],
+    "inStore": true,
+    "colorCode": "09",
+    "totalStyleWithArticles": "24",
+    "productKey": "1255289_group_001_en_us",
+    "styleWithDefaultArticles": [
+      "1249646002",
+      "1256481001",
+      "1118405001",
+      "1208972005",
+      "1212272001",
+      "1265657001",
+      "1080683001",
+      "1228670001",
+      "1097303010",
+      "1267648003",
+      "1217073007",
+      "1255283001",
+      "1252577001",
+      "1253772002",
+      "1267653001",
+      "1255282001",
+      "1254994001",
+      "1252576002",
+      "1255283004",
+      "1268229006",
+      "1256484002",
+      "1123621001",
+      "1255258002",
+      "1268229003"
+    ],
+    "productsWithStyleWith": [
+      "1255289_group_002_en_us",
+      "1249646_group_002_en_us",
+      "1256481_group_001_en_us",
+      "1118405_group_001_en_us",
+      "1208972_group_005_en_us",
+      "1212272_group_001_en_us",
+      "1265657_group_001_en_us",
+      "1080683_group_001_en_us",
+      "1228670_group_001_en_us",
+      "1097303_group_010_en_us",
+      "1267648_group_003_en_us",
+      "1217073_group_007_en_us",
+      "1255283_group_001_en_us",
+      "1252577_group_001_en_us",
+      "1253772_group_002_en_us",
+      "1267653_group_001_en_us",
+      "1255282_group_001_en_us",
+      "1254994_group_001_en_us",
+      "1252576_group_002_en_us",
+      "1255283_group_004_en_us",
+      "1268229_group_006_en_us",
+      "1256484_group_002_en_us",
+      "1123621_group_001_en_us",
+      "1255258_group_002_en_us",
+      "1268229_group_003_en_us"
+    ],
+    "selection": false,
+    "mainCategory": "sportswear_women_activity_training_shorts",
+    "description": "Biking shorts in functional fabric made with SoftMove™ for the ultimate in softness and comfort plus contouring support, and DryMove™ to wick away moisture from skin. High waist and wide waistband panel.",
+    "images": [
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fca%2F86%2Fca86f131a6db9f24928b159033179e420d1a0fa1.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/ca/86/ca86f131a6db9f24928b159033179e420d1a0fa1.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F16%2Ffd%2F16fdc5becb41b75793a444d6984923288dfddf50.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/16/fd/16fdc5becb41b75793a444d6984923288dfddf50.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Feb%2F04%2Feb04dd732dd1ac7e70699244723d9b18b1ae719f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/eb/04/eb04dd732dd1ac7e70699244723d9b18b1ae719f.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F75%2F3c%2F753c727e12e4e6d500d79fcde526ab66673c8212.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/75/3c/753c727e12e4e6d500d79fcde526ab66673c8212.jpg",
+        "assetType": "DESCRIPTIVESTILLLIFE"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F04%2F18%2F0418a3b6e15d1407b5cf972236dde7d2f3ef644a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/04/18/0418a3b6e15d1407b5cf972236dde7d2f3ef644a.jpg",
+        "assetType": "DESCRIPTIVEDETAIL"
+      }
+    ],
+    "video": {
+      "options": {
+        "accountId": "5985631876001",
+        "playerId": "aKLjzHnEl"
+      }
+    },
+    "sizes": [
+      {
+        "sizeCode": "1255289001002",
+        "size": "002",
+        "name": "XS",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289001003",
+        "size": "003",
+        "name": "S",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289001004",
+        "size": "004",
+        "name": "M",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289001005",
+        "size": "005",
+        "name": "L",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289001006",
+        "size": "006",
+        "name": "XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289001007",
+        "size": "007",
+        "name": "XXL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289001026",
+        "size": "026",
+        "name": "3XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289001027",
+        "size": "027",
+        "name": "4XL",
+        "sizeScaleCode": "180"
+      }
+    ],
+    "whitePrice": "$17.99",
+    "whitePriceValue": "17.99",
+    "priceCurrency": "USD",
+    "marketingMarkers": [
+      {
+        "url": "//www2.hm.com/",
+        "text": "H&M Move",
+        "color": "#000000"
+      }
+    ],
+    "concept": [
+      "H&M Move"
+    ],
+    "scenario_1": true,
+    "compositions": [
+      "Polyester 76%, Spandex 24%"
+    ],
+    "composition": [
+      {
+        "materials": [
+          {
+            "name": "Polyester",
+            "amount": "76%"
+          },
+          {
+            "name": "Spandex",
+            "amount": "24%"
+          }
+        ]
+      }
+    ],
+    "ourPreferredMaterials": [
+      {
+        "name": "Recycled polyester",
+        "amount": "76%"
+      }
+    ],
+    "sustainableMaterials": [
+      {
+        "sustainableMaterial": "76% Recycled polyester"
+      }
+    ],
+    "preferredMaterials": [
+      "Recycled polyester 76%"
+    ],
+    "materialInformation": {
+      "learnMore": {
+        "linkText": "Learn more about the materials in this product",
+        "header": "Learn more"
+      },
+      "preferredMaterialsExplained": {
+        "additionalMaterialsIntro": "The total weight of this product contains at least",
+        "additionalMaterialsExplanation": "We exclude the weight of minor components such as, but not exclusively: threads, buttons, zippers, embellishments and prints.",
+        "additionalMaterialsCalculation": "The total weight of the product is calculated by adding the weight of all layers and main components together. Based on that, we calculate how much of that weight is made out by each material. For sets and multipacks, all pieces are counted together as one product in calculations.",
+        "linkText": "Our preferred materials explained",
+        "linkHref": "https://hmgroup.com/wp-content/uploads/2022/12/HM-Group-Material-Categorisation-2022.pdf",
+        "materialUsedExplanations": "Explanations of the materials used in this product."
+      },
+      "materialsExplained": "Materials in this product explained"
+    },
+    "careInstructions": [
+      "Only non-chlorine bleach when needed",
+      "No dry clean",
+      "Machine wash cool",
+      "Line dry",
+      "Low iron",
+      "Do not iron on print",
+      "Do not use softener",
+      "Wash with like colors"
+    ],
+    "careGuide": {
+      "linkText": "Read about how you can make your clothes last longer",
+      "linkHref": "https://www2.hm.com/en_us/hm-sustainability/take-care.html"
+    },
+    "detailedDescriptions": [
+      "Black",
+      "Solid-color"
+    ],
+    "url": "/en_us/productpage.1255289001.html",
+    "productTransparencyEnabled": true,
+    "comingSoon": false,
+    "suppliersDetailEnabled": true,
+    "deliveryDetails": {
+      "deliveryAdditionalInfo": "Returns by mail incur a fee of $3.99. In-store returns are free.",
+      "shippedByText": "Shipped by",
+      "shippedByBrand": "H&M"
+    },
+    "markers": {},
+    "productAttributes": {
+      "description": [
+        {
+          "title": "measurement",
+          "values": [
+            "Inner leg: Length: 5.5 in (Size M)"
+          ],
+          "valuesDisplay": "block"
+        },
+        {
+          "title": "garmentLength",
+          "values": [
+            "Short"
+          ]
+        },
+        {
+          "title": "waistRise",
+          "values": [
+            "High waist"
+          ]
+        },
+        {
+          "title": "fits",
+          "values": [
+            "Slim fit"
+          ]
+        },
+        {
+          "title": "clothingStyle",
+          "values": [
+            "Cycling Shorts"
+          ]
+        },
+        {
+          "title": "functionality",
+          "values": [
+            "Quick dry",
+            "Moisture wicking"
+          ]
+        },
+        {
+          "title": "sportsActivity",
+          "values": [
+            "Training"
+          ]
+        },
+        {
+          "title": "detailedDescriptions",
+          "values": [
+            "Black",
+            "Solid-color"
+          ]
+        },
+        {
+          "title": "imported",
+          "values": "Yes"
+        },
+        {
+          "title": "concepts",
+          "values": [
+            "H&M Move"
+          ]
+        },
+        {
+          "title": "niceToKnow",
+          "values": [
+            "Supersoft"
+          ]
+        }
+      ]
+    }
+  },
+  "1255289002": {
+    "1097303007": "manual",
+    "1118402005": "manual",
+    "1118405001": "manual",
+    "1123621027": "manual",
+    "1123621032": "manual",
+    "1208972005": "manual",
+    "1225464008": "manual",
+    "1228670001": "manual",
+    "1229793003": "manual",
+    "1249666001": "manual",
+    "1250885002": "manual",
+    "1250895001": "manual",
+    "1251779001": "manual",
+    "1252577002": "manual",
+    "1252577003": "manual",
+    "1252579001": "manual",
+    "1252579003": "manual",
+    "1253766001": "manual",
+    "1254994001": "manual",
+    "1255282002": "manual",
+    "1255283002": "manual",
+    "1255283003": "manual",
+    "1255286002": "manual",
+    "1256404002": "manual",
+    "1256404003": "manual",
+    "1256470002": "manual",
+    "1256470004": "manual",
+    "1262889001": "manual",
+    "1265657001": "manual",
+    "1267648001": "manual",
+    "1268610001": "manual",
+    "1276797003": "manual",
+    "1277826002": "manual",
+    "1282358001": "manual",
+    "1294038002": "dam",
+    "name": "White",
+    "rgb": "#F7F3E2",
+    "swatchDetails": {
+      "hex": "#F7F3E2",
+      "colorName": "White",
+      "sku": "1255289002",
+      "thumbnail": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F06%2Fe6%2F06e6d670c159d145143fa83b34a2e4295356af5e.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/miniature]",
+      "thumbnailImg": "https://image.hm.com/assets/hm/06/e6/06e6d670c159d145143fa83b34a2e4295356af5e.jpg"
+    },
+    "materialDetails": [
+      {
+        "name": "Polyester",
+        "description": "Polyester is a synthetic fiber made from crude oil (a fossil resource)."
+      },
+      {
+        "name": "Recycled polyester",
+        "description": "Recycled polyester is polyester made from PET bottles or end-of-life textile waste. The PET bottles or textile waste is mechanically recycled and processed into new yarn."
+      },
+      {
+        "name": "Spandex",
+        "description": "Elastane is an elastic synthetic fiber made from oil (a fossil resource)."
+      }
+    ],
+    "inStore": true,
+    "colorCode": "11",
+    "totalStyleWithArticles": "35",
+    "productKey": "1255289_group_002_en_us",
+    "styleWithDefaultArticles": [
+      "1294038002",
+      "1252577002",
+      "1225464008",
+      "1118405001",
+      "1208972005",
+      "1254994001",
+      "1097303007",
+      "1255286002",
+      "1267648001",
+      "1118402005",
+      "1256470004",
+      "1265657001",
+      "1249666001",
+      "1228670001",
+      "1255283003",
+      "1252579003",
+      "1253766001",
+      "1268610001",
+      "1256404003",
+      "1276797003",
+      "1252579001",
+      "1250895001",
+      "1262889001",
+      "1251779001",
+      "1252577003",
+      "1255282002",
+      "1255283002",
+      "1256470002",
+      "1250885002",
+      "1123621027",
+      "1256404002",
+      "1229793003",
+      "1123621032",
+      "1282358001",
+      "1277826002"
+    ],
+    "productsWithStyleWith": [
+      "1255289_group_002_en_us",
+      "1294038_group_002_en_us",
+      "1252577_group_002_en_us",
+      "1225464_group_008_en_us",
+      "1118405_group_001_en_us",
+      "1208972_group_005_en_us",
+      "1254994_group_001_en_us",
+      "1097303_group_007_en_us",
+      "1255286_group_002_en_us",
+      "1267648_group_001_en_us",
+      "1118402_group_005_en_us",
+      "1256470_group_004_en_us",
+      "1265657_group_001_en_us",
+      "1249666_group_001_en_us",
+      "1228670_group_001_en_us",
+      "1255283_group_003_en_us",
+      "1252579_group_003_en_us",
+      "1253766_group_001_en_us",
+      "1268610_group_001_en_us",
+      "1256404_group_003_en_us",
+      "1276797_group_003_en_us",
+      "1252579_group_001_en_us",
+      "1250895_group_001_en_us",
+      "1262889_group_001_en_us",
+      "1251779_group_001_en_us",
+      "1252577_group_003_en_us",
+      "1255282_group_002_en_us",
+      "1255283_group_002_en_us",
+      "1256470_group_002_en_us",
+      "1250885_group_002_en_us",
+      "1123621_group_027_en_us",
+      "1256404_group_002_en_us",
+      "1229793_group_003_en_us",
+      "1123621_group_032_en_us",
+      "1282358_group_001_en_us",
+      "1277826_group_002_en_us"
+    ],
+    "selection": false,
+    "mainCategory": "sportswear_women_activity_training_shorts",
+    "description": "Biking shorts in functional fabric made with SoftMove™ for the ultimate in softness and comfort plus contouring support, and DryMove™ to wick away moisture from skin. High waist and wide waistband panel.",
+    "images": [
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fcc%2F06%2Fcc065fccc2fd25ec502f4943306d8affdc824f2d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/cc/06/cc065fccc2fd25ec502f4943306d8affdc824f2d.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd2%2F8c%2Fd28cdaac5b8b1baac91f4ee9d29a75eb900b1809.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/d2/8c/d28cdaac5b8b1baac91f4ee9d29a75eb900b1809.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F97%2F98%2F9798eb8b54c089881f10653e920d0391477c74f7.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/97/98/9798eb8b54c089881f10653e920d0391477c74f7.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F5f%2Fc6%2F5fc6ed7d8c10bb82cc276e08871a3d0069d2ab71.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/5f/c6/5fc6ed7d8c10bb82cc276e08871a3d0069d2ab71.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fc5%2F44%2Fc544b999d849597d96b38ad1940e3081ac072f97.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/c5/44/c544b999d849597d96b38ad1940e3081ac072f97.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F06%2Fe6%2F06e6d670c159d145143fa83b34a2e4295356af5e.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/06/e6/06e6d670c159d145143fa83b34a2e4295356af5e.jpg",
+        "assetType": "DESCRIPTIVESTILLLIFE"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F2b%2F3b%2F2b3b893d1c3124a3130c595b6b9fa542de1d74b2.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/2b/3b/2b3b893d1c3124a3130c595b6b9fa542de1d74b2.jpg",
+        "assetType": "DESCRIPTIVEDETAIL"
+      }
+    ],
+    "video": {
+      "options": {
+        "accountId": "5985631876001",
+        "playerId": "aKLjzHnEl"
+      }
+    },
+    "sizes": [
+      {
+        "sizeCode": "1255289002002",
+        "size": "002",
+        "name": "XS",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289002003",
+        "size": "003",
+        "name": "S",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289002004",
+        "size": "004",
+        "name": "M",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289002005",
+        "size": "005",
+        "name": "L",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289002006",
+        "size": "006",
+        "name": "XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289002007",
+        "size": "007",
+        "name": "XXL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289002026",
+        "size": "026",
+        "name": "3XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289002027",
+        "size": "027",
+        "name": "4XL",
+        "sizeScaleCode": "180"
+      }
+    ],
+    "whitePrice": "$17.99",
+    "whitePriceValue": "17.99",
+    "priceCurrency": "USD",
+    "marketingMarkers": [
+      {
+        "url": "//www2.hm.com/",
+        "text": "H&M Move",
+        "color": "#000000"
+      }
+    ],
+    "concept": [
+      "H&M Move"
+    ],
+    "scenario_1": true,
+    "compositions": [
+      "Polyester 76%, Spandex 24%"
+    ],
+    "composition": [
+      {
+        "materials": [
+          {
+            "name": "Polyester",
+            "amount": "76%"
+          },
+          {
+            "name": "Spandex",
+            "amount": "24%"
+          }
+        ]
+      }
+    ],
+    "ourPreferredMaterials": [
+      {
+        "name": "Recycled polyester",
+        "amount": "76%"
+      }
+    ],
+    "sustainableMaterials": [
+      {
+        "sustainableMaterial": "76% Recycled polyester"
+      }
+    ],
+    "preferredMaterials": [
+      "Recycled polyester 76%"
+    ],
+    "materialInformation": {
+      "learnMore": {
+        "linkText": "Learn more about the materials in this product",
+        "header": "Learn more"
+      },
+      "preferredMaterialsExplained": {
+        "additionalMaterialsIntro": "The total weight of this product contains at least",
+        "additionalMaterialsExplanation": "We exclude the weight of minor components such as, but not exclusively: threads, buttons, zippers, embellishments and prints.",
+        "additionalMaterialsCalculation": "The total weight of the product is calculated by adding the weight of all layers and main components together. Based on that, we calculate how much of that weight is made out by each material. For sets and multipacks, all pieces are counted together as one product in calculations.",
+        "linkText": "Our preferred materials explained",
+        "linkHref": "https://hmgroup.com/wp-content/uploads/2022/12/HM-Group-Material-Categorisation-2022.pdf",
+        "materialUsedExplanations": "Explanations of the materials used in this product."
+      },
+      "materialsExplained": "Materials in this product explained"
+    },
+    "careInstructions": [
+      "Only non-chlorine bleach when needed",
+      "No dry clean",
+      "Machine wash cool",
+      "Line dry",
+      "Low iron",
+      "Do not iron on print",
+      "Do not use softener",
+      "Wash with like colors"
+    ],
+    "careGuide": {
+      "linkText": "Read about how you can make your clothes last longer",
+      "linkHref": "https://www2.hm.com/en_us/hm-sustainability/take-care.html"
+    },
+    "detailedDescriptions": [
+      "White",
+      "Solid-color"
+    ],
+    "url": "/en_us/productpage.1255289002.html",
+    "productTransparencyEnabled": true,
+    "comingSoon": false,
+    "suppliersDetailEnabled": true,
+    "modelHeight": "179cm%2F5%2710%22",
+    "garmentSize": "1255289002003",
+    "deliveryDetails": {
+      "deliveryAdditionalInfo": "Returns by mail incur a fee of $3.99. In-store returns are free.",
+      "shippedByText": "Shipped by",
+      "shippedByBrand": "H&M"
+    },
+    "markers": {},
+    "productAttributes": {
+      "description": [
+        {
+          "title": "modelHeightGarmentSize",
+          "values": "The model is 179cm/5'10\" and wears a size S"
+        },
+        {
+          "title": "measurement",
+          "values": [
+            "Inner leg: Length: 5.5 in (Size M)"
+          ],
+          "valuesDisplay": "block"
+        },
+        {
+          "title": "garmentLength",
+          "values": [
+            "Short"
+          ]
+        },
+        {
+          "title": "waistRise",
+          "values": [
+            "High waist"
+          ]
+        },
+        {
+          "title": "fits",
+          "values": [
+            "Slim fit"
+          ]
+        },
+        {
+          "title": "clothingStyle",
+          "values": [
+            "Cycling Shorts"
+          ]
+        },
+        {
+          "title": "functionality",
+          "values": [
+            "Quick dry",
+            "Moisture wicking"
+          ]
+        },
+        {
+          "title": "sportsActivity",
+          "values": [
+            "Training"
+          ]
+        },
+        {
+          "title": "detailedDescriptions",
+          "values": [
+            "White",
+            "Solid-color"
+          ]
+        },
+        {
+          "title": "imported",
+          "values": "Yes"
+        },
+        {
+          "title": "concepts",
+          "values": [
+            "H&M Move"
+          ]
+        },
+        {
+          "title": "niceToKnow",
+          "values": [
+            "Supersoft"
+          ]
+        }
+      ]
+    }
+  },
+  "1255289003": {
+    "1097303010": "manual",
+    "1122433001": "manual",
+    "1123621031": "manual",
+    "1208972001": "manual",
+    "1208972003": "dam",
+    "1217553001": "manual",
+    "1217624007": "manual",
+    "1228670001": "manual",
+    "1243210013": "manual",
+    "1243210016": "manual",
+    "1255289002": "manual",
+    "1255289004": "manual",
+    "1259607001": "manual",
+    "1291296001": "manual",
+    "1291296002": "manual",
+    "1291298001": "manual",
+    "1291298002": "manual",
+    "1294038001": "manual",
+    "1294038002": "manual",
+    "1294038003": "dam",
+    "1294038004": "manual",
+    "name": "Khaki green",
+    "rgb": "#6F7060",
+    "swatchDetails": {
+      "hex": "#6F7060",
+      "colorName": "Khaki green",
+      "sku": "1255289003",
+      "thumbnail": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fe4%2F0f%2Fe40f3326e093c3c0c8f7eaca50c66dd9e0bf8062.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/miniature]",
+      "thumbnailImg": "https://image.hm.com/assets/hm/e4/0f/e40f3326e093c3c0c8f7eaca50c66dd9e0bf8062.jpg"
+    },
+    "materialDetails": [
+      {
+        "name": "Polyester",
+        "description": "Polyester is a synthetic fiber made from crude oil (a fossil resource)."
+      },
+      {
+        "name": "Recycled polyester",
+        "description": "Recycled polyester is polyester made from PET bottles or end-of-life textile waste. The PET bottles or textile waste is mechanically recycled and processed into new yarn."
+      },
+      {
+        "name": "Spandex",
+        "description": "Elastane is an elastic synthetic fiber made from oil (a fossil resource)."
+      }
+    ],
+    "inStore": true,
+    "colorCode": "19",
+    "totalStyleWithArticles": "21",
+    "productKey": "1255289_group_003_en_us",
+    "styleWithDefaultArticles": [
+      "1208972003",
+      "1294038003",
+      "1123621031",
+      "1217624007",
+      "1243210013",
+      "1291296002",
+      "1208972001",
+      "1122433001",
+      "1228670001",
+      "1259607001",
+      "1217553001",
+      "1097303010",
+      "1294038002",
+      "1255289002",
+      "1243210016",
+      "1291298001",
+      "1294038001",
+      "1291296001",
+      "1291298002",
+      "1294038004",
+      "1255289004"
+    ],
+    "productsWithStyleWith": [
+      "1255289_group_002_en_us",
+      "1208972_group_003_en_us",
+      "1294038_group_003_en_us",
+      "1123621_group_031_en_us",
+      "1217624_group_007_en_us",
+      "1243210_group_013_en_us",
+      "1291296_group_002_en_us",
+      "1208972_group_001_en_us",
+      "1122433_group_001_en_us",
+      "1228670_group_001_en_us",
+      "1259607_group_001_en_us",
+      "1217553_group_001_en_us",
+      "1097303_group_010_en_us",
+      "1294038_group_002_en_us",
+      "1255289_group_002_en_us",
+      "1243210_group_016_en_us",
+      "1291298_group_001_en_us",
+      "1294038_group_001_en_us",
+      "1291296_group_001_en_us",
+      "1291298_group_002_en_us",
+      "1294038_group_004_en_us",
+      "1255289_group_004_en_us"
+    ],
+    "selection": "New Arrival",
+    "mainCategory": "sportswear_women_activity_training_shorts",
+    "description": "Biking shorts in functional fabric made with SoftMove™ for the ultimate in softness and comfort plus contouring support, and DryMove™ to wick away moisture from skin. High waist and wide waistband panel.",
+    "images": [
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F38%2Ff2%2F38f27866b3fc2185f2e6f2e79efb4b02c7c21eff.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/38/f2/38f27866b3fc2185f2e6f2e79efb4b02c7c21eff.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F54%2F7f%2F547f76b1f627ffdd25fa76f74a59e9cae2ab31ae.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/54/7f/547f76b1f627ffdd25fa76f74a59e9cae2ab31ae.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F69%2F51%2F69512b204df11ea79c82039031338215b449f1c9.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/69/51/69512b204df11ea79c82039031338215b449f1c9.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F6c%2F56%2F6c566957e1b180df6d4f0167d59bc4815fcabc06.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/6c/56/6c566957e1b180df6d4f0167d59bc4815fcabc06.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F62%2F65%2F6265e5397d6fdc0333e8c8a278c2a7d8329705e9.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/62/65/6265e5397d6fdc0333e8c8a278c2a7d8329705e9.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fe4%2F0f%2Fe40f3326e093c3c0c8f7eaca50c66dd9e0bf8062.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/e4/0f/e40f3326e093c3c0c8f7eaca50c66dd9e0bf8062.jpg",
+        "assetType": "DESCRIPTIVESTILLLIFE"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F4d%2Fa3%2F4da360df1f99afceb91ab92068a7a41149bc52da.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/4d/a3/4da360df1f99afceb91ab92068a7a41149bc52da.jpg",
+        "assetType": "DESCRIPTIVEDETAIL"
+      }
+    ],
+    "video": {
+      "options": {
+        "accountId": "5985631876001",
+        "playerId": "aKLjzHnEl"
+      }
+    },
+    "sizes": [
+      {
+        "sizeCode": "1255289003002",
+        "size": "002",
+        "name": "XS",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289003003",
+        "size": "003",
+        "name": "S",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289003004",
+        "size": "004",
+        "name": "M",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289003005",
+        "size": "005",
+        "name": "L",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289003006",
+        "size": "006",
+        "name": "XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289003007",
+        "size": "007",
+        "name": "XXL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289003026",
+        "size": "026",
+        "name": "3XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289003027",
+        "size": "027",
+        "name": "4XL",
+        "sizeScaleCode": "180"
+      }
+    ],
+    "whitePrice": "$17.99",
+    "whitePriceValue": "17.99",
+    "priceCurrency": "USD",
+    "marketingMarkers": [
+      {
+        "url": "//www2.hm.com/",
+        "text": "H&M Move",
+        "color": "#000000"
+      }
+    ],
+    "concept": [
+      "H&M Move"
+    ],
+    "scenario_1": true,
+    "compositions": [
+      "Polyester 76%, Spandex 24%"
+    ],
+    "composition": [
+      {
+        "materials": [
+          {
+            "name": "Polyester",
+            "amount": "76%"
+          },
+          {
+            "name": "Spandex",
+            "amount": "24%"
+          }
+        ]
+      }
+    ],
+    "ourPreferredMaterials": [
+      {
+        "name": "Recycled polyester",
+        "amount": "76%"
+      }
+    ],
+    "sustainableMaterials": [
+      {
+        "sustainableMaterial": "76% Recycled polyester"
+      }
+    ],
+    "preferredMaterials": [
+      "Recycled polyester 76%"
+    ],
+    "materialInformation": {
+      "learnMore": {
+        "linkText": "Learn more about the materials in this product",
+        "header": "Learn more"
+      },
+      "preferredMaterialsExplained": {
+        "additionalMaterialsIntro": "The total weight of this product contains at least",
+        "additionalMaterialsExplanation": "We exclude the weight of minor components such as, but not exclusively: threads, buttons, zippers, embellishments and prints.",
+        "additionalMaterialsCalculation": "The total weight of the product is calculated by adding the weight of all layers and main components together. Based on that, we calculate how much of that weight is made out by each material. For sets and multipacks, all pieces are counted together as one product in calculations.",
+        "linkText": "Our preferred materials explained",
+        "linkHref": "https://hmgroup.com/wp-content/uploads/2022/12/HM-Group-Material-Categorisation-2022.pdf",
+        "materialUsedExplanations": "Explanations of the materials used in this product."
+      },
+      "materialsExplained": "Materials in this product explained"
+    },
+    "careInstructions": [
+      "Only non-chlorine bleach when needed",
+      "No dry clean",
+      "Machine wash cool",
+      "Line dry",
+      "Low iron",
+      "Do not iron on print",
+      "Do not use softener",
+      "Wash with like colors"
+    ],
+    "careGuide": {
+      "linkText": "Read about how you can make your clothes last longer",
+      "linkHref": "https://www2.hm.com/en_us/hm-sustainability/take-care.html"
+    },
+    "detailedDescriptions": [
+      "Khaki green",
+      "Solid-color"
+    ],
+    "url": "/en_us/productpage.1255289003.html",
+    "productTransparencyEnabled": true,
+    "comingSoon": false,
+    "suppliersDetailEnabled": true,
+    "modelHeight": "179cm%2F5%2710%22",
+    "garmentSize": "1255289003003",
+    "deliveryDetails": {
+      "deliveryAdditionalInfo": "Returns by mail incur a fee of $3.99. In-store returns are free.",
+      "shippedByText": "Shipped by",
+      "shippedByBrand": "H&M"
+    },
+    "marker": {
+      "careInstructions": [
+        {
+          "code": "CareInstructionsWashing-machinewashwarm",
+          "path": "https://image.hm.com/assets/hm/aa/c2/aac26902f6a19858dd937e19f3ee4237ee690d9d.jpg",
+          "text": "Machine wash warm"
+        },
+        {
+          "code": "CareInstructionsDrycleaning-nodryclean",
+          "path": "https://image.hm.com/assets/hm/8a/6e/8a6e741db374cec97f47bed17759c4a0843c0324.jpg",
+          "text": "No dry clean"
+        },
+        {
+          "code": "AdditionalCareInstructions-linedry",
+          "path": "https://image.hm.com/assets/hm/0e/af/0eaf468a2309def5d6db7d7646100449ecc82c0d.jpg",
+          "text": "Line dry"
+        },
+        {
+          "code": "CareInstructionsIroning-lowiron",
+          "path": "https://image.hm.com/assets/hm/80/5d/805dceca2b178c7b72df2442077876f4dda7b8a1.jpg",
+          "text": "Low iron"
+        }
+      ]
+    },
+    "markers": {},
+    "productAttributes": {
+      "description": [
+        {
+          "title": "modelHeightGarmentSize",
+          "values": "The model is 179cm/5'10\" and wears a size S"
+        },
+        {
+          "title": "measurement",
+          "values": [
+            "Inner leg: Length: 5.5 in (Size M)"
+          ],
+          "valuesDisplay": "block"
+        },
+        {
+          "title": "garmentLength",
+          "values": [
+            "Short"
+          ]
+        },
+        {
+          "title": "waistRise",
+          "values": [
+            "High waist"
+          ]
+        },
+        {
+          "title": "fits",
+          "values": [
+            "Slim fit"
+          ]
+        },
+        {
+          "title": "clothingStyle",
+          "values": [
+            "Cycling Shorts"
+          ]
+        },
+        {
+          "title": "functionality",
+          "values": [
+            "Quick dry",
+            "Moisture wicking"
+          ]
+        },
+        {
+          "title": "sportsActivity",
+          "values": [
+            "Training"
+          ]
+        },
+        {
+          "title": "detailedDescriptions",
+          "values": [
+            "Khaki green",
+            "Solid-color"
+          ]
+        },
+        {
+          "title": "imported",
+          "values": "Yes"
+        },
+        {
+          "title": "concepts",
+          "values": [
+            "H&M Move"
+          ]
+        },
+        {
+          "title": "niceToKnow",
+          "values": [
+            "Supersoft"
+          ]
+        }
+      ]
+    }
+  },
+  "1255289004": {
+    "1097303010": "manual",
+    "1122433001": "manual",
+    "1123621031": "manual",
+    "1123621032": "manual",
+    "1208972001": "dam",
+    "1212272001": "manual",
+    "1217553001": "manual",
+    "1217624007": "manual",
+    "1223577010": "manual",
+    "1243210013": "manual",
+    "1243210014": "manual",
+    "1243210016": "manual",
+    "1255289002": "manual",
+    "1255289003": "manual",
+    "1257393006": "manual",
+    "1257849006": "manual",
+    "1273583003": "manual",
+    "1277826002": "manual",
+    "1282358001": "manual",
+    "1291296002": "manual",
+    "1291298001": "manual",
+    "1294038001": "manual",
+    "1294038002": "manual",
+    "1294038003": "manual",
+    "1294038004": "dam",
+    "name": "Light yellow",
+    "rgb": "#EFE8C0",
+    "swatchDetails": {
+      "hex": "#EFE8C0",
+      "colorName": "Light yellow",
+      "sku": "1255289004",
+      "thumbnail": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F89%2F48%2F8948d8e200448a1bb28d8999fd4e223b56b9ca91.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/miniature]",
+      "thumbnailImg": "https://image.hm.com/assets/hm/89/48/8948d8e200448a1bb28d8999fd4e223b56b9ca91.jpg"
+    },
+    "materialDetails": [
+      {
+        "name": "Polyester",
+        "description": "Polyester is a synthetic fiber made from crude oil (a fossil resource)."
+      },
+      {
+        "name": "Recycled polyester",
+        "description": "Recycled polyester is polyester made from PET bottles or end-of-life textile waste. The PET bottles or textile waste is mechanically recycled and processed into new yarn."
+      },
+      {
+        "name": "Spandex",
+        "description": "Elastane is an elastic synthetic fiber made from oil (a fossil resource)."
+      }
+    ],
+    "inStore": true,
+    "colorCode": "24",
+    "totalStyleWithArticles": "25",
+    "productKey": "1255289_group_004_en_us",
+    "styleWithDefaultArticles": [
+      "1208972001",
+      "1294038004",
+      "1123621031",
+      "1217624007",
+      "1243210014",
+      "1122433001",
+      "1212272001",
+      "1217553001",
+      "1097303010",
+      "1294038002",
+      "1255289002",
+      "1243210016",
+      "1294038001",
+      "1291298001",
+      "1255289003",
+      "1294038003",
+      "1291296002",
+      "1243210013",
+      "1257393006",
+      "1123621032",
+      "1277826002",
+      "1282358001",
+      "1223577010",
+      "1257849006",
+      "1273583003"
+    ],
+    "productsWithStyleWith": [
+      "1255289_group_002_en_us",
+      "1208972_group_001_en_us",
+      "1294038_group_004_en_us",
+      "1123621_group_031_en_us",
+      "1217624_group_007_en_us",
+      "1243210_group_014_en_us",
+      "1122433_group_001_en_us",
+      "1212272_group_001_en_us",
+      "1217553_group_001_en_us",
+      "1097303_group_010_en_us",
+      "1294038_group_002_en_us",
+      "1255289_group_002_en_us",
+      "1243210_group_016_en_us",
+      "1294038_group_001_en_us",
+      "1291298_group_001_en_us",
+      "1255289_group_003_en_us",
+      "1294038_group_003_en_us",
+      "1291296_group_002_en_us",
+      "1243210_group_013_en_us",
+      "1257393_group_006_en_us",
+      "1123621_group_032_en_us",
+      "1277826_group_002_en_us",
+      "1282358_group_001_en_us",
+      "1223577_group_010_en_us",
+      "1257849_group_006_en_us",
+      "1273583_group_003_en_us"
+    ],
+    "selection": "New Arrival",
+    "mainCategory": "sportswear_women_activity_training_shorts",
+    "description": "Biking shorts in functional fabric made with SoftMove™ for the ultimate in softness and comfort plus contouring support, and DryMove™ to wick away moisture from skin. High waist and wide waistband panel.",
+    "images": [
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fbd%2Fc1%2Fbdc1971d6ccbe28f16c38a52c9d8d3d92c2dd15d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/bd/c1/bdc1971d6ccbe28f16c38a52c9d8d3d92c2dd15d.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F14%2F8c%2F148cb17bb53679e15df338f3e15a0c2cb71373c3.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/14/8c/148cb17bb53679e15df338f3e15a0c2cb71373c3.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fcb%2F2e%2Fcb2ed45ecc833cff8fd5d0a9415a632300dfb582.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/cb/2e/cb2ed45ecc833cff8fd5d0a9415a632300dfb582.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3f%2Ff4%2F3ff43b3886546d8a4473b48987a585cac98f685f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/3f/f4/3ff43b3886546d8a4473b48987a585cac98f685f.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F16%2F69%2F1669a6b9ade4a48165e97e1f3efbfb2535eac9d4.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/16/69/1669a6b9ade4a48165e97e1f3efbfb2535eac9d4.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F89%2F48%2F8948d8e200448a1bb28d8999fd4e223b56b9ca91.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/89/48/8948d8e200448a1bb28d8999fd4e223b56b9ca91.jpg",
+        "assetType": "DESCRIPTIVESTILLLIFE"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Faa%2F10%2Faa1057630ce5ecfecc77382122d2ba01d5d999a3.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/aa/10/aa1057630ce5ecfecc77382122d2ba01d5d999a3.jpg",
+        "assetType": "DESCRIPTIVEDETAIL"
+      }
+    ],
+    "video": {
+      "options": {
+        "accountId": "5985631876001",
+        "playerId": "aKLjzHnEl"
+      }
+    },
+    "sizes": [
+      {
+        "sizeCode": "1255289004002",
+        "size": "002",
+        "name": "XS",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289004003",
+        "size": "003",
+        "name": "S",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289004004",
+        "size": "004",
+        "name": "M",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289004005",
+        "size": "005",
+        "name": "L",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289004006",
+        "size": "006",
+        "name": "XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289004007",
+        "size": "007",
+        "name": "XXL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289004026",
+        "size": "026",
+        "name": "3XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289004027",
+        "size": "027",
+        "name": "4XL",
+        "sizeScaleCode": "180"
+      }
+    ],
+    "whitePrice": "$17.99",
+    "whitePriceValue": "17.99",
+    "priceCurrency": "USD",
+    "marketingMarkers": [
+      {
+        "url": "//www2.hm.com/",
+        "text": "H&M Move",
+        "color": "#000000"
+      }
+    ],
+    "concept": [
+      "H&M Move"
+    ],
+    "scenario_1": true,
+    "compositions": [
+      "Polyester 76%, Spandex 24%"
+    ],
+    "composition": [
+      {
+        "materials": [
+          {
+            "name": "Polyester",
+            "amount": "76%"
+          },
+          {
+            "name": "Spandex",
+            "amount": "24%"
+          }
+        ]
+      }
+    ],
+    "ourPreferredMaterials": [
+      {
+        "name": "Recycled polyester",
+        "amount": "76%"
+      }
+    ],
+    "sustainableMaterials": [
+      {
+        "sustainableMaterial": "76% Recycled polyester"
+      }
+    ],
+    "preferredMaterials": [
+      "Recycled polyester 76%"
+    ],
+    "materialInformation": {
+      "learnMore": {
+        "linkText": "Learn more about the materials in this product",
+        "header": "Learn more"
+      },
+      "preferredMaterialsExplained": {
+        "additionalMaterialsIntro": "The total weight of this product contains at least",
+        "additionalMaterialsExplanation": "We exclude the weight of minor components such as, but not exclusively: threads, buttons, zippers, embellishments and prints.",
+        "additionalMaterialsCalculation": "The total weight of the product is calculated by adding the weight of all layers and main components together. Based on that, we calculate how much of that weight is made out by each material. For sets and multipacks, all pieces are counted together as one product in calculations.",
+        "linkText": "Our preferred materials explained",
+        "linkHref": "https://hmgroup.com/wp-content/uploads/2022/12/HM-Group-Material-Categorisation-2022.pdf",
+        "materialUsedExplanations": "Explanations of the materials used in this product."
+      },
+      "materialsExplained": "Materials in this product explained"
+    },
+    "careInstructions": [
+      "Only non-chlorine bleach when needed",
+      "No dry clean",
+      "Machine wash cool",
+      "Line dry",
+      "Low iron",
+      "Do not iron on print",
+      "Do not use softener",
+      "Wash with like colors"
+    ],
+    "careGuide": {
+      "linkText": "Read about how you can make your clothes last longer",
+      "linkHref": "https://www2.hm.com/en_us/hm-sustainability/take-care.html"
+    },
+    "detailedDescriptions": [
+      "Light yellow",
+      "Solid-color"
+    ],
+    "url": "/en_us/productpage.1255289004.html",
+    "productTransparencyEnabled": true,
+    "comingSoon": false,
+    "suppliersDetailEnabled": true,
+    "modelHeight": "179cm%2F5%2710%22",
+    "garmentSize": "1255289004003",
+    "deliveryDetails": {
+      "deliveryAdditionalInfo": "Returns by mail incur a fee of $3.99. In-store returns are free.",
+      "shippedByText": "Shipped by",
+      "shippedByBrand": "H&M"
+    },
+    "marker": {
+      "careInstructions": [
+        {
+          "code": "CareInstructionsWashing-machinewashwarm",
+          "path": "https://image.hm.com/assets/hm/aa/c2/aac26902f6a19858dd937e19f3ee4237ee690d9d.jpg",
+          "text": "Machine wash warm"
+        },
+        {
+          "code": "CareInstructionsDrycleaning-nodryclean",
+          "path": "https://image.hm.com/assets/hm/8a/6e/8a6e741db374cec97f47bed17759c4a0843c0324.jpg",
+          "text": "No dry clean"
+        },
+        {
+          "code": "AdditionalCareInstructions-linedry",
+          "path": "https://image.hm.com/assets/hm/0e/af/0eaf468a2309def5d6db7d7646100449ecc82c0d.jpg",
+          "text": "Line dry"
+        },
+        {
+          "code": "CareInstructionsIroning-lowiron",
+          "path": "https://image.hm.com/assets/hm/80/5d/805dceca2b178c7b72df2442077876f4dda7b8a1.jpg",
+          "text": "Low iron"
+        }
+      ]
+    },
+    "markers": {},
+    "productAttributes": {
+      "description": [
+        {
+          "title": "modelHeightGarmentSize",
+          "values": "The model is 179cm/5'10\" and wears a size S"
+        },
+        {
+          "title": "measurement",
+          "values": [
+            "Inner leg: Length: 5.5 in (Size M)"
+          ],
+          "valuesDisplay": "block"
+        },
+        {
+          "title": "garmentLength",
+          "values": [
+            "Short"
+          ]
+        },
+        {
+          "title": "waistRise",
+          "values": [
+            "High waist"
+          ]
+        },
+        {
+          "title": "fits",
+          "values": [
+            "Slim fit"
+          ]
+        },
+        {
+          "title": "clothingStyle",
+          "values": [
+            "Cycling Shorts"
+          ]
+        },
+        {
+          "title": "functionality",
+          "values": [
+            "Quick dry",
+            "Moisture wicking"
+          ]
+        },
+        {
+          "title": "sportsActivity",
+          "values": [
+            "Training"
+          ]
+        },
+        {
+          "title": "detailedDescriptions",
+          "values": [
+            "Light yellow",
+            "Solid-color"
+          ]
+        },
+        {
+          "title": "imported",
+          "values": "Yes"
+        },
+        {
+          "title": "concepts",
+          "values": [
+            "H&M Move"
+          ]
+        },
+        {
+          "title": "niceToKnow",
+          "values": [
+            "Supersoft"
+          ]
+        }
+      ]
+    }
+  },
+  "1255289006": {
+    "1097303009": "manual",
+    "1118402001": "manual",
+    "1118402005": "manual",
+    "1118405007": "manual",
+    "1122433001": "manual",
+    "1180124001": "manual",
+    "1208972001": "manual",
+    "1228670001": "manual",
+    "1250886002": "manual",
+    "1251505004": "manual",
+    "1261647002": "manual",
+    "1265371001": "manual",
+    "1265371005": "manual",
+    "1270109004": "manual",
+    "1273318001": "manual",
+    "1273583001": "manual",
+    "1273583002": "dam",
+    "1276962004": "manual",
+    "1281667001": "manual",
+    "1283123001": "manual",
+    "1289850001": "manual",
+    "1290964001": "manual",
+    "1294038001": "manual",
+    "name": "Brown",
+    "rgb": "#4B4543",
+    "swatchDetails": {
+      "hex": "#4B4543",
+      "colorName": "Brown",
+      "sku": "1255289006",
+      "thumbnail": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fb2%2F07%2Fb207801abfe0cde198d00e81c69b6eff9b2148cd.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B3%5D&call=url[file:/product/miniature]",
+      "thumbnailImg": "https://image.hm.com/assets/hm/b2/07/b207801abfe0cde198d00e81c69b6eff9b2148cd.jpg"
+    },
+    "materialDetails": [
+      {
+        "name": "Polyester",
+        "description": "Polyester is a synthetic fiber made from crude oil (a fossil resource)."
+      },
+      {
+        "name": "Recycled polyester",
+        "description": "Recycled polyester is polyester made from PET bottles or end-of-life textile waste. The PET bottles or textile waste is mechanically recycled and processed into new yarn."
+      },
+      {
+        "name": "Spandex",
+        "description": "Elastane is an elastic synthetic fiber made from oil (a fossil resource)."
+      }
+    ],
+    "inStore": false,
+    "colorCode": "17",
+    "totalStyleWithArticles": "23",
+    "productKey": "1255289_group_006_en_us",
+    "styleWithDefaultArticles": [
+      "1273583002",
+      "1294038001",
+      "1122433001",
+      "1208972001",
+      "1290964001",
+      "1250886002",
+      "1097303009",
+      "1228670001",
+      "1118402001",
+      "1180124001",
+      "1118405007",
+      "1118402005",
+      "1265371001",
+      "1289850001",
+      "1265371005",
+      "1281667001",
+      "1270109004",
+      "1276962004",
+      "1273318001",
+      "1261647002",
+      "1251505004",
+      "1283123001",
+      "1273583001"
+    ],
+    "productsWithStyleWith": [
+      "1255289_group_002_en_us",
+      "1273583_group_002_en_us",
+      "1294038_group_001_en_us",
+      "1122433_group_001_en_us",
+      "1208972_group_001_en_us",
+      "1290964_group_001_en_us",
+      "1250886_group_002_en_us",
+      "1097303_group_009_en_us",
+      "1228670_group_001_en_us",
+      "1118402_group_001_en_us",
+      "1180124_group_001_en_us",
+      "1118405_group_007_en_us",
+      "1118402_group_005_en_us",
+      "1265371_group_001_en_us",
+      "1289850_group_001_en_us",
+      "1265371_group_005_en_us",
+      "1281667_group_001_en_us",
+      "1270109_group_004_en_us",
+      "1276962_group_004_en_us",
+      "1273318_group_001_en_us",
+      "1261647_group_002_en_us",
+      "1251505_group_004_en_us",
+      "1283123_group_001_en_us",
+      "1273583_group_001_en_us"
+    ],
+    "selection": "New Arrival",
+    "mainCategory": "sportswear_women_activity_training_shorts",
+    "description": "Biking shorts in functional fabric made with SoftMove™ for the ultimate in softness and comfort plus contouring support, and DryMove™ to wick away moisture from skin. High waist and wide waistband panel.",
+    "images": [
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F2d%2Fcc%2F2dcc4d18213db136b5b98014bdf5b1a7759c0a67.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/2d/cc/2dcc4d18213db136b5b98014bdf5b1a7759c0a67.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F59%2F79%2F5979b42211c40953974257ee7f53992900f9e5ec.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B3%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/59/79/5979b42211c40953974257ee7f53992900f9e5ec.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F64%2Fb3%2F64b377c70bfcdf0b37835041fb9d39fad92d4f2f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/64/b3/64b377c70bfcdf0b37835041fb9d39fad92d4f2f.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F78%2Faa%2F78aa7ea81c740fd4e69bd5c127003793b59fee8e.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B3%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/78/aa/78aa7ea81c740fd4e69bd5c127003793b59fee8e.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fb2%2F07%2Fb207801abfe0cde198d00e81c69b6eff9b2148cd.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B3%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/b2/07/b207801abfe0cde198d00e81c69b6eff9b2148cd.jpg",
+        "assetType": "DESCRIPTIVESTILLLIFE"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fb6%2Feb%2Fb6ebc8a7905f0b37e592c17207c441337f54eab9.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B3%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/b6/eb/b6ebc8a7905f0b37e592c17207c441337f54eab9.jpg",
+        "assetType": "DESCRIPTIVEDETAIL"
+      }
+    ],
+    "video": {
+      "options": {
+        "accountId": "5985631876001",
+        "playerId": "aKLjzHnEl"
+      }
+    },
+    "sizes": [
+      {
+        "sizeCode": "1255289006002",
+        "size": "002",
+        "name": "XS",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289006003",
+        "size": "003",
+        "name": "S",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289006004",
+        "size": "004",
+        "name": "M",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289006005",
+        "size": "005",
+        "name": "L",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289006006",
+        "size": "006",
+        "name": "XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289006007",
+        "size": "007",
+        "name": "XXL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289006026",
+        "size": "026",
+        "name": "3XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289006027",
+        "size": "027",
+        "name": "4XL",
+        "sizeScaleCode": "180"
+      }
+    ],
+    "whitePrice": "$17.99",
+    "whitePriceValue": "17.99",
+    "priceCurrency": "USD",
+    "marketingMarkers": [
+      {
+        "url": "//www2.hm.com/",
+        "text": "H&M Move",
+        "color": "#000000"
+      }
+    ],
+    "concept": [
+      "H&M Move"
+    ],
+    "scenario_1": true,
+    "compositions": [
+      "Polyester 76%, Spandex 24%"
+    ],
+    "composition": [
+      {
+        "materials": [
+          {
+            "name": "Polyester",
+            "amount": "76%"
+          },
+          {
+            "name": "Spandex",
+            "amount": "24%"
+          }
+        ]
+      }
+    ],
+    "ourPreferredMaterials": [
+      {
+        "name": "Recycled polyester",
+        "amount": "76%"
+      }
+    ],
+    "sustainableMaterials": [
+      {
+        "sustainableMaterial": "76% Recycled polyester"
+      }
+    ],
+    "preferredMaterials": [
+      "Recycled polyester 76%"
+    ],
+    "materialInformation": {
+      "learnMore": {
+        "linkText": "Learn more about the materials in this product",
+        "header": "Learn more"
+      },
+      "preferredMaterialsExplained": {
+        "additionalMaterialsIntro": "The total weight of this product contains at least",
+        "additionalMaterialsExplanation": "We exclude the weight of minor components such as, but not exclusively: threads, buttons, zippers, embellishments and prints.",
+        "additionalMaterialsCalculation": "The total weight of the product is calculated by adding the weight of all layers and main components together. Based on that, we calculate how much of that weight is made out by each material. For sets and multipacks, all pieces are counted together as one product in calculations.",
+        "linkText": "Our preferred materials explained",
+        "linkHref": "https://hmgroup.com/wp-content/uploads/2022/12/HM-Group-Material-Categorisation-2022.pdf",
+        "materialUsedExplanations": "Explanations of the materials used in this product."
+      },
+      "materialsExplained": "Materials in this product explained"
+    },
+    "careInstructions": [
+      "Only non-chlorine bleach when needed",
+      "No dry clean",
+      "Machine wash cool",
+      "Line dry",
+      "Low iron",
+      "Do not iron on print",
+      "Do not use softener",
+      "Wash with like colors"
+    ],
+    "careGuide": {
+      "linkText": "Read about how you can make your clothes last longer",
+      "linkHref": "https://www2.hm.com/en_us/hm-sustainability/take-care.html"
+    },
+    "detailedDescriptions": [
+      "Brown",
+      "Solid-color"
+    ],
+    "url": "/en_us/productpage.1255289006.html",
+    "productTransparencyEnabled": true,
+    "comingSoon": false,
+    "suppliersDetailEnabled": true,
+    "deliveryDetails": {
+      "deliveryAdditionalInfo": "Returns by mail incur a fee of $3.99. In-store returns are free.",
+      "shippedByText": "Shipped by",
+      "shippedByBrand": "H&M"
+    },
+    "marker": {
+      "careInstructions": [
+        {
+          "code": "CareInstructionsWashing-machinewashwarm",
+          "path": "https://image.hm.com/assets/hm/aa/c2/aac26902f6a19858dd937e19f3ee4237ee690d9d.jpg",
+          "text": "Machine wash warm"
+        },
+        {
+          "code": "CareInstructionsDrycleaning-nodryclean",
+          "path": "https://image.hm.com/assets/hm/8a/6e/8a6e741db374cec97f47bed17759c4a0843c0324.jpg",
+          "text": "No dry clean"
+        },
+        {
+          "code": "AdditionalCareInstructions-linedry",
+          "path": "https://image.hm.com/assets/hm/0e/af/0eaf468a2309def5d6db7d7646100449ecc82c0d.jpg",
+          "text": "Line dry"
+        },
+        {
+          "code": "CareInstructionsIroning-lowiron",
+          "path": "https://image.hm.com/assets/hm/80/5d/805dceca2b178c7b72df2442077876f4dda7b8a1.jpg",
+          "text": "Low iron"
+        }
+      ]
+    },
+    "markers": {},
+    "productAttributes": {
+      "description": [
+        {
+          "title": "measurement",
+          "values": [
+            "Inner leg: Length: 5.5 in (Size M)"
+          ],
+          "valuesDisplay": "block"
+        },
+        {
+          "title": "garmentLength",
+          "values": [
+            "Short"
+          ]
+        },
+        {
+          "title": "waistRise",
+          "values": [
+            "High waist"
+          ]
+        },
+        {
+          "title": "fits",
+          "values": [
+            "Slim fit"
+          ]
+        },
+        {
+          "title": "clothingStyle",
+          "values": [
+            "Cycling Shorts"
+          ]
+        },
+        {
+          "title": "functionality",
+          "values": [
+            "Quick dry",
+            "Moisture wicking"
+          ]
+        },
+        {
+          "title": "sportsActivity",
+          "values": [
+            "Training"
+          ]
+        },
+        {
+          "title": "detailedDescriptions",
+          "values": [
+            "Brown",
+            "Solid-color"
+          ]
+        },
+        {
+          "title": "imported",
+          "values": "Yes"
+        },
+        {
+          "title": "concepts",
+          "values": [
+            "H&M Move"
+          ]
+        },
+        {
+          "title": "niceToKnow",
+          "values": [
+            "Supersoft"
+          ]
+        }
+      ]
+    }
+  },
+  "1255289007": {
+    "1208965029": "dam",
+    "name": "Pink",
+    "rgb": "#DCCAD0",
+    "swatchDetails": {
+      "hex": "#DCCAD0",
+      "colorName": "Pink",
+      "sku": "1255289007",
+      "thumbnail": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F8e%2F39%2F8e39a408f1d435045a436b8c34598e39929f8f3c.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bsportswear_women_activity_training_shorts%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/miniature]",
+      "thumbnailImg": "https://image.hm.com/assets/hm/8e/39/8e39a408f1d435045a436b8c34598e39929f8f3c.jpg"
+    },
+    "materialDetails": [
+      {
+        "name": "Polyester",
+        "description": "Polyester is a synthetic fiber made from crude oil (a fossil resource)."
+      },
+      {
+        "name": "Recycled polyester",
+        "description": "Recycled polyester is polyester made from PET bottles or end-of-life textile waste. The PET bottles or textile waste is mechanically recycled and processed into new yarn."
+      },
+      {
+        "name": "Spandex",
+        "description": "Elastane is an elastic synthetic fiber made from oil (a fossil resource)."
+      }
+    ],
+    "inStore": false,
+    "colorCode": "54",
+    "totalStyleWithArticles": "1",
+    "productKey": "1255289_group_007_en_us",
+    "styleWithDefaultArticles": [
+      "1208965029"
+    ],
+    "productsWithStyleWith": [
+      "1255289_group_002_en_us",
+      "1208965_group_029_en_us"
+    ],
+    "selection": "New Arrival",
+    "mainCategory": "sportswear_women_activity_training_shorts",
+    "description": "Biking shorts in functional fabric made with SoftMove™ for the ultimate in softness and comfort plus contouring support, and DryMove™ to wick away moisture from skin. High waist and wide waistband panel.",
+    "images": [
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fdc%2F17%2Fdc17914820c365ec74708b12fb19e4ca68ddaed9.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/dc/17/dc17914820c365ec74708b12fb19e4ca68ddaed9.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F57%2F07%2F57078955a1c467178b393c97c7f97d19c3bf70ff.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/57/07/57078955a1c467178b393c97c7f97d19c3bf70ff.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F89%2Ffe%2F89fe42f139de7a42c73289be9741da136c3caa3f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/89/fe/89fe42f139de7a42c73289be9741da136c3caa3f.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fb0%2Ffe%2Fb0fed3e2924e6cdb55ada154b239dcb50f4d852f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/b0/fe/b0fed3e2924e6cdb55ada154b239dcb50f4d852f.jpg",
+        "assetType": "LOOKBOOK"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F8e%2F39%2F8e39a408f1d435045a436b8c34598e39929f8f3c.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bsportswear_women_activity_training_shorts%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/8e/39/8e39a408f1d435045a436b8c34598e39929f8f3c.jpg",
+        "assetType": "DESCRIPTIVESTILLLIFE"
+      },
+      {
+        "image": "//lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Ffd%2F2f%2Ffd2f3c3560218161c6b804f90a1bca57a81b9be7.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bsportswear_women_activity_training_shorts%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+        "baseUrl": "https://image.hm.com/assets/hm/fd/2f/fd2f3c3560218161c6b804f90a1bca57a81b9be7.jpg",
+        "assetType": "DESCRIPTIVESTILLLIFE"
+      }
+    ],
+    "video": {
+      "options": {
+        "accountId": "5985631876001",
+        "playerId": "aKLjzHnEl"
+      }
+    },
+    "sizes": [
+      {
+        "sizeCode": "1255289007002",
+        "size": "002",
+        "name": "XS",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289007003",
+        "size": "003",
+        "name": "S",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289007004",
+        "size": "004",
+        "name": "M",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289007005",
+        "size": "005",
+        "name": "L",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289007006",
+        "size": "006",
+        "name": "XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289007007",
+        "size": "007",
+        "name": "XXL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289007026",
+        "size": "026",
+        "name": "3XL",
+        "sizeScaleCode": "180"
+      },
+      {
+        "sizeCode": "1255289007027",
+        "size": "027",
+        "name": "4XL",
+        "sizeScaleCode": "180"
+      }
+    ],
+    "whitePrice": "$17.99",
+    "whitePriceValue": "17.99",
+    "priceCurrency": "USD",
+    "marketingMarkers": [
+      {
+        "url": "//www2.hm.com/",
+        "text": "H&M Move",
+        "color": "#000000"
+      }
+    ],
+    "concept": [
+      "H&M Move"
+    ],
+    "scenario_1": true,
+    "compositions": [
+      "Polyester 76%, Spandex 24%"
+    ],
+    "composition": [
+      {
+        "materials": [
+          {
+            "name": "Polyester",
+            "amount": "76%"
+          },
+          {
+            "name": "Spandex",
+            "amount": "24%"
+          }
+        ]
+      }
+    ],
+    "ourPreferredMaterials": [
+      {
+        "name": "Recycled polyester",
+        "amount": "76%"
+      }
+    ],
+    "sustainableMaterials": [
+      {
+        "sustainableMaterial": "76% Recycled polyester"
+      }
+    ],
+    "preferredMaterials": [
+      "Recycled polyester 76%"
+    ],
+    "materialInformation": {
+      "learnMore": {
+        "linkText": "Learn more about the materials in this product",
+        "header": "Learn more"
+      },
+      "preferredMaterialsExplained": {
+        "additionalMaterialsIntro": "The total weight of this product contains at least",
+        "additionalMaterialsExplanation": "We exclude the weight of minor components such as, but not exclusively: threads, buttons, zippers, embellishments and prints.",
+        "additionalMaterialsCalculation": "The total weight of the product is calculated by adding the weight of all layers and main components together. Based on that, we calculate how much of that weight is made out by each material. For sets and multipacks, all pieces are counted together as one product in calculations.",
+        "linkText": "Our preferred materials explained",
+        "linkHref": "https://hmgroup.com/wp-content/uploads/2022/12/HM-Group-Material-Categorisation-2022.pdf",
+        "materialUsedExplanations": "Explanations of the materials used in this product."
+      },
+      "materialsExplained": "Materials in this product explained"
+    },
+    "careInstructions": [
+      "Only non-chlorine bleach when needed",
+      "No dry clean",
+      "Machine wash cool",
+      "Line dry",
+      "Low iron",
+      "Do not iron on print",
+      "Do not use softener",
+      "Wash with like colors"
+    ],
+    "careGuide": {
+      "linkText": "Read about how you can make your clothes last longer",
+      "linkHref": "https://www2.hm.com/en_us/hm-sustainability/take-care.html"
+    },
+    "detailedDescriptions": [
+      "Pink",
+      "Solid-color"
+    ],
+    "url": "/en_us/productpage.1255289007.html",
+    "productTransparencyEnabled": true,
+    "comingSoon": false,
+    "suppliersDetailEnabled": true,
+    "modelHeight": "179cm%2F5%2710%22",
+    "garmentSize": "1255289007003",
+    "deliveryDetails": {
+      "deliveryAdditionalInfo": "Returns by mail incur a fee of $3.99. In-store returns are free.",
+      "shippedByText": "Shipped by",
+      "shippedByBrand": "H&M"
+    },
+    "marker": {
+      "careInstructions": [
+        {
+          "code": "CareInstructionsWashing-machinewashwarm",
+          "path": "https://image.hm.com/assets/hm/aa/c2/aac26902f6a19858dd937e19f3ee4237ee690d9d.jpg",
+          "text": "Machine wash warm"
+        },
+        {
+          "code": "CareInstructionsDrycleaning-nodryclean",
+          "path": "https://image.hm.com/assets/hm/8a/6e/8a6e741db374cec97f47bed17759c4a0843c0324.jpg",
+          "text": "No dry clean"
+        },
+        {
+          "code": "AdditionalCareInstructions-linedry",
+          "path": "https://image.hm.com/assets/hm/0e/af/0eaf468a2309def5d6db7d7646100449ecc82c0d.jpg",
+          "text": "Line dry"
+        },
+        {
+          "code": "CareInstructionsIroning-lowiron",
+          "path": "https://image.hm.com/assets/hm/80/5d/805dceca2b178c7b72df2442077876f4dda7b8a1.jpg",
+          "text": "Low iron"
+        }
+      ]
+    },
+    "markers": {},
+    "productAttributes": {
+      "description": [
+        {
+          "title": "modelHeightGarmentSize",
+          "values": "The model is 179cm/5'10\" and wears a size S"
+        },
+        {
+          "title": "measurement",
+          "values": [
+            "Inner leg: Length: 5.5 in (Size M)"
+          ],
+          "valuesDisplay": "block"
+        },
+        {
+          "title": "garmentLength",
+          "values": [
+            "Short"
+          ]
+        },
+        {
+          "title": "waistRise",
+          "values": [
+            "High waist"
+          ]
+        },
+        {
+          "title": "fits",
+          "values": [
+            "Slim fit"
+          ]
+        },
+        {
+          "title": "clothingStyle",
+          "values": [
+            "Cycling Shorts"
+          ]
+        },
+        {
+          "title": "functionality",
+          "values": [
+            "Quick dry",
+            "Moisture wicking"
+          ]
+        },
+        {
+          "title": "sportsActivity",
+          "values": [
+            "Training"
+          ]
+        },
+        {
+          "title": "detailedDescriptions",
+          "values": [
+            "Pink",
+            "Solid-color"
+          ]
+        },
+        {
+          "title": "imported",
+          "values": "Yes"
+        },
+        {
+          "title": "concepts",
+          "values": [
+            "H&M Move"
+          ]
+        },
+        {
+          "title": "niceToKnow",
+          "values": [
+            "Supersoft"
+          ]
+        }
+      ]
+    }
+  }
+}

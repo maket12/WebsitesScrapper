@@ -43,14 +43,10 @@ class Parser:
   async def parse(self):
     pass
 
-  def set_product(
-    self, id, url, category, name, price, article, color, sizes, description=None
-  ):
+  def set_product(self, id, url, category, name, price, article):
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     image_path = f"data/images/{self.parser_name}/products/{id}"
     product = self.products.setdefault(id, {})
-    if description is None:
-      description = product.get("description", None)
     product.update(
       {
         "product_id": id,
@@ -59,17 +55,23 @@ class Parser:
         "name": name,
         "price": price,
         "article": article,
-        "color": color,
-        "sizes": sizes,
-        "description": description,
         "image_path": image_path,
         "last_update": current_time,
       }
     )
 
-  def set_product_description(self, id, description):
+  def update_product(self, id, color=None, sizes=None, description=None):
     if id in self.products:
-      self.products[id]["description"] = description
+      current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+      update_data = {}
+      update_data["last_update"] = current_time
+      if color:
+        update_data["color"] = color
+      if sizes:
+        update_data["sizes"] = sizes
+      if description:
+        update_data["description"] = description
+      self.products[id].update(update_data)
 
   def set_product_image(self, product_id, image_id, image_url):
     full_image_id = f"{self.parser_name}/products/{product_id}/{image_id}"
