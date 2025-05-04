@@ -14,7 +14,7 @@ class HNMParser(Parser):
     super().__init__("hnm", client, logger, config)
 
     self.pages = self.get_state("pages", {})
-    self.product_queue = self.get_state("product_description_queue", {})
+    self.product_queue = self.get_state("product_queue", {})
 
   async def parse(self):
     # Start the product_queue_worker as a background task
@@ -46,9 +46,11 @@ class HNMParser(Parser):
       if not self.product_queue:
         await asyncio.sleep(2)
         continue
-      product_id, product_page = self.product_queue.popitem()
-      self.logger.info(f"Processing product page for {product_id}")
-      await self.scrap_product_page(product_id, product_page)
+      product_id = next(iter(self.product_queue))
+      product_page = self.product_queue.pop(product_id)
+      success = await self.scrap_product_page(product_id, product_page)
+      if not success:
+          self.product_queue[product_id] = product_page
       self.save_state()
 
   async def scrap_category(self, category: dict):
@@ -140,11 +142,12 @@ class HNMParser(Parser):
     response = await self.client.get(product_page)
     if response.status_code != 200:
       self.logger.error(f"Failed to fetch {product_page}: {response.status_code}")
+      return False
 
     page_data = self.parse_page_data(response.text)
     if page_data is None:
       self.logger.error(f"Failed to parse product page data for {product_id}")
-      return
+      return False
 
     for product_id, product_data in page_data.items():
       description = product_data.get("description", "unknown")
@@ -154,6 +157,8 @@ class HNMParser(Parser):
         if image_url is None:
           continue
         self.set_product_image(product_id, str(i + 1), image_url)
+    
+    return True
 
   def parse_page_data(self, data: str):
     match = re.search(

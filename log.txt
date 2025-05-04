@@ -1269,3 +1269,987 @@
 2025-05-04 22:17:32,034:INFO:Processing product page for 1232020005
 2025-05-04 22:17:32,034:INFO:Scraping product page for 1232020005 at https://www2.hm.com/en_us/productpage.1232020005.html
 2025-05-04 22:17:32,226:INFO:Saving everything...
+2025-05-04 22:37:22,799:INFO:Scraping women (page 15)
+2025-05-04 22:37:22,799:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=15&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:22,802:INFO:Scraping men (page 12)
+2025-05-04 22:37:22,802:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=12&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:22,802:INFO:Scraping kids9-14 (page 12)
+2025-05-04 22:37:22,803:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=12&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:22,803:INFO:Scraping beauty (page 12)
+2025-05-04 22:37:22,803:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=12&sort=RELEVANCE&pageId=/beauty/shop-by-product/view-all&page-size=36&categoryId=beauty_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:23,509:INFO:Added 1280698001 to product queue
+2025-05-04 22:37:23,509:INFO:Added 1278391001 to product queue
+2025-05-04 22:37:23,510:INFO:Added 1281931001 to product queue
+2025-05-04 22:37:23,510:INFO:Added 1260442001 to product queue
+2025-05-04 22:37:23,511:INFO:Added 1255319004 to product queue
+2025-05-04 22:37:23,511:INFO:Added 1112431007 to product queue
+2025-05-04 22:37:23,511:INFO:Added 0689014058 to product queue
+2025-05-04 22:37:23,512:INFO:Added 1260327001 to product queue
+2025-05-04 22:37:23,512:INFO:Added 1262202003 to product queue
+2025-05-04 22:37:23,512:INFO:Added 1260310002 to product queue
+2025-05-04 22:37:23,512:INFO:Added 1291029002 to product queue
+2025-05-04 22:37:23,513:INFO:Added 1282116001 to product queue
+2025-05-04 22:37:23,513:INFO:Added 1192954066 to product queue
+2025-05-04 22:37:23,513:INFO:Added 1275778001 to product queue
+2025-05-04 22:37:23,514:INFO:Added 1139911014 to product queue
+2025-05-04 22:37:23,514:INFO:Added 1253605002 to product queue
+2025-05-04 22:37:23,515:INFO:Added 1289330001 to product queue
+2025-05-04 22:37:23,515:INFO:Added 0767123116 to product queue
+2025-05-04 22:37:23,516:INFO:Added 1210856003 to product queue
+2025-05-04 22:37:23,516:INFO:Added 1269456002 to product queue
+2025-05-04 22:37:23,516:INFO:Added 1246177010 to product queue
+2025-05-04 22:37:23,517:INFO:Added 1288965002 to product queue
+2025-05-04 22:37:23,517:INFO:Added 1276938001 to product queue
+2025-05-04 22:37:23,598:INFO:Added 1222101002 to product queue
+2025-05-04 22:37:23,601:INFO:Added 1214023001 to product queue
+2025-05-04 22:37:23,602:INFO:Added 1201064001 to product queue
+2025-05-04 22:37:23,603:INFO:Added 1200228001 to product queue
+2025-05-04 22:37:23,603:INFO:Added 1200224001 to product queue
+2025-05-04 22:37:23,605:INFO:Added 1200223001 to product queue
+2025-05-04 22:37:23,632:INFO:Added 1159823053 to product queue
+2025-05-04 22:37:23,632:INFO:Added 1269057014 to product queue
+2025-05-04 22:37:23,633:INFO:Added 1267683005 to product queue
+2025-05-04 22:37:23,634:INFO:Added 1209183003 to product queue
+2025-05-04 22:37:23,635:INFO:Added 1268101005 to product queue
+2025-05-04 22:37:23,635:INFO:Added 1265306004 to product queue
+2025-05-04 22:37:23,636:INFO:Added 1228156001 to product queue
+2025-05-04 22:37:23,636:INFO:Added 1256058001 to product queue
+2025-05-04 22:37:23,637:INFO:Added 0995634001 to product queue
+2025-05-04 22:37:23,637:INFO:Added 1262259001 to product queue
+2025-05-04 22:37:23,639:INFO:Added 1264350001 to product queue
+2025-05-04 22:37:23,644:INFO:Added 1264896005 to product queue
+2025-05-04 22:37:23,645:INFO:Added 0988242021 to product queue
+2025-05-04 22:37:23,646:INFO:Added 1285770001 to product queue
+2025-05-04 22:37:23,646:INFO:Added 1282086001 to product queue
+2025-05-04 22:37:23,647:INFO:Added 1281676002 to product queue
+2025-05-04 22:37:23,647:INFO:Added 1277598003 to product queue
+2025-05-04 22:37:23,648:INFO:Added 0941666066 to product queue
+2025-05-04 22:37:23,648:INFO:Added 1271926001 to product queue
+2025-05-04 22:37:23,648:INFO:Added 1222670017 to product queue
+2025-05-04 22:37:23,649:INFO:Added 1265423002 to product queue
+2025-05-04 22:37:23,649:INFO:Added 1301895002 to product queue
+2025-05-04 22:37:23,649:INFO:Added 1255697002 to product queue
+2025-05-04 22:37:23,649:INFO:Added 1274510002 to product queue
+2025-05-04 22:37:23,650:INFO:Added 1273318001 to product queue
+2025-05-04 22:37:23,650:INFO:Added 1282619003 to product queue
+2025-05-04 22:37:23,650:INFO:Added 1280672001 to product queue
+2025-05-04 22:37:23,652:INFO:Added 1225768007 to product queue
+2025-05-04 22:37:25,522:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=13&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:25,632:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=13&sort=RELEVANCE&pageId=/beauty/shop-by-product/view-all&page-size=36&categoryId=beauty_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:25,664:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=13&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:25,666:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=16&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:25,890:INFO:Added 1264512001 to product queue
+2025-05-04 22:37:25,890:INFO:Added 1304678001 to product queue
+2025-05-04 22:37:25,890:INFO:Added 1260507002 to product queue
+2025-05-04 22:37:25,891:INFO:Added 1270228001 to product queue
+2025-05-04 22:37:25,891:INFO:Added 1287813001 to product queue
+2025-05-04 22:37:25,891:INFO:Added 1234151014 to product queue
+2025-05-04 22:37:25,893:INFO:Added 1284959001 to product queue
+2025-05-04 22:37:25,893:INFO:Added 1255246004 to product queue
+2025-05-04 22:37:25,894:INFO:Added 1080683003 to product queue
+2025-05-04 22:37:25,894:INFO:Added 1273027001 to product queue
+2025-05-04 22:37:25,894:INFO:Added 1209579009 to product queue
+2025-05-04 22:37:25,895:INFO:Added 1247700003 to product queue
+2025-05-04 22:37:25,895:INFO:Added 1269410002 to product queue
+2025-05-04 22:37:25,895:INFO:Added 1260231001 to product queue
+2025-05-04 22:37:25,896:INFO:Added 1276297001 to product queue
+2025-05-04 22:37:25,896:INFO:Added 1272521002 to product queue
+2025-05-04 22:37:25,896:INFO:Added 1269449003 to product queue
+2025-05-04 22:37:25,897:INFO:Added 1265025001 to product queue
+2025-05-04 22:37:25,897:INFO:Added 1269373001 to product queue
+2025-05-04 22:37:26,059:INFO:Added 1296957001 to product queue
+2025-05-04 22:37:26,060:INFO:Added 1271514003 to product queue
+2025-05-04 22:37:26,060:INFO:Added 1269278001 to product queue
+2025-05-04 22:37:26,061:INFO:Added 1284713001 to product queue
+2025-05-04 22:37:26,062:INFO:Added 1275772001 to product queue
+2025-05-04 22:37:26,062:INFO:Added 1277604003 to product queue
+2025-05-04 22:37:26,063:INFO:Added 1277412001 to product queue
+2025-05-04 22:37:26,063:INFO:Added 1286531002 to product queue
+2025-05-04 22:37:26,063:INFO:Added 1275760003 to product queue
+2025-05-04 22:37:26,063:INFO:Added 1276052002 to product queue
+2025-05-04 22:37:26,064:INFO:Added 1285828001 to product queue
+2025-05-04 22:37:26,064:INFO:Added 1292124001 to product queue
+2025-05-04 22:37:26,064:INFO:Added 1285987001 to product queue
+2025-05-04 22:37:26,066:INFO:Added 1264094002 to product queue
+2025-05-04 22:37:26,066:INFO:Added 1150604007 to product queue
+2025-05-04 22:37:26,066:INFO:Added 1281510004 to product queue
+2025-05-04 22:37:26,067:INFO:Added 1226566016 to product queue
+2025-05-04 22:37:26,067:INFO:Added 1284809004 to product queue
+2025-05-04 22:37:26,067:INFO:Added 1272813004 to product queue
+2025-05-04 22:37:26,092:INFO:Added 1275594003 to product queue
+2025-05-04 22:37:26,093:INFO:Added 1261708002 to product queue
+2025-05-04 22:37:26,094:INFO:Added 1229117006 to product queue
+2025-05-04 22:37:26,095:INFO:Added 0948441004 to product queue
+2025-05-04 22:37:26,096:INFO:Added 1277586001 to product queue
+2025-05-04 22:37:26,096:INFO:Added 1028144001 to product queue
+2025-05-04 22:37:26,097:INFO:Added 1293917002 to product queue
+2025-05-04 22:37:26,097:INFO:Added 1216501010 to product queue
+2025-05-04 22:37:26,097:INFO:Added 1200113008 to product queue
+2025-05-04 22:37:26,097:INFO:Added 1158018052 to product queue
+2025-05-04 22:37:26,160:INFO:Added 1222644001 to product queue
+2025-05-04 22:37:26,162:INFO:Added 1222143008 to product queue
+2025-05-04 22:37:26,164:INFO:Added 1201069004 to product queue
+2025-05-04 22:37:26,165:INFO:Added 0863503001 to product queue
+2025-05-04 22:37:26,166:INFO:Added 1257149001 to product queue
+2025-05-04 22:37:26,166:INFO:Added 1214028002 to product queue
+2025-05-04 22:37:26,167:INFO:Added 1200222001 to product queue
+2025-05-04 22:37:26,168:INFO:Added 1079001013 to product queue
+2025-05-04 22:37:26,168:INFO:Added 1219614001 to product queue
+2025-05-04 22:37:27,905:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=14&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:28,078:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=17&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:28,110:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=14&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:28,187:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=14&sort=RELEVANCE&pageId=/beauty/shop-by-product/view-all&page-size=36&categoryId=beauty_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:28,280:INFO:Added 1225659005 to product queue
+2025-05-04 22:37:28,281:INFO:Added 1240914001 to product queue
+2025-05-04 22:37:28,281:INFO:Added 1259624002 to product queue
+2025-05-04 22:37:28,282:INFO:Added 1229337002 to product queue
+2025-05-04 22:37:28,282:INFO:Added 1255318002 to product queue
+2025-05-04 22:37:28,283:INFO:Added 1232967001 to product queue
+2025-05-04 22:37:28,284:INFO:Added 1272332002 to product queue
+2025-05-04 22:37:28,284:INFO:Added 1267554001 to product queue
+2025-05-04 22:37:28,285:INFO:Added 1035467005 to product queue
+2025-05-04 22:37:28,285:INFO:Added 1275419001 to product queue
+2025-05-04 22:37:28,285:INFO:Added 1272975001 to product queue
+2025-05-04 22:37:28,286:INFO:Added 1140466013 to product queue
+2025-05-04 22:37:28,286:INFO:Added 1237675002 to product queue
+2025-05-04 22:37:28,286:INFO:Added 1209582003 to product queue
+2025-05-04 22:37:28,288:INFO:Added 1269556001 to product queue
+2025-05-04 22:37:28,288:INFO:Added 1268772001 to product queue
+2025-05-04 22:37:28,288:INFO:Added 1260497004 to product queue
+2025-05-04 22:37:28,288:INFO:Added 1275411001 to product queue
+2025-05-04 22:37:28,288:INFO:Added 1240649003 to product queue
+2025-05-04 22:37:28,516:INFO:Added 1282200001 to product queue
+2025-05-04 22:37:28,516:INFO:Added 1273066005 to product queue
+2025-05-04 22:37:28,517:INFO:Added 1284117001 to product queue
+2025-05-04 22:37:28,517:INFO:Added 1274484001 to product queue
+2025-05-04 22:37:28,518:INFO:Added 1256262002 to product queue
+2025-05-04 22:37:28,518:INFO:Added 1281940002 to product queue
+2025-05-04 22:37:28,519:INFO:Added 1273064002 to product queue
+2025-05-04 22:37:28,519:INFO:Added 1276962001 to product queue
+2025-05-04 22:37:28,519:INFO:Added 1256362001 to product queue
+2025-05-04 22:37:28,519:INFO:Added 1049251039 to product queue
+2025-05-04 22:37:28,520:INFO:Added 1281317001 to product queue
+2025-05-04 22:37:28,520:INFO:Added 1268817001 to product queue
+2025-05-04 22:37:28,520:INFO:Added 1263676005 to product queue
+2025-05-04 22:37:28,521:INFO:Added 1283662002 to product queue
+2025-05-04 22:37:28,521:INFO:Added 1229105011 to product queue
+2025-05-04 22:37:28,521:INFO:Added 1285100002 to product queue
+2025-05-04 22:37:28,522:INFO:Added 1280526003 to product queue
+2025-05-04 22:37:28,523:INFO:Added 1091186001 to product queue
+2025-05-04 22:37:28,523:INFO:Added 1278156004 to product queue
+2025-05-04 22:37:28,528:INFO:Added 1225635001 to product queue
+2025-05-04 22:37:28,529:INFO:Added 1277506001 to product queue
+2025-05-04 22:37:28,530:INFO:Added 1262042001 to product queue
+2025-05-04 22:37:28,530:INFO:Added 1276983004 to product queue
+2025-05-04 22:37:28,531:INFO:Added 1227148008 to product queue
+2025-05-04 22:37:28,531:INFO:Added 1267605004 to product queue
+2025-05-04 22:37:28,532:INFO:Added 1265118001 to product queue
+2025-05-04 22:37:28,532:INFO:Added 1210175006 to product queue
+2025-05-04 22:37:28,533:INFO:Added 1253406005 to product queue
+2025-05-04 22:37:28,533:INFO:Added 1259368001 to product queue
+2025-05-04 22:37:28,533:INFO:Added 1198604021 to product queue
+2025-05-04 22:37:28,534:INFO:Added 1211757002 to product queue
+2025-05-04 22:37:28,535:INFO:Added 1275965001 to product queue
+2025-05-04 22:37:28,535:INFO:Added 1259379002 to product queue
+2025-05-04 22:37:28,556:INFO:Added 1200218001 to product queue
+2025-05-04 22:37:28,557:INFO:Added 1230437001 to product queue
+2025-05-04 22:37:28,558:INFO:Added 1224233001 to product queue
+2025-05-04 22:37:28,559:INFO:Added 1256888001 to product queue
+2025-05-04 22:37:28,559:INFO:Added 1068637001 to product queue
+2025-05-04 22:37:28,560:INFO:Added 1200216001 to product queue
+2025-05-04 22:37:28,562:INFO:Added 1213813001 to product queue
+2025-05-04 22:37:28,562:INFO:Added 1257153001 to product queue
+2025-05-04 22:37:28,562:INFO:Added 1220837010 to product queue
+2025-05-04 22:37:28,563:INFO:Added 1200225001 to product queue
+2025-05-04 22:37:30,302:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=15&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:30,524:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=18&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:30,556:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=15&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:30,587:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=15&sort=RELEVANCE&pageId=/beauty/shop-by-product/view-all&page-size=36&categoryId=beauty_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:30,661:INFO:Added 1275886001 to product queue
+2025-05-04 22:37:30,662:INFO:Added 1256781001 to product queue
+2025-05-04 22:37:30,662:INFO:Added 1275451001 to product queue
+2025-05-04 22:37:30,663:INFO:Added 1261202001 to product queue
+2025-05-04 22:37:30,663:INFO:Added 1260495003 to product queue
+2025-05-04 22:37:30,664:INFO:Added 1264910003 to product queue
+2025-05-04 22:37:30,665:INFO:Added 1264848002 to product queue
+2025-05-04 22:37:30,665:INFO:Added 1240339001 to product queue
+2025-05-04 22:37:30,666:INFO:Added 1268877002 to product queue
+2025-05-04 22:37:30,666:INFO:Added 1277052001 to product queue
+2025-05-04 22:37:30,666:INFO:Added 1259347004 to product queue
+2025-05-04 22:37:30,667:INFO:Added 1276762002 to product queue
+2025-05-04 22:37:30,667:INFO:Added 1261391002 to product queue
+2025-05-04 22:37:30,667:INFO:Added 1256584003 to product queue
+2025-05-04 22:37:30,668:INFO:Added 1278150002 to product queue
+2025-05-04 22:37:30,668:INFO:Added 1269134001 to product queue
+2025-05-04 22:37:30,669:INFO:Added 1282827001 to product queue
+2025-05-04 22:37:30,907:INFO:Added 1239431009 to product queue
+2025-05-04 22:37:30,907:INFO:Added 1237873001 to product queue
+2025-05-04 22:37:30,907:INFO:Added 1280292005 to product queue
+2025-05-04 22:37:30,908:INFO:Added 1272267001 to product queue
+2025-05-04 22:37:30,909:INFO:Added 1270320001 to product queue
+2025-05-04 22:37:30,909:INFO:Added 1263071003 to product queue
+2025-05-04 22:37:30,909:INFO:Added 1286105001 to product queue
+2025-05-04 22:37:30,910:INFO:Added 1256571001 to product queue
+2025-05-04 22:37:30,910:INFO:Added 1246581010 to product queue
+2025-05-04 22:37:30,911:INFO:Added 1237462009 to product queue
+2025-05-04 22:37:30,911:INFO:Added 1232584013 to product queue
+2025-05-04 22:37:30,912:INFO:Added 1270374001 to product queue
+2025-05-04 22:37:30,913:INFO:Added 1259080007 to product queue
+2025-05-04 22:37:30,913:INFO:Added 1273520005 to product queue
+2025-05-04 22:37:30,914:INFO:Added 1230963001 to product queue
+2025-05-04 22:37:30,915:INFO:Added 1259143008 to product queue
+2025-05-04 22:37:30,915:INFO:Added 1270392001 to product queue
+2025-05-04 22:37:30,916:INFO:Added 1233274006 to product queue
+2025-05-04 22:37:30,916:INFO:Added 1288676001 to product queue
+2025-05-04 22:37:30,916:INFO:Added 1275764001 to product queue
+2025-05-04 22:37:30,917:INFO:Added 1284983002 to product queue
+2025-05-04 22:37:30,917:INFO:Added 1297724001 to product queue
+2025-05-04 22:37:30,955:INFO:Added 1198628001 to product queue
+2025-05-04 22:37:30,956:INFO:Added 0570003001 to product queue
+2025-05-04 22:37:30,956:INFO:Added 1267067001 to product queue
+2025-05-04 22:37:30,957:INFO:Added 1262253001 to product queue
+2025-05-04 22:37:30,957:INFO:Added 1260571001 to product queue
+2025-05-04 22:37:30,957:INFO:Added 1265145003 to product queue
+2025-05-04 22:37:30,958:INFO:Added 1253400001 to product queue
+2025-05-04 22:37:31,039:INFO:Added 1200220001 to product queue
+2025-05-04 22:37:31,040:INFO:Added 1229779001 to product queue
+2025-05-04 22:37:31,040:INFO:Added 1200211001 to product queue
+2025-05-04 22:37:31,041:INFO:Added 1209073001 to product queue
+2025-05-04 22:37:31,044:INFO:Added 1215163001 to product queue
+2025-05-04 22:37:31,046:INFO:Added 1223702001 to product queue
+2025-05-04 22:37:31,046:INFO:Added 1200227001 to product queue
+2025-05-04 22:37:31,046:INFO:Added 1219623001 to product queue
+2025-05-04 22:37:32,693:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=16&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:32,923:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=19&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:32,970:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=16&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:33,057:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=16&sort=RELEVANCE&pageId=/beauty/shop-by-product/view-all&page-size=36&categoryId=beauty_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:33,071:INFO:Added 1270257004 to product queue
+2025-05-04 22:37:33,072:INFO:Added 1259621001 to product queue
+2025-05-04 22:37:33,072:INFO:Added 1075730024 to product queue
+2025-05-04 22:37:33,073:INFO:Added 1235464002 to product queue
+2025-05-04 22:37:33,073:INFO:Added 1259116002 to product queue
+2025-05-04 22:37:33,074:INFO:Added 1264252002 to product queue
+2025-05-04 22:37:33,074:INFO:Added 1264081002 to product queue
+2025-05-04 22:37:33,074:INFO:Added 1242014001 to product queue
+2025-05-04 22:37:33,075:INFO:Added 1025612001 to product queue
+2025-05-04 22:37:33,075:INFO:Added 1263237001 to product queue
+2025-05-04 22:37:33,075:INFO:Added 1254162002 to product queue
+2025-05-04 22:37:33,076:INFO:Added 1254154002 to product queue
+2025-05-04 22:37:33,076:INFO:Added 0965149031 to product queue
+2025-05-04 22:37:33,076:INFO:Added 1261386001 to product queue
+2025-05-04 22:37:33,076:INFO:Added 1261345001 to product queue
+2025-05-04 22:37:33,077:INFO:Added 1260322001 to product queue
+2025-05-04 22:37:33,077:INFO:Added 1122303001 to product queue
+2025-05-04 22:37:33,077:INFO:Added 1257223003 to product queue
+2025-05-04 22:37:34,079:INFO:Added 1211099002 to product queue
+2025-05-04 22:37:34,079:INFO:Added 1262110001 to product queue
+2025-05-04 22:37:34,080:INFO:Added 0570033002 to product queue
+2025-05-04 22:37:34,080:INFO:Added 1275900001 to product queue
+2025-05-04 22:37:34,080:INFO:Added 0697920187 to product queue
+2025-05-04 22:37:34,081:INFO:Added 1262379001 to product queue
+2025-05-04 22:37:34,081:INFO:Added 1267664003 to product queue
+2025-05-04 22:37:34,082:INFO:Added 1209970004 to product queue
+2025-05-04 22:37:34,082:INFO:Added 1288849001 to product queue
+2025-05-04 22:37:34,082:INFO:Added 1257561001 to product queue
+2025-05-04 22:37:34,083:INFO:Added 1267062001 to product queue
+2025-05-04 22:37:34,084:INFO:Added 1264932003 to product queue
+2025-05-04 22:37:34,084:INFO:Added 1259388001 to product queue
+2025-05-04 22:37:34,091:INFO:Added 1292670001 to product queue
+2025-05-04 22:37:34,092:INFO:Added 1270339001 to product queue
+2025-05-04 22:37:34,092:INFO:Added 1289874001 to product queue
+2025-05-04 22:37:34,093:INFO:Added 1272760002 to product queue
+2025-05-04 22:37:34,093:INFO:Added 1270997001 to product queue
+2025-05-04 22:37:34,094:INFO:Added 1284065001 to product queue
+2025-05-04 22:37:34,094:INFO:Added 1250886002 to product queue
+2025-05-04 22:37:34,095:INFO:Added 1272566001 to product queue
+2025-05-04 22:37:34,095:INFO:Added 0877769053 to product queue
+2025-05-04 22:37:34,096:INFO:Added 1271519005 to product queue
+2025-05-04 22:37:34,096:INFO:Added 1272032003 to product queue
+2025-05-04 22:37:34,431:INFO:Added 1019743001 to product queue
+2025-05-04 22:37:34,433:INFO:Added 1201062002 to product queue
+2025-05-04 22:37:34,436:INFO:Added 1219611001 to product queue
+2025-05-04 22:37:34,436:INFO:Added 1257321001 to product queue
+2025-05-04 22:37:34,437:INFO:Added 1019756001 to product queue
+2025-05-04 22:37:34,438:INFO:Added 1260824001 to product queue
+2025-05-04 22:37:35,089:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=17&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:35,599:INFO:Added 1227381006 to product queue
+2025-05-04 22:37:35,599:INFO:Added 1275507001 to product queue
+2025-05-04 22:37:35,600:INFO:Added 1176342013 to product queue
+2025-05-04 22:37:35,600:INFO:Added 1266247002 to product queue
+2025-05-04 22:37:35,600:INFO:Added 1268823001 to product queue
+2025-05-04 22:37:35,601:INFO:Added 1273447004 to product queue
+2025-05-04 22:37:35,601:INFO:Added 1269425001 to product queue
+2025-05-04 22:37:35,601:INFO:Added 1274367001 to product queue
+2025-05-04 22:37:35,601:INFO:Added 1281535001 to product queue
+2025-05-04 22:37:35,602:INFO:Added 1241167005 to product queue
+2025-05-04 22:37:35,602:INFO:Added 1227554009 to product queue
+2025-05-04 22:37:35,603:INFO:Added 1281605001 to product queue
+2025-05-04 22:37:35,603:INFO:Added 1038444013 to product queue
+2025-05-04 22:37:35,603:INFO:Added 1266181002 to product queue
+2025-05-04 22:37:35,603:INFO:Added 1260454001 to product queue
+2025-05-04 22:37:35,604:INFO:Added 1246194004 to product queue
+2025-05-04 22:37:35,604:INFO:Added 1254155002 to product queue
+2025-05-04 22:37:35,604:INFO:Added 1220328003 to product queue
+2025-05-04 22:37:35,605:INFO:Added 1278140001 to product queue
+2025-05-04 22:37:35,605:INFO:Added 1260444001 to product queue
+2025-05-04 22:37:35,605:INFO:Added 1236543004 to product queue
+2025-05-04 22:37:35,605:INFO:Added 1195562001 to product queue
+2025-05-04 22:37:35,606:INFO:Added 1252877003 to product queue
+2025-05-04 22:37:35,606:INFO:Added 1275908002 to product queue
+2025-05-04 22:37:35,606:INFO:Added 1184207005 to product queue
+2025-05-04 22:37:35,607:INFO:Added 1209578006 to product queue
+2025-05-04 22:37:35,607:INFO:Added 1266268001 to product queue
+2025-05-04 22:37:36,087:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=17&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:36,118:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=20&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:36,455:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=17&sort=RELEVANCE&pageId=/beauty/shop-by-product/view-all&page-size=36&categoryId=beauty_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:36,471:INFO:Added 1262924003 to product queue
+2025-05-04 22:37:36,471:INFO:Added 1160627002 to product queue
+2025-05-04 22:37:36,472:INFO:Added 1265556002 to product queue
+2025-05-04 22:37:36,472:INFO:Added 1275905001 to product queue
+2025-05-04 22:37:36,473:INFO:Added 1280370003 to product queue
+2025-05-04 22:37:36,473:INFO:Added 1257564003 to product queue
+2025-05-04 22:37:36,473:INFO:Added 1265608003 to product queue
+2025-05-04 22:37:36,473:INFO:Added 1267386001 to product queue
+2025-05-04 22:37:36,473:INFO:Added 1277588002 to product queue
+2025-05-04 22:37:36,473:INFO:Added 1207724003 to product queue
+2025-05-04 22:37:36,474:INFO:Added 1204180007 to product queue
+2025-05-04 22:37:36,474:INFO:Added 1170159049 to product queue
+2025-05-04 22:37:36,474:INFO:Added 1263914004 to product queue
+2025-05-04 22:37:36,474:INFO:Added 1262067001 to product queue
+2025-05-04 22:37:36,476:INFO:Added 1259381001 to product queue
+2025-05-04 22:37:36,477:INFO:Added 1070399019 to product queue
+2025-05-04 22:37:36,477:INFO:Added 0943929001 to product queue
+2025-05-04 22:37:36,503:INFO:Added 1269288001 to product queue
+2025-05-04 22:37:36,503:INFO:Added 1273062001 to product queue
+2025-05-04 22:37:36,503:INFO:Added 1212805012 to product queue
+2025-05-04 22:37:36,504:INFO:Added 1277495003 to product queue
+2025-05-04 22:37:36,505:INFO:Added 1273504003 to product queue
+2025-05-04 22:37:36,505:INFO:Added 1277752005 to product queue
+2025-05-04 22:37:36,505:INFO:Added 1250849002 to product queue
+2025-05-04 22:37:36,506:INFO:Added 1270857001 to product queue
+2025-05-04 22:37:36,506:INFO:Added 1259779003 to product queue
+2025-05-04 22:37:36,506:INFO:Added 1229130006 to product queue
+2025-05-04 22:37:36,507:INFO:Added 1282891001 to product queue
+2025-05-04 22:37:36,507:INFO:Added 1280775001 to product queue
+2025-05-04 22:37:36,508:INFO:Added 1240497004 to product queue
+2025-05-04 22:37:36,508:INFO:Added 1269851003 to product queue
+2025-05-04 22:37:36,509:INFO:Added 1256363003 to product queue
+2025-05-04 22:37:36,509:INFO:Added 1273590003 to product queue
+2025-05-04 22:37:36,925:INFO:Added 1215130001 to product queue
+2025-05-04 22:37:36,925:INFO:Added 1257319001 to product queue
+2025-05-04 22:37:36,932:INFO:Added 1032444002 to product queue
+2025-05-04 22:37:37,620:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=18&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:37,980:INFO:Added 1278481002 to product queue
+2025-05-04 22:37:37,980:INFO:Added 1272625001 to product queue
+2025-05-04 22:37:37,981:INFO:Added 1255556001 to product queue
+2025-05-04 22:37:37,981:INFO:Added 1248882002 to product queue
+2025-05-04 22:37:37,982:INFO:Added 1156776001 to product queue
+2025-05-04 22:37:37,982:INFO:Added 1025604001 to product queue
+2025-05-04 22:37:37,982:INFO:Added 1244867002 to product queue
+2025-05-04 22:37:37,983:INFO:Added 1266690001 to product queue
+2025-05-04 22:37:37,983:INFO:Added 1206617003 to product queue
+2025-05-04 22:37:37,983:INFO:Added 1278477001 to product queue
+2025-05-04 22:37:37,984:INFO:Added 1266269001 to product queue
+2025-05-04 22:37:37,984:INFO:Added 1256437001 to product queue
+2025-05-04 22:37:37,984:INFO:Added 1248878003 to product queue
+2025-05-04 22:37:37,984:INFO:Added 1248761004 to product queue
+2025-05-04 22:37:37,985:INFO:Added 1275384003 to product queue
+2025-05-04 22:37:37,985:INFO:Added 1262018001 to product queue
+2025-05-04 22:37:37,986:INFO:Added 1251450003 to product queue
+2025-05-04 22:37:37,986:INFO:Added 1245304001 to product queue
+2025-05-04 22:37:37,986:INFO:Added 1275444001 to product queue
+2025-05-04 22:37:37,987:INFO:Added 1282502001 to product queue
+2025-05-04 22:37:37,987:INFO:Added 1264860002 to product queue
+2025-05-04 22:37:37,987:INFO:Added 1268722001 to product queue
+2025-05-04 22:37:37,987:INFO:Added 1239998002 to product queue
+2025-05-04 22:37:37,987:INFO:Added 1264905001 to product queue
+2025-05-04 22:37:37,988:INFO:Added 1275453001 to product queue
+2025-05-04 22:37:37,988:INFO:Added 1253480003 to product queue
+2025-05-04 22:37:37,988:INFO:Added 1260502005 to product queue
+2025-05-04 22:37:38,476:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=18&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:38,522:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=21&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:38,842:INFO:Added 1275902004 to product queue
+2025-05-04 22:37:38,843:INFO:Added 1293901004 to product queue
+2025-05-04 22:37:38,843:INFO:Added 1274625001 to product queue
+2025-05-04 22:37:38,843:INFO:Added 1277324002 to product queue
+2025-05-04 22:37:38,844:INFO:Added 1276099002 to product queue
+2025-05-04 22:37:38,845:INFO:Added 1276103003 to product queue
+2025-05-04 22:37:38,845:INFO:Added 1270282001 to product queue
+2025-05-04 22:37:38,846:INFO:Added 1272492001 to product queue
+2025-05-04 22:37:38,846:INFO:Added 1262641007 to product queue
+2025-05-04 22:37:38,847:INFO:Added 1262070001 to product queue
+2025-05-04 22:37:38,847:INFO:Added 0795243035 to product queue
+2025-05-04 22:37:38,847:INFO:Added 1276905001 to product queue
+2025-05-04 22:37:38,848:INFO:Added 1158014013 to product queue
+2025-05-04 22:37:38,848:INFO:Added 1273696001 to product queue
+2025-05-04 22:37:38,848:INFO:Added 1267730001 to product queue
+2025-05-04 22:37:38,848:INFO:Added 1289984001 to product queue
+2025-05-04 22:37:38,850:INFO:Added 1261707001 to product queue
+2025-05-04 22:37:38,850:INFO:Added 1276944002 to product queue
+2025-05-04 22:37:38,850:INFO:Added 1275593001 to product queue
+2025-05-04 22:37:38,851:INFO:Added 1276119003 to product queue
+2025-05-04 22:37:38,936:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=18&sort=RELEVANCE&pageId=/beauty/shop-by-product/view-all&page-size=36&categoryId=beauty_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:38,941:INFO:Added 1271293001 to product queue
+2025-05-04 22:37:38,941:INFO:Added 1264279003 to product queue
+2025-05-04 22:37:38,942:INFO:Added 1273054002 to product queue
+2025-05-04 22:37:38,943:INFO:Added 1272295003 to product queue
+2025-05-04 22:37:38,943:INFO:Added 1261102002 to product queue
+2025-05-04 22:37:38,944:INFO:Added 1247671008 to product queue
+2025-05-04 22:37:38,945:INFO:Added 1276085001 to product queue
+2025-05-04 22:37:38,945:INFO:Added 1286585001 to product queue
+2025-05-04 22:37:38,945:INFO:Added 1282476002 to product queue
+2025-05-04 22:37:38,946:INFO:Added 1224632008 to product queue
+2025-05-04 22:37:38,946:INFO:Added 1261291002 to product queue
+2025-05-04 22:37:38,946:INFO:Added 1272565001 to product queue
+2025-05-04 22:37:38,947:INFO:Added 1294086002 to product queue
+2025-05-04 22:37:38,948:INFO:Added 1269234002 to product queue
+2025-05-04 22:37:38,948:INFO:Added 1289923003 to product queue
+2025-05-04 22:37:38,949:INFO:Added 1291584001 to product queue
+2025-05-04 22:37:39,332:INFO:Reached the last page of beauty
+2025-05-04 22:37:40,007:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=19&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:40,372:INFO:Added 1269463002 to product queue
+2025-05-04 22:37:40,372:INFO:Added 1195766005 to product queue
+2025-05-04 22:37:40,372:INFO:Added 1274239001 to product queue
+2025-05-04 22:37:40,373:INFO:Added 1246160012 to product queue
+2025-05-04 22:37:40,374:INFO:Added 1246132005 to product queue
+2025-05-04 22:37:40,374:INFO:Added 1244229002 to product queue
+2025-05-04 22:37:40,374:INFO:Added 1236633004 to product queue
+2025-05-04 22:37:40,375:INFO:Added 1255248001 to product queue
+2025-05-04 22:37:40,375:INFO:Added 1269457001 to product queue
+2025-05-04 22:37:40,375:INFO:Added 1249918002 to product queue
+2025-05-04 22:37:40,375:INFO:Added 1242152001 to product queue
+2025-05-04 22:37:40,376:INFO:Added 1169733001 to product queue
+2025-05-04 22:37:40,376:INFO:Added 1275960001 to product queue
+2025-05-04 22:37:40,376:INFO:Added 1281990001 to product queue
+2025-05-04 22:37:40,376:INFO:Added 1273180001 to product queue
+2025-05-04 22:37:40,377:INFO:Added 1250649005 to product queue
+2025-05-04 22:37:40,378:INFO:Added 1247041001 to product queue
+2025-05-04 22:37:40,378:INFO:Added 1273454001 to product queue
+2025-05-04 22:37:40,378:INFO:Added 1254157001 to product queue
+2025-05-04 22:37:40,379:INFO:Added 1236702005 to product queue
+2025-05-04 22:37:40,379:INFO:Added 1282030001 to product queue
+2025-05-04 22:37:40,379:INFO:Added 1223564001 to product queue
+2025-05-04 22:37:40,380:INFO:Added 1236899002 to product queue
+2025-05-04 22:37:40,380:INFO:Added 1210094001 to product queue
+2025-05-04 22:37:40,380:INFO:Added 1276853001 to product queue
+2025-05-04 22:37:40,380:INFO:Added 1233841001 to product queue
+2025-05-04 22:37:40,855:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=19&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:40,949:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=22&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:41,232:INFO:Added 1276827003 to product queue
+2025-05-04 22:37:41,232:INFO:Added 1265337002 to product queue
+2025-05-04 22:37:41,233:INFO:Added 1259396001 to product queue
+2025-05-04 22:37:41,233:INFO:Added 1198468002 to product queue
+2025-05-04 22:37:41,234:INFO:Added 1272745002 to product queue
+2025-05-04 22:37:41,235:INFO:Added 1122659028 to product queue
+2025-05-04 22:37:41,236:INFO:Added 1275366001 to product queue
+2025-05-04 22:37:41,236:INFO:Added 1276904002 to product queue
+2025-05-04 22:37:41,236:INFO:Added 1260813001 to product queue
+2025-05-04 22:37:41,237:INFO:Added 1267393001 to product queue
+2025-05-04 22:37:41,237:INFO:Added 1265555004 to product queue
+2025-05-04 22:37:41,238:INFO:Added 1248899001 to product queue
+2025-05-04 22:37:41,238:INFO:Added 1248821005 to product queue
+2025-05-04 22:37:41,238:INFO:Added 1266005003 to product queue
+2025-05-04 22:37:41,399:INFO:Added 1239797006 to product queue
+2025-05-04 22:37:41,400:INFO:Added 1282487003 to product queue
+2025-05-04 22:37:41,400:INFO:Added 1272061001 to product queue
+2025-05-04 22:37:41,401:INFO:Added 1270845002 to product queue
+2025-05-04 22:37:41,401:INFO:Added 1255729001 to product queue
+2025-05-04 22:37:41,401:INFO:Added 0688728068 to product queue
+2025-05-04 22:37:41,403:INFO:Added 1225485010 to product queue
+2025-05-04 22:37:41,403:INFO:Added 1277381004 to product queue
+2025-05-04 22:37:41,404:INFO:Added 1283426002 to product queue
+2025-05-04 22:37:41,404:INFO:Added 1212380005 to product queue
+2025-05-04 22:37:41,405:INFO:Added 1261502003 to product queue
+2025-05-04 22:37:42,386:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=20&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:42,725:INFO:Added 1259622001 to product queue
+2025-05-04 22:37:42,726:INFO:Added 1253461001 to product queue
+2025-05-04 22:37:42,726:INFO:Added 1232565007 to product queue
+2025-05-04 22:37:42,726:INFO:Added 1261210001 to product queue
+2025-05-04 22:37:42,726:INFO:Added 1241504008 to product queue
+2025-05-04 22:37:42,727:INFO:Added 1231508002 to product queue
+2025-05-04 22:37:42,728:INFO:Added 1245522011 to product queue
+2025-05-04 22:37:42,728:INFO:Added 1130312003 to product queue
+2025-05-04 22:37:42,728:INFO:Added 1265791001 to product queue
+2025-05-04 22:37:42,729:INFO:Added 1268495003 to product queue
+2025-05-04 22:37:42,729:INFO:Added 1253625003 to product queue
+2025-05-04 22:37:42,729:INFO:Added 1277977002 to product queue
+2025-05-04 22:37:42,729:INFO:Added 1248065002 to product queue
+2025-05-04 22:37:42,730:INFO:Added 1237832001 to product queue
+2025-05-04 22:37:42,730:INFO:Added 1281824001 to product queue
+2025-05-04 22:37:42,731:INFO:Added 1173015039 to product queue
+2025-05-04 22:37:42,732:INFO:Added 1260324001 to product queue
+2025-05-04 22:37:42,732:INFO:Added 1267444001 to product queue
+2025-05-04 22:37:42,733:INFO:Added 1254964002 to product queue
+2025-05-04 22:37:42,733:INFO:Added 1236135001 to product queue
+2025-05-04 22:37:43,236:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=20&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:43,417:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=23&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:43,626:INFO:Added 1265989001 to product queue
+2025-05-04 22:37:43,627:INFO:Added 1276940002 to product queue
+2025-05-04 22:37:43,627:INFO:Added 0943982001 to product queue
+2025-05-04 22:37:43,628:INFO:Added 1096385010 to product queue
+2025-05-04 22:37:43,629:INFO:Added 1275604001 to product queue
+2025-05-04 22:37:43,629:INFO:Added 1276822001 to product queue
+2025-05-04 22:37:43,629:INFO:Added 0948439004 to product queue
+2025-05-04 22:37:43,630:INFO:Added 1260176001 to product queue
+2025-05-04 22:37:43,630:INFO:Added 1232125005 to product queue
+2025-05-04 22:37:43,631:INFO:Added 1261478002 to product queue
+2025-05-04 22:37:43,631:INFO:Added 1257566001 to product queue
+2025-05-04 22:37:43,631:INFO:Added 1262111001 to product queue
+2025-05-04 22:37:43,632:INFO:Added 1251263003 to product queue
+2025-05-04 22:37:43,632:INFO:Added 1276927002 to product queue
+2025-05-04 22:37:43,632:INFO:Added 1072556002 to product queue
+2025-05-04 22:37:43,633:INFO:Added 1267715004 to product queue
+2025-05-04 22:37:43,634:INFO:Added 1072353139 to product queue
+2025-05-04 22:37:43,635:INFO:Added 1265539002 to product queue
+2025-05-04 22:37:44,173:INFO:Added 1035873001 to product queue
+2025-05-04 22:37:44,173:INFO:Added 1275503003 to product queue
+2025-05-04 22:37:44,174:INFO:Added 1257912001 to product queue
+2025-05-04 22:37:44,174:INFO:Added 1281819002 to product queue
+2025-05-04 22:37:44,174:INFO:Added 1280420001 to product queue
+2025-05-04 22:37:44,175:INFO:Added 1269443004 to product queue
+2025-05-04 22:37:44,175:INFO:Added 1276156002 to product queue
+2025-05-04 22:37:44,176:INFO:Added 1272213003 to product queue
+2025-05-04 22:37:44,177:INFO:Added 1193900001 to product queue
+2025-05-04 22:37:44,177:INFO:Added 1258303002 to product queue
+2025-05-04 22:37:44,177:INFO:Added 1289193001 to product queue
+2025-05-04 22:37:44,177:INFO:Added 1259286001 to product queue
+2025-05-04 22:37:44,178:INFO:Added 1203042004 to product queue
+2025-05-04 22:37:44,178:INFO:Added 1280803003 to product queue
+2025-05-04 22:37:44,178:INFO:Added 1275726001 to product queue
+2025-05-04 22:37:44,178:INFO:Added 1264315004 to product queue
+2025-05-04 22:37:44,179:INFO:Added 1256269001 to product queue
+2025-05-04 22:37:44,179:INFO:Added 1196793002 to product queue
+2025-05-04 22:37:44,180:INFO:Added 1289460001 to product queue
+2025-05-04 22:37:44,181:INFO:Added 1219130011 to product queue
+2025-05-04 22:37:44,748:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=21&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:45,088:INFO:Added 1253724004 to product queue
+2025-05-04 22:37:45,088:INFO:Added 1262932002 to product queue
+2025-05-04 22:37:45,089:INFO:Added 1239848003 to product queue
+2025-05-04 22:37:45,090:INFO:Added 1261669002 to product queue
+2025-05-04 22:37:45,090:INFO:Added 1265055002 to product queue
+2025-05-04 22:37:45,090:INFO:Added 1282481001 to product queue
+2025-05-04 22:37:45,091:INFO:Added 1266667002 to product queue
+2025-05-04 22:37:45,091:INFO:Added 1196889001 to product queue
+2025-05-04 22:37:45,091:INFO:Added 1239042003 to product queue
+2025-05-04 22:37:45,091:INFO:Added 1265066004 to product queue
+2025-05-04 22:37:45,092:INFO:Added 1223565001 to product queue
+2025-05-04 22:37:45,092:INFO:Added 1025595001 to product queue
+2025-05-04 22:37:45,092:INFO:Added 1207746002 to product queue
+2025-05-04 22:37:45,092:INFO:Added 1230269001 to product queue
+2025-05-04 22:37:45,093:INFO:Added 1254074001 to product queue
+2025-05-04 22:37:45,093:INFO:Added 1259615004 to product queue
+2025-05-04 22:37:45,094:INFO:Added 1276548001 to product queue
+2025-05-04 22:37:45,094:INFO:Added 1244865001 to product queue
+2025-05-04 22:37:45,094:INFO:Added 1242051005 to product queue
+2025-05-04 22:37:45,095:INFO:Added 1262933001 to product queue
+2025-05-04 22:37:45,095:INFO:Added 1256422001 to product queue
+2025-05-04 22:37:45,095:INFO:Added 1257157001 to product queue
+2025-05-04 22:37:45,639:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=21&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:46,192:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=24&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:46,457:INFO:Added 1259393001 to product queue
+2025-05-04 22:37:46,458:INFO:Added 1267732001 to product queue
+2025-05-04 22:37:46,459:INFO:Added 1264296003 to product queue
+2025-05-04 22:37:46,459:INFO:Added 1231416001 to product queue
+2025-05-04 22:37:46,460:INFO:Added 1289395003 to product queue
+2025-05-04 22:37:46,461:INFO:Added 1265084002 to product queue
+2025-05-04 22:37:46,462:INFO:Added 1232260007 to product queue
+2025-05-04 22:37:46,462:INFO:Added 1256060003 to product queue
+2025-05-04 22:37:46,462:INFO:Added 1276891002 to product queue
+2025-05-04 22:37:46,463:INFO:Added 1268748002 to product queue
+2025-05-04 22:37:46,679:INFO:Added 1292320001 to product queue
+2025-05-04 22:37:46,679:INFO:Added 1270856005 to product queue
+2025-05-04 22:37:46,680:INFO:Added 1280472001 to product queue
+2025-05-04 22:37:46,680:INFO:Added 1256493001 to product queue
+2025-05-04 22:37:46,680:INFO:Added 1226693005 to product queue
+2025-05-04 22:37:46,681:INFO:Added 1260272001 to product queue
+2025-05-04 22:37:46,682:INFO:Added 1266265001 to product queue
+2025-05-04 22:37:46,682:INFO:Added 1283301001 to product queue
+2025-05-04 22:37:46,682:INFO:Added 1255734004 to product queue
+2025-05-04 22:37:46,682:INFO:Added 1285296001 to product queue
+2025-05-04 22:37:46,683:INFO:Added 1280737002 to product queue
+2025-05-04 22:37:46,683:INFO:Added 1256323003 to product queue
+2025-05-04 22:37:46,683:INFO:Added 1290946001 to product queue
+2025-05-04 22:37:46,684:INFO:Added 1039096001 to product queue
+2025-05-04 22:37:46,685:INFO:Added 1259461001 to product queue
+2025-05-04 22:37:46,685:INFO:Added 1172763014 to product queue
+2025-05-04 22:37:46,685:INFO:Added 1267689001 to product queue
+2025-05-04 22:37:46,686:INFO:Added 1270564003 to product queue
+2025-05-04 22:37:46,686:INFO:Added 1286797001 to product queue
+2025-05-04 22:37:47,101:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=22&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:47,535:INFO:Added 1275962001 to product queue
+2025-05-04 22:37:47,536:INFO:Added 1156874001 to product queue
+2025-05-04 22:37:47,536:INFO:Added 1230272002 to product queue
+2025-05-04 22:37:47,536:INFO:Added 1264907001 to product queue
+2025-05-04 22:37:47,536:INFO:Added 1256435001 to product queue
+2025-05-04 22:37:47,537:INFO:Added 1276725001 to product queue
+2025-05-04 22:37:47,537:INFO:Added 1264566001 to product queue
+2025-05-04 22:37:47,538:INFO:Added 1244866004 to product queue
+2025-05-04 22:37:47,538:INFO:Added 1244851004 to product queue
+2025-05-04 22:37:47,538:INFO:Added 1256431001 to product queue
+2025-05-04 22:37:47,538:INFO:Added 1025590001 to product queue
+2025-05-04 22:37:47,539:INFO:Added 1236682002 to product queue
+2025-05-04 22:37:47,539:INFO:Added 1223561001 to product queue
+2025-05-04 22:37:47,539:INFO:Added 1266780001 to product queue
+2025-05-04 22:37:47,540:INFO:Added 1244859001 to product queue
+2025-05-04 22:37:47,540:INFO:Added 1278406001 to product queue
+2025-05-04 22:37:47,540:INFO:Added 1253463001 to product queue
+2025-05-04 22:37:47,540:INFO:Added 1240925001 to product queue
+2025-05-04 22:37:47,541:INFO:Added 1195857001 to product queue
+2025-05-04 22:37:47,541:INFO:Added 1252867001 to product queue
+2025-05-04 22:37:47,541:INFO:Added 1195860001 to product queue
+2025-05-04 22:37:48,472:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=22&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:37:48,499:INFO:Saving everything...
+2025-05-04 22:37:48,545:ERROR:Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<HNMParser.product_queue_worker() done, defined at c:\Users\ivyff\Desktop\Projects\WebsitesScrapper\parsers\hnm\__init__.py:44> exception=TypeError('dict.popitem() takes no keyword arguments')>
+Traceback (most recent call last):
+  File "c:\Users\ivyff\Desktop\Projects\WebsitesScrapper\parsers\hnm\__init__.py", line 49, in product_queue_worker
+    product_id, product_page = self.product_queue.popitem(last=False)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict.popitem() takes no keyword arguments
+2025-05-04 22:41:49,337:INFO:Scraping product page for 1283263003 at https://www2.hm.com/en_us/productpage.1283263003.html
+2025-05-04 22:41:49,341:INFO:Scraping women (page 25)
+2025-05-04 22:41:49,341:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=25&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:49,341:INFO:Scraping men (page 22)
+2025-05-04 22:41:49,342:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=22&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:49,342:INFO:Scraping kids9-14 (page 23)
+2025-05-04 22:41:49,342:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=23&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:49,344:INFO:Skipping beauty (already scraped)
+2025-05-04 22:41:50,131:INFO:Added 1274582002 to product queue
+2025-05-04 22:41:50,132:INFO:Added 1074402021 to product queue
+2025-05-04 22:41:50,133:INFO:Added 1287834001 to product queue
+2025-05-04 22:41:50,133:INFO:Added 1129812001 to product queue
+2025-05-04 22:41:50,134:INFO:Added 1275784002 to product queue
+2025-05-04 22:41:50,134:INFO:Added 1262923001 to product queue
+2025-05-04 22:41:50,135:INFO:Added 0890930020 to product queue
+2025-05-04 22:41:50,135:INFO:Added 1272491001 to product queue
+2025-05-04 22:41:50,136:INFO:Added 1265540001 to product queue
+2025-05-04 22:41:50,136:INFO:Added 1070272011 to product queue
+2025-05-04 22:41:50,136:INFO:Added 1283841001 to product queue
+2025-05-04 22:41:50,137:INFO:Added 1153729001 to product queue
+2025-05-04 22:41:50,137:INFO:Added 1257558001 to product queue
+2025-05-04 22:41:50,144:INFO:Added 1278401001 to product queue
+2025-05-04 22:41:50,144:INFO:Added 1264532004 to product queue
+2025-05-04 22:41:50,145:INFO:Added 1248872005 to product queue
+2025-05-04 22:41:50,145:INFO:Added 1254093001 to product queue
+2025-05-04 22:41:50,146:INFO:Added 1255315003 to product queue
+2025-05-04 22:41:50,146:INFO:Added 1256426003 to product queue
+2025-05-04 22:41:50,147:INFO:Added 1281586001 to product queue
+2025-05-04 22:41:50,147:INFO:Added 1227891005 to product queue
+2025-05-04 22:41:50,148:INFO:Added 1215608003 to product queue
+2025-05-04 22:41:50,148:INFO:Added 1189462004 to product queue
+2025-05-04 22:41:50,148:INFO:Added 1261590001 to product queue
+2025-05-04 22:41:50,149:INFO:Added 0854793006 to product queue
+2025-05-04 22:41:50,149:INFO:Added 1256795001 to product queue
+2025-05-04 22:41:50,149:INFO:Added 1264906001 to product queue
+2025-05-04 22:41:50,150:INFO:Added 1262007003 to product queue
+2025-05-04 22:41:50,150:INFO:Added 1204020001 to product queue
+2025-05-04 22:41:50,150:INFO:Added 1237833001 to product queue
+2025-05-04 22:41:50,156:INFO:Added 1285645001 to product queue
+2025-05-04 22:41:50,156:INFO:Added 1259418011 to product queue
+2025-05-04 22:41:50,158:INFO:Added 1274477003 to product queue
+2025-05-04 22:41:50,158:INFO:Added 1290184001 to product queue
+2025-05-04 22:41:50,158:INFO:Added 1280961001 to product queue
+2025-05-04 22:41:50,159:INFO:Added 1277179001 to product queue
+2025-05-04 22:41:50,159:INFO:Added 0803969058 to product queue
+2025-05-04 22:41:50,159:INFO:Added 1276147005 to product queue
+2025-05-04 22:41:50,159:INFO:Added 1270636002 to product queue
+2025-05-04 22:41:50,160:INFO:Added 1289126002 to product queue
+2025-05-04 22:41:50,160:INFO:Added 1285974001 to product queue
+2025-05-04 22:41:50,160:INFO:Added 1217381004 to product queue
+2025-05-04 22:41:50,161:INFO:Added 1270649002 to product queue
+2025-05-04 22:41:50,161:INFO:Added 1282499001 to product queue
+2025-05-04 22:41:50,161:INFO:Added 1275471004 to product queue
+2025-05-04 22:41:50,161:INFO:Added 1282345001 to product queue
+2025-05-04 22:41:50,465:INFO:Scraping product page for 1278036002 at https://www2.hm.com/en_us/productpage.1278036002.html
+2025-05-04 22:41:50,931:INFO:Scraping product page for 1293967001 at https://www2.hm.com/en_us/productpage.1293967001.html
+2025-05-04 22:41:51,605:INFO:Scraping product page for 1282562002 at https://www2.hm.com/en_us/productpage.1282562002.html
+2025-05-04 22:41:52,165:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=23&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:52,166:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=24&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:52,167:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=26&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:52,625:INFO:Scraping product page for 1257580018 at https://www2.hm.com/en_us/productpage.1257580018.html
+2025-05-04 22:41:52,646:INFO:Added 1261773001 to product queue
+2025-05-04 22:41:52,646:INFO:Added 1249086003 to product queue
+2025-05-04 22:41:52,646:INFO:Added 1246248010 to product queue
+2025-05-04 22:41:52,646:INFO:Added 1085481001 to product queue
+2025-05-04 22:41:52,647:INFO:Added 1260436001 to product queue
+2025-05-04 22:41:52,647:INFO:Added 1236772001 to product queue
+2025-05-04 22:41:52,647:INFO:Added 1253205001 to product queue
+2025-05-04 22:41:52,647:INFO:Added 1244849001 to product queue
+2025-05-04 22:41:52,647:INFO:Added 0940270021 to product queue
+2025-05-04 22:41:52,648:INFO:Added 1263586001 to product queue
+2025-05-04 22:41:52,648:INFO:Added 1262383002 to product queue
+2025-05-04 22:41:52,648:INFO:Added 1086721007 to product queue
+2025-05-04 22:41:52,649:INFO:Added 1249116005 to product queue
+2025-05-04 22:41:52,649:INFO:Added 1276274003 to product queue
+2025-05-04 22:41:52,649:INFO:Added 1236649002 to product queue
+2025-05-04 22:41:52,649:INFO:Added 1276943003 to product queue
+2025-05-04 22:41:52,650:INFO:Added 1264917003 to product queue
+2025-05-04 22:41:52,650:INFO:Added 1237158001 to product queue
+2025-05-04 22:41:52,650:INFO:Added 1269598003 to product queue
+2025-05-04 22:41:52,651:INFO:Added 1236679004 to product queue
+2025-05-04 22:41:52,651:INFO:Added 1231264001 to product queue
+2025-05-04 22:41:52,651:INFO:Added 1248951001 to product queue
+2025-05-04 22:41:52,652:INFO:Added 1277575001 to product queue
+2025-05-04 22:41:52,652:INFO:Added 1273595005 to product queue
+2025-05-04 22:41:52,653:INFO:Added 1267464003 to product queue
+2025-05-04 22:41:52,653:INFO:Added 1249656001 to product queue
+2025-05-04 22:41:52,653:INFO:Added 1247047001 to product queue
+2025-05-04 22:41:52,654:INFO:Added 1217655006 to product queue
+2025-05-04 22:41:52,687:INFO:Added 1254280002 to product queue
+2025-05-04 22:41:52,688:INFO:Added 1262241001 to product queue
+2025-05-04 22:41:52,689:INFO:Added 1275323001 to product queue
+2025-05-04 22:41:52,689:INFO:Added 1241036003 to product queue
+2025-05-04 22:41:52,690:INFO:Added 1256521001 to product queue
+2025-05-04 22:41:52,691:INFO:Added 1258100001 to product queue
+2025-05-04 22:41:52,691:INFO:Added 1283842001 to product queue
+2025-05-04 22:41:52,692:INFO:Added 1265550001 to product queue
+2025-05-04 22:41:52,692:INFO:Added 1257590003 to product queue
+2025-05-04 22:41:52,692:INFO:Added 1267379003 to product queue
+2025-05-04 22:41:52,693:INFO:Added 1275248004 to product queue
+2025-05-04 22:41:52,693:INFO:Added 1272508002 to product queue
+2025-05-04 22:41:52,748:INFO:Added 1256216001 to product queue
+2025-05-04 22:41:52,749:INFO:Added 1217677006 to product queue
+2025-05-04 22:41:52,749:INFO:Added 0711582001 to product queue
+2025-05-04 22:41:52,750:INFO:Added 1289939004 to product queue
+2025-05-04 22:41:52,750:INFO:Added 1288019001 to product queue
+2025-05-04 22:41:52,750:INFO:Added 1282535001 to product queue
+2025-05-04 22:41:52,751:INFO:Added 1267021001 to product queue
+2025-05-04 22:41:52,751:INFO:Added 1270848004 to product queue
+2025-05-04 22:41:52,752:INFO:Added 1294038002 to product queue
+2025-05-04 22:41:52,752:INFO:Added 1234741012 to product queue
+2025-05-04 22:41:52,752:INFO:Added 1286006001 to product queue
+2025-05-04 22:41:52,753:INFO:Added 1204910003 to product queue
+2025-05-04 22:41:52,753:INFO:Added 1222097010 to product queue
+2025-05-04 22:41:52,753:INFO:Added 1128915018 to product queue
+2025-05-04 22:41:52,754:INFO:Added 1236294003 to product queue
+2025-05-04 22:41:52,754:INFO:Added 1289142002 to product queue
+2025-05-04 22:41:52,755:INFO:Added 1212717004 to product queue
+2025-05-04 22:41:52,756:INFO:Added 1282506002 to product queue
+2025-05-04 22:41:53,673:INFO:Scraping product page for 1256936003 at https://www2.hm.com/en_us/productpage.1256936003.html
+2025-05-04 22:41:54,138:INFO:Scraping product page for 1282605001 at https://www2.hm.com/en_us/productpage.1282605001.html
+2025-05-04 22:41:54,527:INFO:Scraping product page for 1238340008 at https://www2.hm.com/en_us/productpage.1238340008.html
+2025-05-04 22:41:54,686:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=25&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:54,687:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=24&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:54,764:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=27&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:54,957:INFO:Scraping product page for 1281666002 at https://www2.hm.com/en_us/productpage.1281666002.html
+2025-05-04 22:41:55,037:INFO:Added 1264147002 to product queue
+2025-05-04 22:41:55,038:INFO:Added 1253552003 to product queue
+2025-05-04 22:41:55,038:INFO:Added 1247034001 to product queue
+2025-05-04 22:41:55,039:INFO:Added 1248731001 to product queue
+2025-05-04 22:41:55,039:INFO:Added 1265895002 to product queue
+2025-05-04 22:41:55,040:INFO:Added 1070715024 to product queue
+2025-05-04 22:41:55,040:INFO:Added 1263218003 to product queue
+2025-05-04 22:41:55,040:INFO:Added 0659808047 to product queue
+2025-05-04 22:41:55,041:INFO:Added 1272885001 to product queue
+2025-05-04 22:41:55,041:INFO:Added 1268725002 to product queue
+2025-05-04 22:41:55,041:INFO:Added 1245795001 to product queue
+2025-05-04 22:41:55,042:INFO:Added 1258639001 to product queue
+2025-05-04 22:41:55,042:INFO:Added 1268936001 to product queue
+2025-05-04 22:41:55,042:INFO:Added 1041574059 to product queue
+2025-05-04 22:41:55,042:INFO:Added 1266246002 to product queue
+2025-05-04 22:41:55,043:INFO:Added 1261347001 to product queue
+2025-05-04 22:41:55,043:INFO:Added 1276086001 to product queue
+2025-05-04 22:41:55,043:INFO:Added 1281157001 to product queue
+2025-05-04 22:41:55,044:INFO:Added 1209584006 to product queue
+2025-05-04 22:41:55,044:INFO:Added 1284902002 to product queue
+2025-05-04 22:41:55,044:INFO:Added 1268395002 to product queue
+2025-05-04 22:41:55,044:INFO:Added 1240123003 to product queue
+2025-05-04 22:41:55,045:INFO:Added 1265978002 to product queue
+2025-05-04 22:41:55,052:INFO:Added 1123563001 to product queue
+2025-05-04 22:41:55,052:INFO:Added 1265867003 to product queue
+2025-05-04 22:41:55,053:INFO:Added 0647207063 to product queue
+2025-05-04 22:41:55,054:INFO:Added 1280400003 to product queue
+2025-05-04 22:41:55,054:INFO:Added 1264829002 to product queue
+2025-05-04 22:41:55,054:INFO:Added 1225178003 to product queue
+2025-05-04 22:41:55,055:INFO:Added 1258013001 to product queue
+2025-05-04 22:41:55,055:INFO:Added 1218666003 to product queue
+2025-05-04 22:41:55,056:INFO:Added 1275076003 to product queue
+2025-05-04 22:41:55,056:INFO:Added 0871826003 to product queue
+2025-05-04 22:41:55,056:INFO:Added 1262222001 to product queue
+2025-05-04 22:41:55,056:INFO:Added 0965257022 to product queue
+2025-05-04 22:41:55,057:INFO:Added 1226399001 to product queue
+2025-05-04 22:41:55,057:INFO:Added 1278443001 to product queue
+2025-05-04 22:41:55,057:INFO:Added 1283781001 to product queue
+2025-05-04 22:41:55,057:INFO:Added 1246011002 to product queue
+2025-05-04 22:41:55,058:INFO:Added 1239151001 to product queue
+2025-05-04 22:41:55,058:INFO:Added 1262246001 to product queue
+2025-05-04 22:41:55,137:INFO:Added 1247028006 to product queue
+2025-05-04 22:41:55,137:INFO:Added 1228453001 to product queue
+2025-05-04 22:41:55,138:INFO:Added 1280397011 to product queue
+2025-05-04 22:41:55,138:INFO:Added 1280417002 to product queue
+2025-05-04 22:41:55,138:INFO:Added 1269047002 to product queue
+2025-05-04 22:41:55,139:INFO:Added 1226254014 to product queue
+2025-05-04 22:41:55,139:INFO:Added 1289184002 to product queue
+2025-05-04 22:41:55,140:INFO:Added 1282517001 to product queue
+2025-05-04 22:41:55,141:INFO:Added 1269207001 to product queue
+2025-05-04 22:41:55,141:INFO:Added 1030468004 to product queue
+2025-05-04 22:41:55,141:INFO:Added 1208310002 to product queue
+2025-05-04 22:41:55,141:INFO:Added 1258650001 to product queue
+2025-05-04 22:41:55,141:INFO:Added 1260437002 to product queue
+2025-05-04 22:41:55,142:INFO:Added 1290929001 to product queue
+2025-05-04 22:41:55,142:INFO:Added 1272456003 to product queue
+2025-05-04 22:41:55,142:INFO:Added 1277044002 to product queue
+2025-05-04 22:41:55,143:INFO:Added 1281933001 to product queue
+2025-05-04 22:41:55,143:INFO:Added 1228218001 to product queue
+2025-05-04 22:41:55,143:INFO:Added 1212700001 to product queue
+2025-05-04 22:41:55,143:INFO:Added 1250884002 to product queue
+2025-05-04 22:41:55,294:INFO:Scraping product page for 1263464003 at https://www2.hm.com/en_us/productpage.1263464003.html
+2025-05-04 22:41:55,859:INFO:Scraping product page for 1239045012 at https://www2.hm.com/en_us/productpage.1239045012.html
+2025-05-04 22:41:56,240:INFO:Scraping product page for 1273063002 at https://www2.hm.com/en_us/productpage.1273063002.html
+2025-05-04 22:41:56,675:INFO:Scraping product page for 1280369001 at https://www2.hm.com/en_us/productpage.1280369001.html
+2025-05-04 22:41:57,033:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=26&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:57,062:INFO:Scraping product page for 1286484001 at https://www2.hm.com/en_us/productpage.1286484001.html
+2025-05-04 22:41:57,065:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=25&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:57,157:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=28&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:57,356:INFO:Added 1263916001 to product queue
+2025-05-04 22:41:57,357:INFO:Added 1265595001 to product queue
+2025-05-04 22:41:57,357:INFO:Added 1260450001 to product queue
+2025-05-04 22:41:57,357:INFO:Added 1265103002 to product queue
+2025-05-04 22:41:57,358:INFO:Added 0841808002 to product queue
+2025-05-04 22:41:57,358:INFO:Added 1253390004 to product queue
+2025-05-04 22:41:57,358:INFO:Added 1231406002 to product queue
+2025-05-04 22:41:57,359:INFO:Added 1265014001 to product queue
+2025-05-04 22:41:57,359:INFO:Added 1264869003 to product queue
+2025-05-04 22:41:57,360:INFO:Added 1029317001 to product queue
+2025-05-04 22:41:57,360:INFO:Added 1262922001 to product queue
+2025-05-04 22:41:57,360:INFO:Added 1270280001 to product queue
+2025-05-04 22:41:57,361:INFO:Added 1257187002 to product queue
+2025-05-04 22:41:57,361:INFO:Added 1262097001 to product queue
+2025-05-04 22:41:57,361:INFO:Added 1253820002 to product queue
+2025-05-04 22:41:57,362:INFO:Added 1262096001 to product queue
+2025-05-04 22:41:57,362:INFO:Added 1207904005 to product queue
+2025-05-04 22:41:57,362:INFO:Added 1238965004 to product queue
+2025-05-04 22:41:57,363:INFO:Added 1241739009 to product queue
+2025-05-04 22:41:57,364:INFO:Added 1288847002 to product queue
+2025-05-04 22:41:57,443:INFO:Added 1244871003 to product queue
+2025-05-04 22:41:57,443:INFO:Added 1254438001 to product queue
+2025-05-04 22:41:57,443:INFO:Added 1273517001 to product queue
+2025-05-04 22:41:57,444:INFO:Added 0701985038 to product queue
+2025-05-04 22:41:57,444:INFO:Added 1264901001 to product queue
+2025-05-04 22:41:57,444:INFO:Added 1264749002 to product queue
+2025-05-04 22:41:57,445:INFO:Added 1246133011 to product queue
+2025-05-04 22:41:57,445:INFO:Added 1149559006 to product queue
+2025-05-04 22:41:57,446:INFO:Added 1282501001 to product queue
+2025-05-04 22:41:57,446:INFO:Added 1237685001 to product queue
+2025-05-04 22:41:57,447:INFO:Added 1253283003 to product queue
+2025-05-04 22:41:57,447:INFO:Added 1236381002 to product queue
+2025-05-04 22:41:57,447:INFO:Added 1263219005 to product queue
+2025-05-04 22:41:57,448:INFO:Added 1233842001 to product queue
+2025-05-04 22:41:57,448:INFO:Added 1233840001 to product queue
+2025-05-04 22:41:57,448:INFO:Added 1266434001 to product queue
+2025-05-04 22:41:57,449:INFO:Added 1260326001 to product queue
+2025-05-04 22:41:57,449:INFO:Added 1241194004 to product queue
+2025-05-04 22:41:57,449:INFO:Added 1194962002 to product queue
+2025-05-04 22:41:57,450:INFO:Added 1253231002 to product queue
+2025-05-04 22:41:57,450:INFO:Added 1254101002 to product queue
+2025-05-04 22:41:57,528:INFO:Scraping product page for 1286483001 at https://www2.hm.com/en_us/productpage.1286483001.html
+2025-05-04 22:41:57,610:INFO:Added 1218298001 to product queue
+2025-05-04 22:41:57,612:INFO:Added 1243667010 to product queue
+2025-05-04 22:41:57,612:INFO:Added 1207354001 to product queue
+2025-05-04 22:41:57,613:INFO:Added 1261374003 to product queue
+2025-05-04 22:41:57,613:INFO:Added 1271632004 to product queue
+2025-05-04 22:41:57,614:INFO:Added 1281667001 to product queue
+2025-05-04 22:41:57,614:INFO:Added 1268213002 to product queue
+2025-05-04 22:41:57,614:INFO:Added 1270638003 to product queue
+2025-05-04 22:41:57,615:INFO:Added 1283435001 to product queue
+2025-05-04 22:41:57,615:INFO:Added 1045459049 to product queue
+2025-05-04 22:41:57,616:INFO:Added 1273918005 to product queue
+2025-05-04 22:41:57,616:INFO:Added 1288176002 to product queue
+2025-05-04 22:41:57,616:INFO:Added 1191700002 to product queue
+2025-05-04 22:41:57,617:INFO:Added 1275443009 to product queue
+2025-05-04 22:41:57,617:INFO:Added 1266748002 to product queue
+2025-05-04 22:41:57,617:INFO:Added 1275768002 to product queue
+2025-05-04 22:41:57,618:INFO:Added 1260194005 to product queue
+2025-05-04 22:41:57,618:INFO:Added 1270166002 to product queue
+2025-05-04 22:41:57,618:INFO:Added 1289486001 to product queue
+2025-05-04 22:41:57,618:INFO:Added 1263227003 to product queue
+2025-05-04 22:41:57,619:INFO:Added 1291318002 to product queue
+2025-05-04 22:41:57,867:INFO:Scraping product page for 1259173001 at https://www2.hm.com/en_us/productpage.1259173001.html
+2025-05-04 22:41:58,269:INFO:Scraping product page for 1246290008 at https://www2.hm.com/en_us/productpage.1246290008.html
+2025-05-04 22:41:58,639:INFO:Scraping product page for 1274483002 at https://www2.hm.com/en_us/productpage.1274483002.html
+2025-05-04 22:41:58,978:INFO:Scraping product page for 1284988001 at https://www2.hm.com/en_us/productpage.1284988001.html
+2025-05-04 22:41:59,359:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=26&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:59,418:INFO:Scraping product page for 1256528005 at https://www2.hm.com/en_us/productpage.1256528005.html
+2025-05-04 22:41:59,469:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=27&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:59,624:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=29&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:41:59,819:INFO:Scraping product page for 1199249001 at https://www2.hm.com/en_us/productpage.1199249001.html
+2025-05-04 22:41:59,980:INFO:Added 1259207001 to product queue
+2025-05-04 22:41:59,980:INFO:Added 1211410001 to product queue
+2025-05-04 22:41:59,981:INFO:Added 1252021002 to product queue
+2025-05-04 22:41:59,982:INFO:Added 1257189001 to product queue
+2025-05-04 22:41:59,982:INFO:Added 1235422011 to product queue
+2025-05-04 22:41:59,982:INFO:Added 1270279001 to product queue
+2025-05-04 22:41:59,983:INFO:Added 1241449001 to product queue
+2025-05-04 22:41:59,983:INFO:Added 1117747045 to product queue
+2025-05-04 22:41:59,983:INFO:Added 1241068002 to product queue
+2025-05-04 22:41:59,983:INFO:Added 1265020002 to product queue
+2025-05-04 22:41:59,984:INFO:Added 1285018001 to product queue
+2025-05-04 22:41:59,984:INFO:Added 1277984002 to product queue
+2025-05-04 22:41:59,984:INFO:Added 1291560005 to product queue
+2025-05-04 22:41:59,985:INFO:Added 1265141002 to product queue
+2025-05-04 22:41:59,985:INFO:Added 1270288002 to product queue
+2025-05-04 22:41:59,985:INFO:Added 1114969027 to product queue
+2025-05-04 22:41:59,985:INFO:Added 1272340003 to product queue
+2025-05-04 22:42:00,008:INFO:Added 1281599002 to product queue
+2025-05-04 22:42:00,009:INFO:Added 1232327012 to product queue
+2025-05-04 22:42:00,009:INFO:Added 1156947006 to product queue
+2025-05-04 22:42:00,009:INFO:Added 1265460003 to product queue
+2025-05-04 22:42:00,009:INFO:Added 1255316001 to product queue
+2025-05-04 22:42:00,010:INFO:Added 1227896005 to product queue
+2025-05-04 22:42:00,010:INFO:Added 1275555001 to product queue
+2025-05-04 22:42:00,010:INFO:Added 1277972001 to product queue
+2025-05-04 22:42:00,010:INFO:Added 1261390001 to product queue
+2025-05-04 22:42:00,010:INFO:Added 1265133001 to product queue
+2025-05-04 22:42:00,011:INFO:Added 1204255001 to product queue
+2025-05-04 22:42:00,011:INFO:Added 1236721001 to product queue
+2025-05-04 22:42:00,011:INFO:Added 1258785001 to product queue
+2025-05-04 22:42:00,011:INFO:Added 1240867001 to product queue
+2025-05-04 22:42:00,011:INFO:Added 0293510002 to product queue
+2025-05-04 22:42:00,011:INFO:Added 1201438004 to product queue
+2025-05-04 22:42:00,011:INFO:Added 1256818001 to product queue
+2025-05-04 22:42:00,012:INFO:Added 1228180002 to product queue
+2025-05-04 22:42:00,013:INFO:Added 1247413001 to product queue
+2025-05-04 22:42:00,082:INFO:Added 1237735009 to product queue
+2025-05-04 22:42:00,083:INFO:Added 1265610001 to product queue
+2025-05-04 22:42:00,083:INFO:Added 1274354002 to product queue
+2025-05-04 22:42:00,084:INFO:Added 1270353001 to product queue
+2025-05-04 22:42:00,084:INFO:Added 1246783001 to product queue
+2025-05-04 22:42:00,085:INFO:Added 1271121001 to product queue
+2025-05-04 22:42:00,085:INFO:Added 1213847002 to product queue
+2025-05-04 22:42:00,086:INFO:Added 1195434013 to product queue
+2025-05-04 22:42:00,086:INFO:Added 1264528003 to product queue
+2025-05-04 22:42:00,086:INFO:Added 1291247001 to product queue
+2025-05-04 22:42:00,087:INFO:Added 1282752001 to product queue
+2025-05-04 22:42:00,087:INFO:Added 1265096003 to product queue
+2025-05-04 22:42:00,088:INFO:Added 1274336002 to product queue
+2025-05-04 22:42:00,089:INFO:Added 1282492001 to product queue
+2025-05-04 22:42:00,089:INFO:Added 1267176003 to product queue
+2025-05-04 22:42:00,214:INFO:Scraping product page for 1270650003 at https://www2.hm.com/en_us/productpage.1270650003.html
+2025-05-04 22:42:00,618:INFO:Scraping product page for 1274378004 at https://www2.hm.com/en_us/productpage.1274378004.html
+2025-05-04 22:42:01,120:INFO:Scraping product page for 1259339004 at https://www2.hm.com/en_us/productpage.1259339004.html
+2025-05-04 22:42:01,460:INFO:Scraping product page for 1274465001 at https://www2.hm.com/en_us/productpage.1274465001.html
+2025-05-04 22:42:01,670:INFO:Saving everything...
+2025-05-04 22:43:35,199:INFO:Scraping product page for 1222124009 at https://www2.hm.com/en_us/productpage.1222124009.html
+2025-05-04 22:43:35,201:INFO:Scraping women (page 30)
+2025-05-04 22:43:35,201:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=30&sort=RELEVANCE&pageId=/ladies/shop-by-product/view-all&page-size=36&categoryId=ladies_all&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:43:35,202:INFO:Scraping men (page 27)
+2025-05-04 22:43:35,202:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=27&sort=RELEVANCE&pageId=/men/shop-by-product/view-all&page-size=36&categoryId=men_viewall&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:43:35,202:INFO:Scraping kids9-14 (page 28)
+2025-05-04 22:43:35,202:INFO:Fetching https://api.hm.com/search-services/v1/en_us/listing/resultpage?pageSource=PLP&page=28&sort=RELEVANCE&pageId=/kids/9-14y/clothing/view-all&page-size=36&categoryId=kids_olderkids_clothing&filters=sale:false||oldSale:false&touchPoint=DESKTOP&skipStockCheck=false
+2025-05-04 22:43:35,203:INFO:Skipping beauty (already scraped)
+2025-05-04 22:43:35,919:INFO:Added 1171115001 to product queue
+2025-05-04 22:43:35,919:INFO:Added 1200868006 to product queue
+2025-05-04 22:43:35,920:INFO:Added 1261770001 to product queue
+2025-05-04 22:43:35,920:INFO:Added 1237817004 to product queue
+2025-05-04 22:43:35,921:INFO:Added 1240035001 to product queue
+2025-05-04 22:43:35,921:INFO:Added 1269014001 to product queue
+2025-05-04 22:43:35,922:INFO:Added 1211202001 to product queue
+2025-05-04 22:43:35,922:INFO:Added 1254448001 to product queue
+2025-05-04 22:43:35,923:INFO:Added 1240501001 to product queue
+2025-05-04 22:43:35,924:INFO:Added 1268723001 to product queue
+2025-05-04 22:43:35,924:INFO:Added 1230266003 to product queue
+2025-05-04 22:43:35,924:INFO:Added 1231270001 to product queue
+2025-05-04 22:43:35,925:INFO:Added 1265864003 to product queue
+2025-05-04 22:43:35,925:INFO:Added 1247414002 to product queue
+2025-05-04 22:43:35,925:INFO:Added 1274146004 to product queue
+2025-05-04 22:43:35,951:INFO:Saving everything...
