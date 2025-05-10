@@ -1,26 +1,13 @@
 import asyncio
-import logging
-
 from curl_cffi import AsyncSession
-
 from config import Config
 from parsers.hnm import HNMParser
 import atexit
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s:%(levelname)s:%(message)s",
-    handlers=[
-        logging.FileHandler("log.txt"),
-        logging.StreamHandler()
-    ]
-)
+from services.logs.logging import logger
 
 
 async def parse():
     client = AsyncSession(impersonate="chrome")
-    logger = logging.getLogger("parser")
-    logger.setLevel(logging.INFO)
     config = Config(is_full_parse=False, reset_state=False)
     hnm = HNMParser(client, logger, config)
 
