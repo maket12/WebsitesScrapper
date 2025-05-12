@@ -6,7 +6,7 @@ import re
 from curl_cffi import AsyncSession
 
 test_page_url = (
-  "https://www.footlocker.co.uk/en/product/adidas-megaride-menshoes/314209908004.html"
+  "https://www.footlocker.co.uk/en/product/nike-air-max-tuned-1-menshoes/314210129004.html"
 )
 
 # get images from https://images.footlocker.com/is/image/FLEU/314209908004/?req=set,json&id=314209908004&handler=altset_314209908004

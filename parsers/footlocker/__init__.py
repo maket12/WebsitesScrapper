@@ -1,7 +1,6 @@
 import asyncio
 import json
 import re
-from collections import deque
 from logging import Logger
 from parser import Parser
 
@@ -15,11 +14,7 @@ class FootlockerParser(Parser):
     super().__init__("footlocker", client, logger, config)
 
     self.pages = self.get_state("pages", {})
-    self.product_queue = deque(self.get_state("product_queue", []))
-
-  def save_state(self):
-    self.state["product_queue"] = list(self.product_queue)
-    return super().save_state()
+    self.product_queue = self.get_state("product_queue", [])
 
   async def parse(self):
     worker_task = asyncio.create_task(self.product_queue_worker())
@@ -40,24 +35,30 @@ class FootlockerParser(Parser):
     try:
       await worker_task
     except asyncio.CancelledError:
-      pass
+      self.logger.info("Product queue worker stopped.")
 
   async def product_queue_worker(self):
+    self.logger.info("Product queue worker started.")
     while True:
       if not self.product_queue:
         await asyncio.sleep(2)
         continue
 
-      product_page = self.product_queue.popleft()
-      success = await self.scrap_product_page(product_page)
-      if not success:
-        self.product_queue.append(product_page)
-      self.save_state()
+      try:
+        category_name, product_page = self.product_queue.pop(0)
+        success = await self.scrap_product_page(category_name, product_page)
+        if not success:
+          self.product_queue.append((category_name, product_page))
+          await asyncio.sleep(20)
+        self.save_state()
+      except Exception as e:
+        self.logger.error(f"Error in product queue worker: {e}")
+        await asyncio.sleep(5)
 
   async def scrap_category(self, category):
     category_name = category["name"]
     category_url = category["url_page"]
-    current_page = self.pages.setdefault(category_name, 1)
+    current_page = self.pages.setdefault(category_name, 0)
     if current_page == -1:
       self.logger.info(f"Skipping {category_name} (already scraped)")
       return
@@ -71,7 +72,7 @@ class FootlockerParser(Parser):
         self.logger.error(f"Failed to fetch {url}: {response.status_code}")
         await asyncio.sleep(5)
         continue
-      page_data = self.parse_search_page(url, response.text)
+      page_data = self.parse_state_from_page(url, response.text)
       if not page_data:
         await asyncio.sleep(5)
         continue
@@ -89,9 +90,9 @@ class FootlockerParser(Parser):
         product_full_url = BASE_URL + product_link
         product_sku = product_links[product_link].get("styleSku", None)
         should_scrap = product_sku not in self.products or self.is_full_parse
-        # TODO !! - maybe scrap if there are more variants than we got
+        # !! - maybe scrap if there are more variants than we got
         if should_scrap and product_full_url not in self.product_queue:
-          self.product_queue.append(product_full_url)
+          self.product_queue.append((category_name, product_full_url))
           added_products += 1
         if product_sku:
           product_url_map[product_sku] = product_full_url.rpartition("/")[0]
@@ -110,7 +111,7 @@ class FootlockerParser(Parser):
       )
 
       total_pages = search_data.get("pagination", {}).get("totalPages", 0)
-      if current_page >= total_pages or current_page > 1:
+      if current_page >= total_pages:
         self.logger.info(f"Reached the last page of {category_name}")
         self.pages[category_name] = -1
         self.save_state()
@@ -150,21 +151,179 @@ class FootlockerParser(Parser):
       variant_name = variant.get("name", None)
       if variant_name is None:
         continue
-      variant_price = variant.get("price", {}).get("formattedListPrice", None)
+      variant_price = variant.get("price", {}).get("formattedSalePrice", None)
       variant_color = variant.get("color", None)
       self.set_product(
-        variant_sku, variant_url, category_name, variant_name, variant_price, variant_sku
+        variant_sku,
+        variant_url,
+        category_name,
+        variant_name,
+        variant_price,
+        variant_sku,
       )
       self.update_product(variant_sku, color=variant_color)
       num_variants += 1
     return num_variants
 
-  async def scrap_product_page(self, product_page):
-    # TODO - implement this
-    await asyncio.sleep(2)
+  async def scrap_product_page(self, category_name, product_page_url):
+    self.logger.info(f"Scraping product page {product_page_url}")
+    response = await self.client.get(product_page_url)
+    if response.status_code != 200:
+      self.logger.error(f"Failed to fetch {product_page_url}: {response.status_code}")
+      return False
+
+    product_data = self.get_product_data(product_page_url, response.text)
+
+    if not product_data:
+      self.logger.error(f"Failed to parse product data from {product_page_url}")
+      return False
+
+    return await self.process_product_data(
+      category_name, product_data, product_page_url
+    )
+
+  def get_product_data(self, product_page, response_text):
+    page_data = self.parse_state_from_page(product_page, response_text)
+    if not page_data:
+      return None
+
+    product_data = (
+      page_data.get("api", {})
+      .get("productDetails", {})
+      .get("getDetails", {})
+      .get("data", None)
+    )
+    return product_data
+
+  async def process_product_data(self, category_name, product_data, product_page_url):
+    base_page = product_page_url.rpartition("/")[0]
+    style_data = product_data.get("style", {})
+    sku = style_data.get("sku", None)
+    if sku is None:
+      return False
+
+    model_data = product_data.get("model", {})
+    name = model_data.get("name", None)
+    if name is None:
+      return False
+
+    description = model_data.get("description", None)
+    color = style_data.get("color", None)
+    price = style_data.get("price", {}).get("formattedSalePrice", None)
+
+    size_data = product_data.get("sizes", {})
+    sizes = []
+    for size in size_data:
+      is_active = size.get("active", False)
+      size_value = size.get("size", None)
+      if is_active and size_value is not None:
+        sizes.append(size_value)
+    size_str = ";".join(sizes)
+    if not size_str:
+      size_str = "N/A"
+
+    self.set_product(
+      sku,
+      product_page_url,
+      category_name,
+      name,
+      price,
+      sku,
+    )
+    self.update_product(
+      sku,
+      color=color,
+      sizes=size_str,
+      description=description,
+    )
+    image_tasks = []
+    image_tasks.append(self.scrap_product_images(sku))
+
+    style_variants = product_data.get("styleVariants", [])
+    subproducts = {}
+    for variant in style_variants:
+      variant_sku = variant.get("sku", None)
+      if variant_sku is None:
+        continue
+      variant_url = f"{base_page}/{variant_sku}.html"
+      variant_price = variant.get("price", {}).get("formattedSalePrice", None)
+      variant_color = variant.get("color", None)
+      variant_size = variant.get("size", None)
+      is_active = variant.get("active", False) and variant_size is not None
+      if variant_sku not in subproducts:
+        subproducts[variant_sku] = {
+          "url": variant_url,
+          "price": variant_price,
+          "color": variant_color,
+          "sizes": [],
+        }
+      if is_active:
+        subproducts[variant_sku]["sizes"].append(variant_size)
+
+    for variant_sku, variant_data in subproducts.items():
+      variant_url = variant_data["url"]
+      variant_price = variant_data["price"]
+      variant_color = variant_data["color"]
+      variant_sizes = variant_data["sizes"]
+      size_str = ";".join(variant_sizes)
+      if not size_str:
+        size_str = "N/A"
+      self.set_product(
+        variant_sku,
+        variant_url,
+        category_name,
+        name,
+        variant_price,
+        sku,
+      )
+      self.update_product(
+        variant_sku,
+        color=variant_color,
+        sizes=size_str,
+        description=description,
+      )
+      image_tasks.append(self.scrap_product_images(variant_sku))
+
+    await asyncio.gather(*image_tasks)
     return True
 
-  def parse_search_page(self, url, page_content):
+  async def scrap_product_images(self, sku):
+    images = await self.get_product_images(sku)
+    if images:
+      for i, image_url in enumerate(images):
+        image_id = f"{i + 1}"
+        self.set_product_image(sku, image_id, image_url)
+
+  async def get_product_images(self, sku):
+    base_url = "https://images.footlocker.com/is/image/"
+    images_url = f"{base_url}FLEU/{sku}/?req=set,json&id={sku}&handler=altset_{sku}"
+    self.logger.info(f"Fetching images from {images_url}")
+    response = await self.client.get(images_url)
+    if response.status_code != 200:
+      self.logger.error(f"Failed to fetch images: {response.status_code}")
+      return None
+
+    text = response.text
+    # Remove the jsonp wrapper to extract the JSON part
+    match = re.search(r'altset_\d+\((.*),"[0-9]+"\);', text, re.DOTALL)
+    if not match:
+      self.logger.error("Failed to parse JSONP response")
+      return None
+
+    json_str = match.group(1)
+    data = json.loads(json_str)
+    items = data["set"]["item"]
+
+    # Build image URLs
+    image_urls = []
+    for item in items:
+      image_name = item["i"]["n"]
+      url = f"{base_url}{image_name}"
+      image_urls.append(url)
+
+    return image_urls
+
+  def parse_state_from_page(self, url, page_content):
     match = re.search(
       r"window\.footlocker\.STATE_FROM_SERVER\s*=\s*(\{.*?\});", page_content, re.DOTALL
     )

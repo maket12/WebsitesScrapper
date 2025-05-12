@@ -11,7 +11,7 @@ from services.logs.logging import logger
 
 async def parse():
   client = AsyncSession(impersonate="chrome")
-  config = Config(is_full_parse=False, reset_state=False)
+  config = Config(is_full_parse=True, reset_state=False)
   hnm = HNMParser(client, logger, config)
   footlocker = FootlockerParser(client, logger, config)
 
