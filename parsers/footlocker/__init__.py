@@ -15,6 +15,8 @@ class FootlockerParser(Parser):
     super().__init__("footlocker", client, logger, config)
 
     self.product_queue = self.get_state("product_queue", [])
+    self.failed_images_queue = self.get_state("failed_images_queue", [])
+    self.categories_done = False
 
   async def parse(self):
     worker_task = asyncio.create_task(self.product_queue_worker())
@@ -25,8 +27,9 @@ class FootlockerParser(Parser):
 
     await asyncio.gather(*category_tasks)
     self.logger.info("Categories done.")
+    self.categories_done = True
 
-    while self.product_queue:
+    while self.product_queue or self.failed_images_queue:
       await asyncio.sleep(1)
 
     # Cancel the worker task when done
@@ -40,7 +43,12 @@ class FootlockerParser(Parser):
     self.logger.info("Product queue worker started.")
     while True:
       if not self.product_queue:
-        await asyncio.sleep(2)
+        if self.categories_done:
+          break
+        try:
+          await asyncio.sleep(2)
+        except asyncio.CancelledError:
+          break
         continue
 
       try:
@@ -51,6 +59,16 @@ class FootlockerParser(Parser):
         self.save_state()
       except Exception as e:
         self.logger.error(f"Error in product queue worker: {e}")
+        await asyncio.sleep(5)
+
+    self.logger.info("Processing failed images queue...")
+    while self.failed_images_queue:
+      try:
+        sku = self.failed_images_queue.pop(0)
+        await self.scrap_product_images(sku)
+        self.save_state()
+      except Exception as e:
+        self.logger.error(f"Error in failed images queue worker: {e}")
         await asyncio.sleep(5)
 
   async def scrap_category(self, category):
@@ -79,7 +97,11 @@ class FootlockerParser(Parser):
       response = await self.client.get(query_url)
       if response.status_code != 200:
         self.logger.error(f"Failed to fetch {query_url}: {response.status_code}")
-        continue
+        await asyncio.sleep(5)
+        response = await self.client.get(query_url)
+        if response.status_code != 200:
+          self.logger.error(f"Retry failed for {query_url}: {response.status_code}")
+          continue
 
       page_data = self.parse_state_from_page(query_url, response.text)
       if not page_data:
@@ -320,6 +342,9 @@ class FootlockerParser(Parser):
       for i, image_url in enumerate(images):
         image_id = f"{i + 1}"
         self.set_product_image(sku, image_id, image_url)
+    elif images is None:
+      self.failed_images_queue.append(sku)
+      self.save_state()
 
   async def get_product_images(self, sku):
     base_url = "https://images.footlocker.com/is/image/"

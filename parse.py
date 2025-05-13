@@ -4,13 +4,18 @@ import atexit
 from curl_cffi import AsyncSession
 
 from config import Config
-from parsers.hnm import HNMParser
 from parsers.footlocker import FootlockerParser
+from parsers.hnm import HNMParser
 from services.logs.logging import logger
+from services.proxies import ProxyClient
 
 
 async def parse():
-  client = AsyncSession(impersonate="chrome")
+  client = ProxyClient(logger)
+  if not await client.load():
+    logger.critical("Could not load proxies, exiting...")
+    return
+  
   config = Config(is_full_parse=True, reset_state=False)
   hnm = HNMParser(client, logger, config)
   footlocker = FootlockerParser(client, logger, config)
@@ -26,6 +31,7 @@ async def parse():
   scrap_tasks = [footlocker.parse()]
 
   await asyncio.gather(*scrap_tasks)
+  await client.shutdown()
 
 
 if __name__ == "__main__":
