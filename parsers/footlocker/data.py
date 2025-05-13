@@ -3,11 +3,15 @@ BASE_URL = "https://www.footlocker.co.uk/en"
 
 CATEGORIES = [
   {
-    "name": "men_shoes",
-    "url_page": "https://www.footlocker.co.uk/en/category/men/shoes.html?currentPage={}"
+    "name": "men",
+    "url": "https://www.footlocker.co.uk/en/category/men.html"
   },
   {
-    "name": "men_clothing",
-    "url_page": "https://www.footlocker.co.uk/en/category/men/clothing.html?currentPage={}"
+    "name": "women",
+    "url": "https://www.footlocker.co.uk/en/category/women.html"
+  },
+  {
+    "name": "kids",
+    "url": "https://www.footlocker.co.uk/en/category/kids.html"
   }
 ]

@@ -1,5 +1,5 @@
 from logging import Logger
-from parser import Parser
+from parsers.parser import Parser
 
 from config import Config
 

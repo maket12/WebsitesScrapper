@@ -2,7 +2,7 @@ import json
 import time
 import os
 from logging import Logger
-from parser import Parser
+from parsers.parser import Parser
 
 from bs4 import BeautifulSoup
 

@@ -2,7 +2,7 @@ import asyncio
 import json
 import logging
 import re
-from parser import Parser
+from parsers.parser import Parser
 
 from config import Config
 
