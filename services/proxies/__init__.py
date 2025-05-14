@@ -40,7 +40,7 @@ class ProxyClient:
     return True
 
   async def shutdown(self):
-    self.client.close()
+    await self.client.close()
     self.refresh_worker.cancel()
     try:
       await self.refresh_worker
