@@ -57,6 +57,8 @@ class ProxyClient:
 
       proxies = response_json["message"]["proxies"]
       proxies = list(filter(lambda x: x["status"] == 1, proxies))
+      for proxy in proxies:
+        proxy["template"] = proxy["template"].replace("http://", "socks5://")
       return proxies
     else:
       self.logger.error(f"Error: {response.status_code} - {response.text}")
@@ -72,6 +74,7 @@ class ProxyClient:
         break
       except Exception as e:
         self.logger.error(f"Error in proxy refresh worker: {e}")
+        await asyncio.sleep(PROXY_REFRESH_INTERVAL)
 
   async def refresh_proxy(self, proxy):
     proxy_id = proxy["id"]

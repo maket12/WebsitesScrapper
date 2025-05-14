@@ -14,6 +14,7 @@ class FootlockerParser(Parser):
   def __init__(self, client, logger: Logger, config: Config):
     super().__init__("footlocker", client, logger, config)
 
+    self.query_queue = self.get_state("query_queue", [])
     self.product_queue = self.get_state("product_queue", [])
     self.failed_images_queue = self.get_state("failed_images_queue", [])
     self.categories_done = False
@@ -21,12 +22,27 @@ class FootlockerParser(Parser):
   async def parse(self):
     worker_task = asyncio.create_task(self.product_queue_worker())
 
-    category_tasks = []
-    for category in CATEGORIES:
-      category_tasks.append(self.scrap_category(category))
+    if not self.get_state("category_queries_done", False):
+      self.logger.info("Scraping category queries...")
+      for category in CATEGORIES:
+        success = False
+        while not success:
+          success = await self.scrap_category_queries(category)
+          if not success:
+            await asyncio.sleep(5)
 
-    await asyncio.gather(*category_tasks)
-    self.logger.info("Categories done.")
+    self.state["category_queries_done"] = True
+    self.save_state()
+
+    self.logger.info("Scraping query pages...")
+    while self.query_queue:
+      query_page = self.query_queue.pop(0)
+      success = await self.scrap_query_page(query_page)
+      if not success:
+        self.query_queue.append(query_page)
+      self.save_state()
+      await asyncio.sleep(1)
+
     self.categories_done = True
 
     while self.product_queue or self.failed_images_queue:
@@ -50,101 +66,79 @@ class FootlockerParser(Parser):
         except asyncio.CancelledError:
           break
         continue
-
-      try:
-        product_page = self.product_queue.pop(0)
-        success = await self.scrap_product_page(product_page)
-        if not success:
-          self.product_queue.append(product_page)
-        self.save_state()
-      except Exception as e:
-        self.logger.error(f"Error in product queue worker: {e}")
-        await asyncio.sleep(5)
+      
+      tasks = []
+      for _ in range(4):
+        tasks.append(self.product_queue_task())
+      
+      await asyncio.gather(*tasks)
 
     self.logger.info("Processing failed images queue...")
     while self.failed_images_queue:
-      try:
-        sku = self.failed_images_queue.pop(0)
-        await self.scrap_product_images(sku)
-        self.save_state()
-      except Exception as e:
-        self.logger.error(f"Error in failed images queue worker: {e}")
-        await asyncio.sleep(5)
+      tasks = []
+      for _ in range(4):
+        tasks.append(self.failed_images_queue_task())
+      
+      await asyncio.gather(*tasks)
 
-  async def scrap_category(self, category):
+  async def product_queue_task(self):
+    if not self.product_queue:
+      return
+    
+    try:
+      product_page = self.product_queue.pop(0)
+      success = await self.scrap_product_page(product_page)
+      if not success:
+        self.product_queue.append(product_page)
+      self.save_state()
+    except Exception as e:
+      self.logger.error(f"Error in product queue worker: {e}")
+      await asyncio.sleep(5)
+  
+  async def failed_images_queue_task(self):
+    if not self.failed_images_queue:
+      return
+    
+    try:
+      sku = self.failed_images_queue.pop(0)
+      await self.scrap_product_images(sku)
+      self.save_state()
+    except Exception as e:
+      self.logger.error(f"Error in failed images queue worker: {e}")
+      await asyncio.sleep(5)
+
+  async def scrap_category_queries(self, category):
     category_name = category["name"]
     category_url = category["url"]
-    self.logger.info(f"Scraping {category_name}; fetching base url {category_url}")
+    self.logger.info(f"Fetching {category_url}")
 
     response = await self.client.get(category_url)
     if response.status_code != 200:
       self.logger.error(f"Failed to fetch {category_url}: {response.status_code}")
-      return
+      return False
 
     page_data = self.parse_state_from_page(category_url, response.text)
     if not page_data:
-      return
+      return False
 
-    query_urls = self.get_query_urls(category_url, page_data)
-    if not query_urls:
+    queries = self.get_queries_for_category(category_name, category_url, page_data)
+    if not queries:
       self.logger.error(f"Failed to parse query URLs from {category_url}")
-      return
+      return False
 
-    for query_name, query_url in query_urls.items():
-      self.logger.info(
-        f"Scraping {category_name} - {query_name}; fetching query url {query_url}"
-      )
-      response = await self.client.get(query_url)
-      if response.status_code != 200:
-        self.logger.error(f"Failed to fetch {query_url}: {response.status_code}")
-        await asyncio.sleep(5)
-        response = await self.client.get(query_url)
-        if response.status_code != 200:
-          self.logger.error(f"Retry failed for {query_url}: {response.status_code}")
-          continue
+    self.logger.info(f"Found {len(queries)} queries for {category_name}")
+    for query in queries:
+      if query not in self.query_queue:
+        self.query_queue.append(query)
 
-      page_data = self.parse_state_from_page(query_url, response.text)
-      if not page_data:
-        await asyncio.sleep(5)
-        continue
-      search_data = page_data.get("search", {})
-      product_links = page_data.get("details", {}).get("selected", {})
-      if not product_links:
-        self.logger.info(f"No products on {query_url}")
-        self.pages[category_name] = -1
-        self.save_state()
-        break
+    self.save_state()
+    return True
 
-      product_url_map = {}
-      added_products = 0
-      for product_link in product_links.keys():
-        product_full_url = BASE_URL + product_link
-        product_sku = product_links[product_link].get("styleSku", None)
-        should_scrap = product_sku not in self.products or self.is_full_parse
-        # !! - maybe scrap if there are more variants than we got
-        if should_scrap and product_full_url not in self.product_queue:
-          self.product_queue.append(product_full_url)
-          added_products += 1
-        if product_sku:
-          product_url_map[product_sku] = product_full_url.rpartition("/")[0]
-
-      self.logger.info(f"Added {added_products} product urls from {query_url}")
-
-      products = search_data.get("products", [])
-      processed_products = 0
-      for product in products:
-        processed_products += self.process_product(product, product_url_map)
-
-      self.logger.info(
-        f"Parsed basic information of {processed_products} product variants from {query_url}"
-      )
-      await asyncio.sleep(2)
-
-  def get_query_urls(self, category_url, page_data):
+  def get_queries_for_category(self, category_name, category_url, page_data):
     facets = page_data.get("search", {}).get("facets", [])
     if not facets:
       return None
-    query_urls = {}
+    queries = []
     for facet in facets:
       if facet.get("name") == "Model":
         for value in facet.get("values", []):
@@ -155,8 +149,53 @@ class FootlockerParser(Parser):
           if value_query is None:
             continue
           value_url = f"{category_url}?query={urlparse.quote(value_query)}"
-          query_urls[value_name] = value_url
-    return query_urls
+          queries.append(f"{category_name};;{value_name};;{value_url}")
+    return queries
+
+  async def scrap_query_page(self, query):
+    category_name, query_name, query_url = query.split(";;")
+
+    self.logger.info(
+      f"Scraping {category_name} - {query_name}; fetching query url {query_url}"
+    )
+    response = await self.client.get(query_url)
+    if response.status_code != 200:
+      self.logger.error(f"Failed to fetch {query_url}: {response.status_code}")
+      return False
+
+    page_data = self.parse_state_from_page(query_url, response.text)
+    if not page_data:
+      return False
+
+    search_data = page_data.get("search", {})
+    product_links = page_data.get("details", {}).get("selected", {})
+    if not product_links:
+      self.logger.info(f"No products on {query_url}, This should not happen.")
+      return True
+
+    product_url_map = {}
+    added_products = 0
+    for product_link in product_links.keys():
+      product_full_url = BASE_URL + product_link
+      product_sku = product_links[product_link].get("styleSku", None)
+      should_scrap = product_sku not in self.products or self.is_full_parse
+      if should_scrap and product_full_url not in self.product_queue:
+        self.product_queue.append(product_full_url)
+        added_products += 1
+      if product_sku:
+        product_url_map[product_sku] = product_full_url.rpartition("/")[0]
+
+    self.logger.info(f"Added {added_products} product urls from {query_url}")
+
+    products = search_data.get("products", [])
+    processed_products = 0
+    for product in products:
+      processed_products += self.process_product(product, product_url_map)
+
+    self.logger.info(
+      f"Parsed basic information of {processed_products} product variants from {query_url}"
+    )
+    return True
 
   def process_product(self, product, product_url_map):
     name = product.get("name", None)
