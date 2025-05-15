@@ -124,7 +124,7 @@ class Parser:
 
     state_path = f"data/{self.parser_name}/state.json"
     with open(state_path, "w", encoding="utf-8") as f:
-      json.dump(self.state, f, ensure_ascii=False, indent=2)
+      json.dump(self.state, f, ensure_ascii=False)
 
   def save_images(self):
     if not os.path.exists(f"data/{self.parser_name}"):

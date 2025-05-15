@@ -14,14 +14,13 @@ class FootlockerParser(Parser):
   def __init__(self, client, logger: Logger, config: Config):
     super().__init__("footlocker", client, logger, config)
 
+    self.get_state("category_queries_done", False)
     self.query_queue = self.get_state("query_queue", [])
     self.product_queue = self.get_state("product_queue", [])
-    self.failed_images_queue = self.get_state("failed_images_queue", [])
+    self.images_queue = self.get_state("images_queue", [])
     self.categories_done = False
 
   async def parse(self):
-    worker_task = asyncio.create_task(self.product_queue_worker())
-
     if not self.get_state("category_queries_done", False):
       self.logger.info("Scraping category queries...")
       for category in CATEGORIES:
@@ -34,6 +33,9 @@ class FootlockerParser(Parser):
     self.state["category_queries_done"] = True
     self.save_state()
 
+    worker_task = asyncio.create_task(self.product_queue_worker())
+    images_task = asyncio.create_task(self.images_queue_worker())
+
     self.logger.info("Scraping query pages...")
     while self.query_queue:
       query_page = self.query_queue.pop(0)
@@ -44,16 +46,9 @@ class FootlockerParser(Parser):
       await asyncio.sleep(1)
 
     self.categories_done = True
-
-    while self.product_queue or self.failed_images_queue:
-      await asyncio.sleep(1)
-
-    # Cancel the worker task when done
-    worker_task.cancel()
-    try:
-      await worker_task
-    except asyncio.CancelledError:
-      self.logger.info("Product queue worker stopped.")
+    await worker_task
+    await images_task
+    self.logger.info("Scraping completed.")
 
   async def product_queue_worker(self):
     self.logger.info("Product queue worker started.")
@@ -61,30 +56,33 @@ class FootlockerParser(Parser):
       if not self.product_queue:
         if self.categories_done:
           break
-        try:
-          await asyncio.sleep(2)
-        except asyncio.CancelledError:
-          break
-        continue
-      
+        await asyncio.sleep(2)
+
       tasks = []
       for _ in range(4):
         tasks.append(self.product_queue_task())
-      
-      await asyncio.gather(*tasks)
 
-    self.logger.info("Processing failed images queue...")
-    while self.failed_images_queue:
+      await asyncio.gather(*tasks)
+      await asyncio.sleep(1)
+
+  async def images_queue_worker(self):
+    while True:
+      if not self.images_queue:
+        if self.categories_done:
+          break
+        await asyncio.sleep(2)
+
       tasks = []
       for _ in range(4):
-        tasks.append(self.failed_images_queue_task())
-      
+        tasks.append(self.images_queue_task())
+
       await asyncio.gather(*tasks)
+      await asyncio.sleep(1)
 
   async def product_queue_task(self):
     if not self.product_queue:
       return
-    
+
     try:
       product_page = self.product_queue.pop(0)
       success = await self.scrap_product_page(product_page)
@@ -94,14 +92,16 @@ class FootlockerParser(Parser):
     except Exception as e:
       self.logger.error(f"Error in product queue worker: {e}")
       await asyncio.sleep(5)
-  
-  async def failed_images_queue_task(self):
-    if not self.failed_images_queue:
+
+  async def images_queue_task(self):
+    if not self.images_queue:
       return
-    
+
     try:
-      sku = self.failed_images_queue.pop(0)
-      await self.scrap_product_images(sku)
+      sku = self.images_queue.pop(0)
+      success = await self.scrap_product_images(sku)
+      if not success:
+        self.images_queue.append(sku)
       self.save_state()
     except Exception as e:
       self.logger.error(f"Error in failed images queue worker: {e}")
@@ -324,8 +324,7 @@ class FootlockerParser(Parser):
       sizes=size_str,
       description=description,
     )
-    image_tasks = []
-    image_tasks.append(self.scrap_product_images(sku))
+    self.images_queue.append(sku)
 
     style_variants = product_data.get("styleVariants", [])
     subproducts = {}
@@ -370,9 +369,9 @@ class FootlockerParser(Parser):
         sizes=size_str,
         description=description,
       )
-      image_tasks.append(self.scrap_product_images(variant_sku))
+      self.images_queue.append(variant_sku)
 
-    await asyncio.gather(*image_tasks)
+    self.save_state()
     return True
 
   async def scrap_product_images(self, sku):
@@ -381,9 +380,9 @@ class FootlockerParser(Parser):
       for i, image_url in enumerate(images):
         image_id = f"{i + 1}"
         self.set_product_image(sku, image_id, image_url)
-    elif images is None:
-      self.failed_images_queue.append(sku)
-      self.save_state()
+      return True
+
+    return False
 
   async def get_product_images(self, sku):
     base_url = "https://images.footlocker.com/is/image/"

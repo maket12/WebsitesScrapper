@@ -15,43 +15,54 @@ class HNMParser(Parser):
 
     self.pages = self.get_state("pages", {})
     self.product_queue = self.get_state("product_queue", {})
+    self.categories_done = False
 
   async def parse(self):
-    # Start the product_queue_worker as a background task
     worker_task = asyncio.create_task(self.product_queue_worker())
 
     category_tasks = []
     for category in CATEGORIES:
       category_tasks.append(self.scrap_category(category))
-    
+
     await asyncio.gather(*category_tasks)
-    
+
     self.logger.info("Scraping low priority categories...")
     for category in LOW_PRIORITY_CATEGORIES:
       await self.scrap_category(category)
 
-    # wait for the queue to be empty before finishing
-    while self.product_queue:
-      await asyncio.sleep(1)
-
-    # Cancel the worker task when done
-    worker_task.cancel()
-    try:
-      await worker_task
-    except asyncio.CancelledError:
-      pass
+    self.categories_done = True
+    await worker_task
+    self.logger.info("Scraping completed.")
 
   async def product_queue_worker(self):
     while True:
       if not self.product_queue:
+        if self.categories_done:
+          break
         await asyncio.sleep(2)
         continue
+
+      tasks = []
+      for _ in range(4):
+        tasks.append(self.product_queue_task())
+
+      await asyncio.gather(*tasks)
+      await asyncio.sleep(1)
+
+  async def product_queue_task(self):
+    if not self.product_queue:
+      return
+
+    try:
       product_id = next(iter(self.product_queue))
       product_page = self.product_queue.pop(product_id)
       success = await self.scrap_product_page(product_id, product_page)
       if not success:
-          self.product_queue[product_id] = product_page
+        self.product_queue[product_id] = product_page
       self.save_state()
+    except Exception as e:
+      self.logger.error(f"Error in product queue task: {e}")
+      await asyncio.sleep(5)
 
   async def scrap_category(self, category: dict):
     category_name = category["name"]
@@ -157,7 +168,7 @@ class HNMParser(Parser):
         if image_url is None:
           continue
         self.set_product_image(product_id, str(i + 1), image_url)
-    
+
     return True
 
   def parse_page_data(self, data: str):
