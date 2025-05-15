@@ -4,7 +4,7 @@ from logging import Logger
 
 from curl_cffi import AsyncSession
 
-from config import ASOCKS_API_KEY, PROXY_REFRESH_INTERVAL
+from config import PROXY_REFRESH_INTERVAL
 
 API_GET_PORTS = "https://api.asocks.com/v2/proxy/ports?apiKey={}"
 API_REFRESH_PORT = "https://api.asocks.com/v2/proxy/refresh/{}?apiKey={}"
@@ -16,7 +16,8 @@ class EmptyResponse:
 
 
 class ProxyClient:
-  def __init__(self, logger: Logger):
+  def __init__(self, api_key: str, logger: Logger):
+    self.api_key = api_key
     self.logger = logger.getChild("ProxyClient")
     self.client = AsyncSession()
     self.proxies = []  # {id: int, proxy: str}
@@ -41,6 +42,9 @@ class ProxyClient:
 
   async def shutdown(self):
     await self.client.close()
+    if not self.refresh_worker:
+      return
+    
     self.refresh_worker.cancel()
     try:
       await self.refresh_worker
@@ -48,7 +52,7 @@ class ProxyClient:
       pass
 
   async def get_proxies(self):
-    response = await self.client.get(API_GET_PORTS.format(ASOCKS_API_KEY))
+    response = await self.client.get(API_GET_PORTS.format(self.api_key))
     if response.status_code == 200:
       response_json = response.json()
       if not response_json["success"]:
@@ -79,7 +83,7 @@ class ProxyClient:
   async def refresh_proxy(self, proxy):
     proxy_id = proxy["id"]
     proxy_name = proxy["name"]
-    response = await self.client.get(API_REFRESH_PORT.format(proxy_id, ASOCKS_API_KEY))
+    response = await self.client.get(API_REFRESH_PORT.format(proxy_id, self.api_key))
     if response.status_code == 200:
       response_json = response.json()
       if not response_json["success"]:

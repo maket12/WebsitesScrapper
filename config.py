@@ -1,5 +1,4 @@
 
-ASOCKS_API_KEY = "GcxSc9HRv6pnLVurZIqSU0SacgaoIE3r"
 PROXY_REFRESH_INTERVAL = 20 # seconds
 
 class Config:

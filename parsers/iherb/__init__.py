@@ -48,9 +48,10 @@ fieldnames = [
 
 
 class IHerbParser(Parser):
-  def __init__(self, client, logger: Logger, config: Config):
+  def __init__(self, api_key: str, client, logger: Logger, config: Config):
     super().__init__("iherb", client, logger, config, fieldnames)
 
+    self.api_key = api_key
     self.brand_map = {}
     self.categories = CATEGORIES  # {name, url, category_id, brands}
     self.api_cache = self.get_state("api_cache", {})
@@ -63,7 +64,7 @@ class IHerbParser(Parser):
         self.brand_map = json.load(f)
 
     if not os.path.exists("data/iherb/categories.json") or self.is_full_parse:
-      self.get_brands_for_categories()
+      await self.get_brands_for_categories()
     else:
       with open("data/iherb/categories.json", "r", encoding="utf-8") as f:
         self.categories = json.load(f)
@@ -71,8 +72,8 @@ class IHerbParser(Parser):
     await self.scrap_data_from_api()
 
   # TODO
-  def set_product(self, product_data: dict) -> dict:
-    pass
+  # def set_product(self, product_data: dict):
+  #   pass
 
   # TODO - так как brands могут повторяться, стоит кешировать запросы к апи (self.api_cache)
   async def scrap_data_from_api(self):
