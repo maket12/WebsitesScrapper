@@ -18,7 +18,7 @@ class CsvWorker:
         path = os.path.join(
             os.getcwd(), f"files/{self.parser_name}"
         )
-        os.makedirs(name=path, exist_ok=True)
+        os.makedirs(path, exist_ok=True)
 
         full_path = os.path.join(path, "out.csv")
 

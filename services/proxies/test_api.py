@@ -2,7 +2,7 @@ import asyncio
 
 from curl_cffi import AsyncSession
 
-API_KEY = "GcxSc9HRv6pnLVurZIqSU0SacgaoIE3r"
+API_KEY = ""
 API_GET_PORTS = "https://api.asocks.com/v2/proxy/ports?apiKey={}"
 API_REFRESH_PORT = "https://api.asocks.com/v2/proxy/refresh/{}?apiKey={}"
 
