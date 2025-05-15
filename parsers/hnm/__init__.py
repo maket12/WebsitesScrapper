@@ -98,7 +98,7 @@ class HNMParser(Parser):
       current_page += 1
       self.pages[category_name] = current_page
       self.save_state()
-      await asyncio.sleep(2)
+      await asyncio.sleep(1)
 
   def process_product(self, product: dict):
     base_id = product.get("id", None)
