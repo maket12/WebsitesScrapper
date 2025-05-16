@@ -1,148 +1,375 @@
+import asyncio
 import json
 import time
 import os
-from logging import Logger
-from parsers.parser import Parser
-
+from curl_cffi import AsyncSession
 from bs4 import BeautifulSoup
-
-from config import Config
-
-from .data import CATEGORIES
-
-# TODO - нам точно нужны все эти поля?
-# TODO - image_path
-fieldnames = [
-  "product_id",  # changed from productId to match load_products
-  "brandName",
-  "title",
-  "link",
-  "sku",
-  "formattedPrice",
-  "isSpecial",
-  "isTrial",
-  "hasNewProductFlag",
-  "productCatalogImage",
-  "ratingValue",
-  "reviewCount",
-  "currencyUsed",
-  "countryUsed",
-  "price",
-  "formattedTrialPrice",
-  "trialPrice",
-  "formattedSpecialPrice",
-  "specialPrice",
-  "discountPercentValue",
-  "hasDiscount",
-  "shippingWeight",
-  "packageQuantity",
-  "dimensions",
-  "lastUpdate",
-  "allDescription",
-  "productImages",
-  "variation",
-  "serving",
-  "categories",
-  "supplementFacts",
-]
+from parsers.iherb.data import CATEGORIES
+from services.csv_worker.csv_worker import CsvWorker
+from services.logs.logging import logger as lg
 
 
-class IHerbParser(Parser):
-  def __init__(self, api_key: str, client, logger: Logger, config: Config):
-    super().__init__("iherb", client, logger, config, fieldnames)
+class IHerbParser:
+    def __init__(self, api_key: str, parse_all: bool = False, images_enabled: bool = True, brands_limit: int = None, logger=lg):
+        self.api_key = api_key
 
-    self.api_key = api_key
-    self.brand_map = {}
-    self.categories = CATEGORIES  # {name, url, category_id, brands}
-    self.api_cache = self.get_state("api_cache", {})
+        self.parse_all = parse_all
+        self.images_enabled = images_enabled
+        self.brands_limit = brands_limit
 
-  async def parse(self):
-    if not os.path.exists("data/iherb/brand_map.json") or self.is_full_parse:
-      await self.get_all_brands()
-    else:
-      with open("data/iherb/brand_map.json", "r", encoding="utf-8") as f:
-        self.brand_map = json.load(f)
+        self.brand_map = {}
+        self.categories = CATEGORIES  # {name, url, category_id, brands}
 
-    if not os.path.exists("data/iherb/categories.json") or self.is_full_parse:
-      await self.get_brands_for_categories()
-    else:
-      with open("data/iherb/categories.json", "r", encoding="utf-8") as f:
-        self.categories = json.load(f)
+        self.client = None
 
-    await self.scrap_data_from_api()
+        self.base_api_url = "https://iherb-product-data-api.p.rapidapi.com/api/IHerb/brands/"
+        self.api_url = None
+        self.api_headers = {
+            "x-rapidapi-key": self.api_key,
+            "x-rapidapi-host": "iherb-product-data-api.p.rapidapi.com"
+        }
 
-  # TODO
-  # def set_product(self, product_data: dict):
-  #   pass
+        self.csw_rows = []
 
-  # TODO - так как brands могут повторяться, стоит кешировать запросы к апи (self.api_cache)
-  async def scrap_data_from_api(self):
-    pass
+        self.current_brand = None
+        self.current_page = 1
+        self.total_pages = None
 
-  async def get_all_brands(self):
-    self.logger.info("Getting all brands...")
-    resp = await self.client.get("https://ru.iherb.com/catalog/brandsaz")
-    soup = BeautifulSoup(resp.text, "html.parser")
-    for element in soup.select("a[data-ga-event-category='Trending Brands']"):
-      if "href" not in element.attrs:
-        continue
-      url = element.get("href")
-      name = element.get_text(strip=True)
-      self.brand_map[name] = url.rpartition("/")[2]
+        self.images_folder_base = "files/iherb/images"
+        self.images_folder = None
+        self.images = []
 
-    self.logger.info("Brands found:", len(self.brand_map))
+        self.fieldnames = [
+            "productId",
+            "brandName",
+            "title",
+            "link",
+            "sku",
+            "formattedPrice",
+            "isSpecial",
+            "isTrial",
+            "hasNewProductFlag",
+            "productCatalogImage",
+            "ratingValue",
+            "reviewCount",
+            "currencyUsed",
+            "countryUsed",
+            "price",
+            "formattedTrialPrice",
+            "trialPrice",
+            "formattedSpecialPrice",
+            "specialPrice",
+            "discountPercentValue",
+            "hasDiscount",
+            "shippingWeight",
+            "packageQuantity",
+            "dimensions",
+            "lastUpdate",
+            "allDescription",
+            "productImages",
+            "variation",
+            "serving",
+            "categories",
+            "supplementFacts"
+        ]
+        self.csv_worker = CsvWorker(parser_name="iherb", fieldnames=self.fieldnames)
+        self.logger = logger
 
-    with open("data/iherb/brand_map.json", "w", encoding="utf-8") as f:
-      json.dump(self.brand_map, f, ensure_ascii=False, indent=2)
+    async def __aenter__(self):
+        self.client = AsyncSession(impersonate="chrome")
+        return self
 
-  async def get_brands_for_categories(self):
-    self.logger.info("Getting brands for categories...")
-    for category in self.categories:
-      brand_names = await self.fetch_brand_names(category)
-      brand_ids = []
-      for brand_name in brand_names:
-        brand_id = self.brand_map.get(brand_name)
-        if brand_id is None:
-          self.logger.error(f"Brand {brand_name} not found in brand map")
-          continue
-        brand_ids.append(brand_id)
-      category["brands"] = brand_ids
-      time.sleep(1)
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        await self.client.close()
 
-    with open("data/iherb/categories.json", "w", encoding="utf-8") as f:
-      json.dump(self.categories, f, ensure_ascii=False, indent=2)
+    def _set_current_brand(self, brand: str):
+        self.current_brand = brand
 
-  async def fetch_brand_names(self, category: dict):
-    self.logger.info(
-      f"Get brand names for category {category['name']} -> {category['url']}"
-    )
-    resp = await self.client.post(
-      "https://catalog.app.iherb.com/category/v2/supplements/filters",
-      json={
-        "categoryIds": [category["category_id"]],
-        "healthTopicIds": [],
-        "attributeValueIds": [],
-        "brandCodes": [],
-        "priceRanges": [],
-        "ratings": [],
-        "weights": [],
-        "specials": "",
-        "sort": None,
-        "showShippingSaver": False,
-        "showITested": False,
-        "searchWithinKeyWord": "",
-        "programs": [],
-        "showOnlyAvailable": False,
-      },
-    )
-    json_data = json.loads(resp.text)
-    if "filters" not in json_data:
-      self.logger.error("No filters found")
-      return []
-    brand_names = []
-    for filter_desc in json_data["filters"]:
-      if filter_desc["filterName"] == "Brands":
-        for filter_item in filter_desc["options"]:
-          brand_names.append(filter_item["displayName"])
-        break
-    return brand_names
+    def _set_current_page(self, page: int):
+        self.current_page = page
+
+    def _set_total_pages(self, amount: int):
+        self.total_pages = amount
+
+    def _set_api_url(self):
+        if self.current_page is None:
+            self._set_current_page(page=1)
+        self.api_url = f"{self.base_api_url}{self.current_brand}/products?page={self.current_page}"
+
+    def _set_images_folder(self, path: str = None):
+        if path is not None:
+            self.images_folder = path
+        else:
+            self.images_folder = self._get_images_folder()
+
+    def _set_image(self, image: str):
+        self.images.append(image)
+
+    def _clear_images(self):
+        self.images = []
+
+    def _get_images_folder(self):
+        if self.current_brand is None:
+            return
+
+        path = os.path.join(self.images_folder_base, self.current_brand)
+        os.makedirs(path, exist_ok=True)
+        return path
+
+    def _set_row(self, row: dict):
+        self.csw_rows.append(row)
+
+    def _write_rows(self):
+        if len(self.csw_rows) > 0:
+            self.csv_worker.write_to_table(rows=self.csw_rows)
+            self.csw_rows = []
+
+    async def _load_data(self):
+        try:
+            if not os.path.exists("data/iherb/brand_map.json") or self.parse_all:
+                await self.get_all_brands()
+            else:
+                with open("data/iherb/brand_map.json", "r", encoding="utf-8") as f:
+                    self.brand_map = json.load(f)
+
+            if not os.path.exists("data/iherb/categories.json") or self.parse_all:
+                await self.get_brands_for_categories()
+            else:
+                with open("data/iherb/categories.json", "r", encoding="utf-8") as f:
+                    self.categories = json.load(f)
+        except Exception as e:
+            self.logger.error(f"Возникла ошибка при загрузке начальных данных: {e}.")
+
+    async def start(self):
+        try:
+            self.csv_worker.create_table()
+
+            c = 0
+
+            await self._load_data()
+
+            brands = self.brand_map.values()
+            brands_len = len(brands)
+            for brand in brands:
+                if self.brands_limit is not None:
+                    if c == self.brands_limit:
+                        break
+
+                self.logger.debug(f"Начинаем парсить бренд {brand}.")
+
+                self._set_current_brand(brand=brand)
+                await self.parse_brand()
+
+                self.logger.debug(f"Бренд {brand} полностью спарсен.")
+
+                c += 1
+                if round((c / brands_len) * 100, 1) == 10:
+                    self.logger.info(f"Собрано 10% брендов.")
+
+                elif round((c / brands_len) * 100, 2) == 25:
+                    self.logger.info(f"Собрано 25% брендов.")
+
+                elif round((c / brands_len) * 100, 1) == 50:
+                    self.logger.info(f"Собрано 50% брендов.")
+
+                elif round((c / brands_len) * 100, 2) == 75:
+                    self.logger.info(f"Собрано 75% брендов.")
+
+                elif round((c / brands_len) * 100, 1) == 90:
+                    self.logger.info(f"Собрано 90% брендов.")
+
+            self.logger.debug("Все бренды успешно собраны.")
+            self.logger.info("Парсер завершает свою работу...")
+        except Exception as e:
+            self.logger.critical(f"Возникла ошибка при парсинге: {e}.")
+
+    async def parse_brand(self):
+        try:
+            while self.total_pages is None or self.current_page < self.total_pages:
+                self.logger.info(f"Собираем {self.current_page} страницу.")
+
+                self._set_api_url()
+                self._set_images_folder()
+
+                response = await self.client.get(
+                    url=self.api_url,
+                    headers=self.api_headers
+                )
+
+                if response.status_code != 200:
+                    await asyncio.create_task(self.download_images())
+                    self._write_rows()
+                    if response.status_code == 429:
+                        self.logger.warning(f"Словили флуд: {response.text}. Пауза - сутки.")
+                        await asyncio.sleep(86400)
+                    else:
+                        self.logger.warning(f"Не смогли получить данные по бренду {self.current_brand}. Код: {response.status_code}.")
+                    continue
+
+                resp_data = response.json()
+                products = resp_data["products"]
+
+                self._set_current_page(resp_data["currentPage"] + 1)
+                self._set_total_pages(resp_data["totalPages"])
+
+                if not isinstance(products, list):
+                    await asyncio.create_task(self.download_images())
+                    self._write_rows()
+                    self.logger.warning("Не смогли получить продукты.")
+                    return
+
+                for product in products:
+                    try:
+                        csv_row = {
+                            "productId": product.get("productId", ""),
+                            "brandName": product.get("brandName", ""),
+                            "title": product.get("title", ""),
+                            "link": product.get("link", ""),
+                            "sku": product.get("sku", ""),
+                            "formattedPrice": product.get("formattedPrice", ""),
+                            "isSpecial": product.get("isSpecial", ""),
+                            "isTrial": product.get("isTrial", ""),
+                            "hasNewProductFlag": product.get("hasNewProductFlag", ""),
+                            "productCatalogImage": product.get("productCatalogImage", ""),
+                            "ratingValue": product.get("ratingValue", ""),
+                            "reviewCount": product.get("reviewCount", ""),
+                            "currencyUsed": product.get("currencyUsed", ""),
+                            "countryUsed": product.get("countryUsed", ""),
+                            "price": product.get("price", ""),
+                            "formattedTrialPrice": product.get("formattedTrialPrice", ""),
+                            "trialPrice": product.get("trialPrice", ""),
+                            "formattedSpecialPrice": product.get("formattedSpecialPrice", ""),
+                            "specialPrice": product.get("specialPrice", ""),
+                            "discountPercentValue": product.get("discountPercentValue", ""),
+                            "hasDiscount": product.get("hasDiscount", ""),
+                            "shippingWeight": product.get("shippingWeight", ""),
+                            "packageQuantity": product.get("packageQuantity", ""),
+                            "dimensions": str(product.get("dimensions")) if product.get("dimensions") else "",
+                            "lastUpdate": product.get("lastUpdate", ""),
+                            "allDescription": product.get("allDescription", ""),
+                            "productImages": "",
+                            "variation": str(product.get("variation")) if product.get("variation") else "",
+                            "serving": str(product.get("serving")) if product.get("serving") else "",
+                            "categories": ','.join(product.get("categories", [])) if product.get("categories") else "",
+                            "supplementFacts": str(product.get("supplementFacts")) if product.get(
+                                "supplementFacts") else ""
+                        }
+
+                        images = product.get("productImages", [])
+                        for img in images:
+                            img_path = str(os.path.join(self.images_folder, img.split('/')[-1]))
+                            csv_row["productImages"] += f"|{img_path}" if len(
+                                csv_row["productImages"]) > 0 else img_path
+                            self._set_image(image=img)
+
+                        # Дописываем пустые значения для всех недостающих полей
+                        for field in self.fieldnames:
+                            if field not in csv_row:
+                                csv_row[field] = ""
+
+                        self._set_row(row=csv_row)
+                    except Exception as e:
+                        self.logger.error(f"Возникла ошибка при парсинге продукта: {e}.")
+
+                self.logger.info(f"Страница {self.current_page} успешно собрана. Кол-во продуктов: {len(products)}.")
+
+                await asyncio.sleep(1)
+
+            await asyncio.create_task(self.download_images())
+            self._write_rows()
+        except Exception as e:
+            self.logger.error(f"Возникла ошибка при парсинге бренда {self.current_brand}: {e}.")
+
+    async def download_images(self):
+        try:
+            if not self.images_enabled:
+                return
+
+            self.logger.debug("Начинаем загрузку картинок.")
+            for image in self.images:
+                filepath = ""
+                try:
+                    response = await self.client.get(image)
+                    if response.status_code == 200:
+                        filename = image.split('/')[-1]
+                        filepath = os.path.join(self.images_folder, filename)
+
+                        with open(filepath, "wb") as file:
+                            file.write(response.content)
+                    else:
+                        self.logger.warning(f"Не удалось загрузить изображение, код: {response.status_code}.")
+                except Exception as e:
+                    self.logger.error(f"Возникла ошибка при скачивании изображения по пути {filepath}: {e}.")
+        except Exception as e:
+            self.logger.error(f"Вознилка ошибка при скачивании изображений: {e}.")
+        finally:
+            self.logger.debug(f"Картинки загружены. Количество скачанных картинок: {len(self.images)}.")
+            self._clear_images()
+
+    async def get_all_brands(self):
+        self.logger.info("Getting all brands...")
+        resp = await self.client.get("https://ru.iherb.com/catalog/brandsaz")
+        soup = BeautifulSoup(resp.text, "html.parser")
+        for element in soup.select("a[data-ga-event-category='Trending Brands']"):
+            if "href" not in element.attrs:
+                continue
+            url = element.get("href")
+            name = element.get_text(strip=True)
+            self.brand_map[name] = url.rpartition("/")[2]
+
+        self.logger.info(f"Brands found: {len(self.brand_map)}")
+
+        with open("data/iherb/brand_map.json", "w", encoding="utf-8") as f:
+            json.dump(self.brand_map, f, ensure_ascii=False, indent=2)
+
+    async def get_brands_for_categories(self):
+        self.logger.info("Getting brands for categories...")
+        for category in self.categories:
+            brand_names = await self.fetch_brand_names(category)
+            brand_ids = []
+            for brand_name in brand_names:
+                brand_id = self.brand_map.get(brand_name)
+                if brand_id is None:
+                    self.logger.error(f"Brand {brand_name} not found in brand map")
+                    continue
+                brand_ids.append(brand_id)
+            category["brands"] = brand_ids
+            time.sleep(1)
+
+        with open("data/iherb/categories.json", "w", encoding="utf-8") as f:
+            json.dump(self.categories, f, ensure_ascii=False, indent=2)
+
+    async def fetch_brand_names(self, category: dict):
+        self.logger.info(
+            f"Get brand names for category {category['name']} -> {category['url']}"
+        )
+        resp = await self.client.post(
+            "https://catalog.app.iherb.com/category/v2/supplements/filters",
+            json={
+                "categoryIds": [category["category_id"]],
+                "healthTopicIds": [],
+                "attributeValueIds": [],
+                "brandCodes": [],
+                "priceRanges": [],
+                "ratings": [],
+                "weights": [],
+                "specials": "",
+                "sort": None,
+                "showShippingSaver": False,
+                "showITested": False,
+                "searchWithinKeyWord": "",
+                "programs": [],
+                "showOnlyAvailable": False,
+            },
+        )
+        json_data = json.loads(resp.text)
+        if "filters" not in json_data:
+            self.logger.error("No filters found")
+            return []
+        brand_names = []
+        for filter_desc in json_data["filters"]:
+            if filter_desc["filterName"] == "Brands":
+                for filter_item in filter_desc["options"]:
+                    brand_names.append(filter_item["displayName"])
+                break
+        return brand_names

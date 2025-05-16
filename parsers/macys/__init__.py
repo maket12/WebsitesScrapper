@@ -470,14 +470,13 @@ class MacysParser:
     async def download_images(self):
         try:
             self.logger.debug("Начинаем загрузку картинок.")
-            base_folder = self.images_folder
             for image in self.images:
                 filepath = ""
                 try:
                     response = await self.client.get(image)
                     if response.status_code == 200:
                         filename = os.path.basename(urlparse(image).path)
-                        filepath = os.path.join(base_folder, filename)
+                        filepath = os.path.join(self.images_folder, filename)
 
                         with open(filepath, "wb") as file:
                             file.write(response.content)
@@ -488,7 +487,7 @@ class MacysParser:
         except Exception as e:
             self.logger.error(f"Возникла ошибка при скачивании изображений: {e}.")
         finally:
-            self.logger.debug(f"Картинки успешно загружены. Количество скачанных картинок: {len(self.images)}.")
+            self.logger.debug(f"Картинки загружены. Количество скачанных картинок: {len(self.images)}.")
             self._clear_images()
 
 

@@ -4,15 +4,19 @@ from services.logs.logging import logger as lg
 
 
 class CsvWorker:
-    def __init__(self, parser_name: str, logger=lg):
+    def __init__(self, parser_name: str, fieldnames: list[str] = None, logger=lg):
         self.parser_name = parser_name
         self.logger = logger
         self.file = self._init_file()
-        self.fieldnames = [
-            'id', 'category', 'name', 'description',
-            'images', 'discounted_price', 'regular_price', 'rating',
-            'color', 'size', 'url'
-        ]
+
+        if fieldnames is None:
+            self.fieldnames = [
+                'id', 'category', 'name', 'description',
+                'images', 'discounted_price', 'regular_price', 'rating',
+                'color', 'size', 'url'
+            ]
+        else:
+            self.fieldnames = fieldnames
 
     def _init_file(self):
         path = os.path.join(
