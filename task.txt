@@ -106,21 +106,21 @@ currencyUsed	        string	Currency code used for the product price.
 countryUsed	          string	Country code representing the product's origin or sale location.
 price	                float	  Actual product price in float format.
 formattedTrialPrice	  string	Formatted price if the product is a trial sample.
-trialPrice	          float	  Actual trial price in float format.
-formattedSpecialPrice	string	Formatted price if the product is on special offer.
-specialPrice	        float	  Actual special offer price in float format.
-discountPercentValue	string	Discount percentage if applicable.
-hasDiscount	          bool	  Indicates if the product has a discount.
-shippingWeight	      float	  The weight of the product used for shipping calculations.
+trialPrice	          float	    Actual trial price in float format.
+formattedSpecialPrice string	Formatted price if the product is on special offer.
+specialPrice	      float	    Actual special offer price in float format.
+discountPercentValue  string	Discount percentage if applicable.
+hasDiscount	          bool	    Indicates if the product has a discount.
+shippingWeight	      float	    The weight of the product used for shipping calculations.
 packageQuantity	      string	Quantity description of the package.
 dimensions	          object	Product's physical dimensions (height, length, width, weight).
 lastUpdate	          string	The last update date and time of the product information.
 allDescription	      string	Full product description text.
-productImages	        List	  List of URLs for the product's images.
-variation	            object	Information about product variations (e.g., flavor, size).
+productImages	      array	    List of URLs for the product's images.
+variation	          object	Information about product variations (e.g., flavor, size).
 serving	              object	Information about serving size and description.
-categories	          List	  List of categories the product belongs to.
-supplementFacts     	object	Detailed supplement facts, including serving size and nutritional information.
+categories	          array	    List of categories the product belongs to.
+supplementFacts       object	Detailed supplement facts, including serving size and nutritional information.
 
 API магазинов
 H&M API  https://portal.api.hmgroup.com/ 

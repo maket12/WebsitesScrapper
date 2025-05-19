@@ -39,40 +39,7 @@ class IHerbParser:
         self.images_folder = None
         self.images = []
 
-        self.fieldnames = [
-            "productId",
-            "brandName",
-            "title",
-            "link",
-            "sku",
-            "formattedPrice",
-            "isSpecial",
-            "isTrial",
-            "hasNewProductFlag",
-            "productCatalogImage",
-            "ratingValue",
-            "reviewCount",
-            "currencyUsed",
-            "countryUsed",
-            "price",
-            "formattedTrialPrice",
-            "trialPrice",
-            "formattedSpecialPrice",
-            "specialPrice",
-            "discountPercentValue",
-            "hasDiscount",
-            "shippingWeight",
-            "packageQuantity",
-            "dimensions",
-            "lastUpdate",
-            "allDescription",
-            "productImages",
-            "variation",
-            "serving",
-            "categories",
-            "supplementFacts"
-        ]
-        self.csv_worker = CsvWorker(parser_name="iherb", fieldnames=self.fieldnames)
+        self.csv_worker = CsvWorker(parser_name="iherb")
         self.logger = logger
 
     async def __aenter__(self):

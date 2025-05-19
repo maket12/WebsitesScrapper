@@ -6,6 +6,7 @@ from config import Config
 from parsers.footlocker import FootlockerParser
 from parsers.hnm import HNMParser
 from parsers.iherb import IHerbParser
+from parsers.asos import AsosParser
 from services.logs.logging import logger
 from services.proxies import ProxyClient
 
@@ -45,5 +46,10 @@ async def iherb_test():
         await a.start()
 
 
+async def asos_test():
+    async with AsosParser() as a:
+        await a.start()
+
+
 if __name__ == "__main__":
-    asyncio.run(iherb_test())
+    asyncio.run(asos_test())

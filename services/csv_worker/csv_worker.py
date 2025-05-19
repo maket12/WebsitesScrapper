@@ -10,11 +10,54 @@ class CsvWorker:
         self.file = self._init_file()
 
         if fieldnames is None:
-            self.fieldnames = [
-                'id', 'category', 'name', 'description',
-                'images', 'discounted_price', 'regular_price', 'rating',
-                'color', 'size', 'url'
-            ]
+            if self.parser_name == "macys":
+                self.fieldnames = [
+                    'id', 'category', 'name', 'description',
+                    'images', 'discounted_price', 'regular_price', 'rating',
+                    'color', 'size', 'url'
+                ]
+            elif self.parser_name == "asos":
+                self.fieldnames = [
+                    'id', 'category', 'name', 'images',
+                    'price', 'color', 'url'
+                ]
+            elif self.parser_name == "iherb":
+                self.fieldnames = [
+                    "productId",
+                    "brandName",
+                    "title",
+                    "link",
+                    "sku",
+                    "formattedPrice",
+                    "isSpecial",
+                    "isTrial",
+                    "hasNewProductFlag",
+                    "productCatalogImage",
+                    "ratingValue",
+                    "reviewCount",
+                    "currencyUsed",
+                    "countryUsed",
+                    "price",
+                    "formattedTrialPrice",
+                    "trialPrice",
+                    "formattedSpecialPrice",
+                    "specialPrice",
+                    "discountPercentValue",
+                    "hasDiscount",
+                    "shippingWeight",
+                    "packageQuantity",
+                    "dimensions",
+                    "lastUpdate",
+                    "allDescription",
+                    "productImages",
+                    "variation",
+                    "serving",
+                    "categories",
+                    "supplementFacts"
+                ]
+            else:
+                self.logger.warning(f"Неизвестное имя парсера: {self.parser_name}.")
+                self.logger.warning(f"Программа не будет работать дальше корректно!")
         else:
             self.fieldnames = fieldnames
 

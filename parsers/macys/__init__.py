@@ -133,7 +133,8 @@ class MacysParser:
 
         self.images_folder_base = "files/macys/images"
         self.images_folder = None
-        self.images = []
+
+        self.tasks = []
 
         self.client = None
 
@@ -158,12 +159,6 @@ class MacysParser:
             self.images_folder = path
         else:
             self.images_folder = self._get_images_folder()
-
-    def _set_image(self, image: str):
-        self.images.append(image)
-
-    def _clear_images(self):
-        self.images = []
 
     async def _get_product_url(self, product_id: int):
         return f"{self.BASE_PRODUCT_URL}{product_id}?clientId=PROS&currencyCode=EUR&_regionCode=DE"
@@ -218,16 +213,13 @@ class MacysParser:
                     )
                     if self.page_limit is None:
                         delay = self._get_random_delay(left=90, right=200)
-
                         self.logger.info(f"Задержка {delay} секунд.")
-
                         await asyncio.sleep(delay)
                     else:
                         delay = self._get_random_delay(left=10, right=30)
-
                         self.logger.info(f"Задержка {delay} секунд.")
-
                         await asyncio.sleep(delay)
+            self.logger.info("Все категории успешно собраны.")
         except Exception as e:
             self.logger.error(f"Возникла ошибка при парсинге: {e}.")
 
@@ -252,7 +244,7 @@ class MacysParser:
 
                 all_products, max_amount = await self.get_all_products(url=url_to_parse)
                 if all_products is None or max_amount is None:
-                    self.logger.error(f"Ошибка загрузки продуктов для {name}, страница {current_page}. Пропускаем категорию.")
+                    self.logger.error(f"Ошибка загрузки продуктов для {name}, страница {current_page}.")
                     current_page += 1
                     continue
 
@@ -281,15 +273,15 @@ class MacysParser:
                         self.logger.info(f"Собрано 90% в категории {name}.")
                         pages_limit = math.ceil(max_amount / 60)
 
-                await asyncio.create_task(self.download_images())
 
                 delay = self._get_random_delay(left=8, right=15)
-
                 self.logger.info(f"Задержка {delay} секунд.")
-
                 await asyncio.sleep(delay)
 
                 current_page += 1
+
+            await asyncio.gather(*self.tasks)
+            self.tasks.clear()
 
             self.logger.info(f"Категория {name} полностью собрана.")
         except Exception as e:
@@ -298,25 +290,39 @@ class MacysParser:
     async def parse_products(self, all_products: list):
         try:
             csv_rows = []
+            images_to_download = []
             for product_id in all_products:
-                if len(csv_rows) % 15 == 0 and csv_rows != 0:
-                    delay = self._get_random_delay(left=6)
-                    self.logger.debug(f"Спарсили 15 продуктов. Перерыв {delay} секунд...")
-                    await asyncio.sleep(delay)
+                try:
+                    if len(csv_rows) % 15 == 0 and csv_rows != 0:
+                        delay = self._get_random_delay(left=6)
+                        self.logger.debug(f"Спарсили 15 продуктов. Перерыв {delay} секунд...")
+                        await asyncio.sleep(delay)
 
-                csv_row = await self.get_product_info(product_id=product_id)
+                    csv_row, images = await self.get_product_info(product_id=product_id)
 
-                if not csv_row:
-                    self.logger.debug(f"Не удалось спарсить товар: {product_id}.")
-                    continue
+                    if not csv_row or not images:
+                        self.logger.debug(f"Не удалось спарсить товар: {product_id}.")
+                        continue
 
-                csv_rows.append(csv_row)
+                    images_to_download.append(images)
+                    csv_rows.append(csv_row)
+                except Exception as e:
+                    self.logger.error(f"Возникла ошибка при получении информации о продукте: {e}.")
+
+            # Запускаем задачи на скачивание
+            for imgs in images_to_download:
+                task = asyncio.create_task(self.download_images(images=imgs))
+                self.tasks.append(task)
 
             self.csv_worker.write_to_table(rows=csv_rows)
+
+            del csv_rows
+            images_to_download.clear()
 
             return True
         except Exception as e:
             self.logger.error(f"Возникла ошибка при парсинге продуктов: {e}.")
+            return False
 
     async def get_all_products(self, url: str):
         try:
@@ -338,11 +344,10 @@ class MacysParser:
 
             return all_products, max_amount
         except Exception as e:
-            self.logger.warning(f"Проблемная ссылка: {url}.")
             self.logger.error(f"Возникла ошибка при получении продуктов: {e}")
             return None, None
 
-    async def get_product_info(self, product_id: int) -> dict | None:
+    async def get_product_info(self, product_id: int):
         try:
             product_url = await self._get_product_url(product_id=product_id)
             response = await self.client.get(url=product_url)
@@ -375,6 +380,7 @@ class MacysParser:
             """""""""""""""""""""
 
             images = []
+            images_to_download = []
 
             imagery = resp_data.get("imagery", {})
             image_list = imagery.get("images", [])
@@ -384,7 +390,7 @@ class MacysParser:
                 file_path = img.get("filePath")
                 if file_path and base_url:
                     url = base_url + file_path
-                    self._set_image(url)
+                    images_to_download.append(url)
                     images.append(file_path.split('/')[-1])
 
             product_info["images"] = '|'.join(images)
@@ -459,18 +465,19 @@ class MacysParser:
             """""""""""""""""""""
 
             try:
-                product_info["url"] = f"https://www.macys.com/{resp_data["identifier"]["productUrl"]}"
+                product_info["url"] = f"https://www.macys.com/{resp_data['identifier']['productUrl']}"
             except (KeyError, TypeError):
                 product_info["url"] = ""
 
-            return product_info
+            return product_info, images_to_download
         except Exception as e:
             self.logger.error(f"Возникла ошибка при получении инфо о товаре: {e}")
+            return None, None
 
-    async def download_images(self):
+    async def download_images(self, images: list):
         try:
             self.logger.debug("Начинаем загрузку картинок.")
-            for image in self.images:
+            for image in images:
                 filepath = ""
                 try:
                     response = await self.client.get(image)
@@ -487,8 +494,7 @@ class MacysParser:
         except Exception as e:
             self.logger.error(f"Возникла ошибка при скачивании изображений: {e}.")
         finally:
-            self.logger.debug(f"Картинки загружены. Количество скачанных картинок: {len(self.images)}.")
-            self._clear_images()
+            self.logger.debug(f"Картинки загружены. Количество скачанных картинок: {len(images)}.")
 
 
 if __name__ == "__main__":
