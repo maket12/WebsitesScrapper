@@ -1,3 +1,4 @@
+import os
 import logging
 import colorlog
 
@@ -31,6 +32,10 @@ class LoggerFactory:
         console_handler = logging.StreamHandler()
         console_handler.setFormatter(color_formatter)
         logger.addHandler(console_handler)
+
+        logdir = os.path.dirname(self.logfile)
+        if logdir:
+            os.makedirs(logdir, exist_ok=True)
 
         file_handler = logging.FileHandler(self.logfile, encoding='utf-8')
         file_handler.setFormatter(file_formatter)

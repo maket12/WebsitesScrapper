@@ -451,7 +451,7 @@ class AsosParser:
 
         self.tasks = []
 
-        self.csv_worker = CsvWorker(parser_name="asos")
+        self.csv_worker = CsvWorker(parser_name="asos", logger=logger)
         if logger is not None:
             self.logger = logger
         else:

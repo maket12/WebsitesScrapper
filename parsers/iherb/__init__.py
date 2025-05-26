@@ -13,7 +13,7 @@ from utils.guess_extension import get_extension_from_mimetype
 
 class IHerbParser:
     def __init__(self, api_key: str, parse_all: bool = False, images_enabled: bool = True,
-                 limit: int = None, offset: int = 0,  logger=None):
+                 limit: int = None, offset: int = 0, logger=None):
         self.api_key = api_key
 
         self.parse_all = parse_all
@@ -43,7 +43,7 @@ class IHerbParser:
         self.images_folder = None
         self.images = []
 
-        self.csv_worker = CsvWorker(parser_name="iherb")
+        self.csv_worker = CsvWorker(parser_name="iherb", logger=logger)
         if logger is not None:
             self.logger = logger
         else:

@@ -141,7 +141,7 @@ class MacysParser:
 
         self.client = proxy_client
 
-        self.csv_worker = CsvWorker(parser_name="macys")
+        self.csv_worker = CsvWorker(parser_name="macys", logger=logger)
         if logger is not None:
             self.logger = logger
         else:

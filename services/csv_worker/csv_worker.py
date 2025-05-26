@@ -1,18 +1,23 @@
 import os
 import csv
-from services.logs.logging import logger as lg
+from services.logs.logging import LoggerFactory
 
 
 class CsvWorker:
-    def __init__(self, parser_name: str, fieldnames: list[str] = None, logger=lg):
+    def __init__(self, parser_name: str, fieldnames: list[str] = None, logger=None):
         self.parser_name = parser_name
-        self.logger = logger
+
+        if logger is None:
+            self.logger = LoggerFactory(logfile="csv.log", logger_name="csv-worker").get_logger()
+        else:
+            self.logger = logger
+
         self.file = self._init_file()
 
         if fieldnames is None:
             if self.parser_name == "macys":
                 self.fieldnames = [
-                    'id', 'category', 'name', 'description', 'features'
+                    'id', 'category', 'name', 'description', 'features',
                     'images', 'discounted_price', 'regular_price', 'rating',
                     'color', 'size', 'url'
                 ]

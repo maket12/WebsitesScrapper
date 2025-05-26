@@ -93,6 +93,8 @@ class ProxyClient:
         while True:
             try:
                 proxy = self.get_random_proxy()
+                if proxy is None:
+                    continue
                 await self.refresh_proxy(proxy)
                 await asyncio.sleep(self.refresh_timeout)
             except asyncio.CancelledError:
