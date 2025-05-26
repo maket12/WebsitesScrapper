@@ -4,8 +4,10 @@ import random
 import asyncio
 from curl_cffi import AsyncSession
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
-from services.logs.logging import logger as lg
+from services.proxies import ProxyClient
+from services.logs.logging import LoggerFactory
 from services.csv_worker.csv_worker import CsvWorker
+from utils.guess_extension import get_extension_from_mimetype
 
 default_categories = {
     "mens-clothing": [
@@ -118,7 +120,8 @@ default_categories = {
 
 
 class MacysParser:
-    def __init__(self, categories=None, page_limit: int = None, start_page: int = 1, logger=lg):
+    def __init__(self, proxy_client: ProxyClient, categories=None, page_limit: int | None = None,
+                 start_page: int = 1, logger=None):
         if categories is None:
             categories = default_categories
 
@@ -136,17 +139,13 @@ class MacysParser:
 
         self.tasks = []
 
-        self.client = None
+        self.client = proxy_client
 
         self.csv_worker = CsvWorker(parser_name="macys")
-        self.logger = logger
-
-    async def __aenter__(self):
-        self.client = AsyncSession(impersonate="chrome")
-        return self
-
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
-        await self.client.close()
+        if logger is not None:
+            self.logger = logger
+        else:
+            self.logger = LoggerFactory(logfile="macys.log", logger_name="macys").get_logger()
 
     def _set_current_category(self, category: str):
         self.current_category = category
@@ -199,26 +198,23 @@ class MacysParser:
 
     async def start(self):
         try:
+            category_tasks = []
             self.csv_worker.create_table()
-            for global_category in self.categories.items():
-                for category_obj in global_category[1]:
+            for global_categories in self.categories.values():
+                for category_obj in global_categories:
                     category = category_obj['name']
 
                     self._set_current_category(category=category)
 
                     self.logger.info(f"Начинаем парсить категорию {category}.")
 
-                    await self.parse_category(
-                        name=category, base_url=category_obj['url']
+                    task = asyncio.create_task(
+                        self.parse_category(name=category, base_url=category_obj['url'])
                     )
-                    if self.page_limit is None:
-                        delay = self._get_random_delay(left=90, right=200)
-                        self.logger.info(f"Задержка {delay} секунд.")
-                        await asyncio.sleep(delay)
-                    else:
-                        delay = self._get_random_delay(left=10, right=30)
-                        self.logger.info(f"Задержка {delay} секунд.")
-                        await asyncio.sleep(delay)
+                    category_tasks.append(task)
+
+                    if self.client.iter_proxy():
+                        await asyncio.gather(*category_tasks)
             self.logger.info("Все категории успешно собраны.")
         except Exception as e:
             self.logger.error(f"Возникла ошибка при парсинге: {e}.")
@@ -228,60 +224,45 @@ class MacysParser:
             url_to_parse = base_url
 
             pages_limit = 0  # default
-            current_page = self.start_page
-            while current_page <= pages_limit or pages_limit == 0:
+            self._set_current_page(page=self.start_page)
+            while self.current_page <= pages_limit or pages_limit == 0:
                 if self.page_limit:
-                    if current_page > self.page_limit:
+                    if self.current_page > self.page_limit:
                         break
 
-                if current_page != self.start_page:
+                if self.current_page != self.start_page:
                     url_to_parse = await self._get_pagination(current_url=url_to_parse)
 
-                self._set_current_page(page=current_page)
+                self._set_current_page(page=self.current_page)
                 self._set_images_folder()
 
-                self.logger.debug(f"Парсим {current_page} страницу.")
+                self.logger.debug(f"Парсим {self.current_page} страницу.")
 
                 all_products, max_amount = await self.get_all_products(url=url_to_parse)
                 if all_products is None or max_amount is None:
-                    self.logger.error(f"Ошибка загрузки продуктов для {name}, страница {current_page}.")
-                    current_page += 1
+                    self.logger.error(f"Ошибка загрузки продуктов для {name}, страница {self.current_page}.")
+                    self._set_current_page(self.current_page + 1)
                     continue
 
                 res = await self.parse_products(all_products=all_products)
                 if not res:
-                    self.logger.critical(f"Не удалось корректно собрать {current_page} страницу.")
+                    self.logger.critical(f"Не удалось корректно собрать {self.current_page} страницу.")
 
                 if pages_limit > 0:
-                    if round(current_page / pages_limit, 1) == 0.1:
-                        self.logger.info(f"Собрано 10% в категории {name}.")
+                    difference = round(self.current_page / pages_limit)
+                    if self._get_random_delay(left=1, right=10) > 5:
+                        self.logger.info(f"Собрано {difference}% в категории {name}.")
                         pages_limit = math.ceil(max_amount / 60)
 
-                    elif round(current_page / pages_limit, 2) == 0.25:
-                        self.logger.info(f"Собрано 25% в категории {name}.")
-                        pages_limit = math.ceil(max_amount / 60)
+                self._set_current_page(self.current_page + 1)
 
-                    elif round(current_page / pages_limit, 1) == 0.5:
-                        self.logger.info(f"Собрано 50% в категории {name}.")
-                        pages_limit = math.ceil(max_amount / 60)
-
-                    elif round(current_page / pages_limit, 2) == 0.75:
-                        self.logger.info(f"Собрано 75% в категории {name}.")
-                        pages_limit = math.ceil(max_amount / 60)
-
-                    elif round(current_page / pages_limit, 1) == 0.9:
-                        self.logger.info(f"Собрано 90% в категории {name}.")
-                        pages_limit = math.ceil(max_amount / 60)
-
-
-                delay = self._get_random_delay(left=8, right=15)
-                self.logger.info(f"Задержка {delay} секунд.")
-                await asyncio.sleep(delay)
-
-                current_page += 1
+                # delay = self._get_random_delay(left=8, right=15)
+                # self.logger.info(f"Задержка {delay} секунд.")
+                # await asyncio.sleep(delay)
 
             await asyncio.gather(*self.tasks)
             self.tasks.clear()
+            self.logger.debug(f"Картинки успешно загружены.")
 
             self.logger.info(f"Категория {name} полностью собрана.")
         except Exception as e:
@@ -294,7 +275,7 @@ class MacysParser:
             for product_id in all_products:
                 try:
                     if len(csv_rows) % 15 == 0 and csv_rows != 0:
-                        delay = self._get_random_delay(left=6)
+                        delay = self._get_random_delay(left=5)
                         self.logger.debug(f"Спарсили 15 продуктов. Перерыв {delay} секунд...")
                         await asyncio.sleep(delay)
 
@@ -309,7 +290,6 @@ class MacysParser:
                 except Exception as e:
                     self.logger.error(f"Возникла ошибка при получении информации о продукте: {e}.")
 
-            # Запускаем задачи на скачивание
             for imgs in images_to_download:
                 task = asyncio.create_task(self.download_images(images=imgs))
                 self.tasks.append(task)
@@ -372,7 +352,8 @@ class MacysParser:
                 "id": resp_data["id"],
                 "category": resp_data["identifier"].get("topLevelCategoryName", ""),
                 "name": details["name"],
-                "description": details["description"]
+                "description": details["description"],
+                "features": details.get("bulletText", None)
             }
 
             """""""""""""""""""""
@@ -411,7 +392,6 @@ class MacysParser:
                 )
 
                 for price_item in tiered_price:
-                    # values всегда список (иногда из одного элемента)
                     for value in price_item.get("values", []):
                         value_type = value.get("type", "").lower()
                         if value_type == "regular":
@@ -444,7 +424,7 @@ class MacysParser:
                 product_info["color"] = ""
 
             """""""""""""""""""""
-            ""   Extract sizes ""
+            ""  Extract sizes  ""
             """""""""""""""""""""
 
             try:
@@ -465,7 +445,7 @@ class MacysParser:
             """""""""""""""""""""
 
             try:
-                product_info["url"] = f"https://www.macys.com/{resp_data['identifier']['productUrl']}"
+                product_info["url"] = f"https://www.macys.com{resp_data['identifier']['productUrl']}"
             except (KeyError, TypeError):
                 product_info["url"] = ""
 
@@ -476,29 +456,23 @@ class MacysParser:
 
     async def download_images(self, images: list):
         try:
-            self.logger.debug("Начинаем загрузку картинок.")
-            for image in images:
-                filepath = ""
-                try:
-                    response = await self.client.get(image)
-                    if response.status_code == 200:
-                        filename = os.path.basename(urlparse(image).path)
-                        filepath = os.path.join(self.images_folder, filename)
+            async with AsyncSession(impersonate="chrome") as client:
+                for image in images:
+                    filepath = ""
+                    try:
+                        response = await client.get(image)
+                        if response.status_code == 200:
+                            filename = image.split('/')[-1]
+                            filename = filename.split('.')[0]
 
-                        with open(filepath, "wb") as file:
-                            file.write(response.content)
-                    else:
-                        self.logger.warning(f"Не удалось загрузить изображение, код: {response.status_code}.")
-                except Exception as e:
-                    self.logger.error(f"Возникла ошибка при скачивании изображения по пути {filepath}: {e}.")
+                            ext = get_extension_from_mimetype(response)
+                            filepath = os.path.join(self.images_folder, filename + ext)
+
+                            with open(filepath, "wb") as file:
+                                file.write(response.content)
+                        else:
+                            self.logger.warning(f"Не удалось загрузить изображение, код: {response.status_code}.")
+                    except Exception as e:
+                        self.logger.error(f"Возникла ошибка при скачивании изображения по пути {filepath}: {e}.")
         except Exception as e:
             self.logger.error(f"Возникла ошибка при скачивании изображений: {e}.")
-        finally:
-            self.logger.debug(f"Картинки загружены. Количество скачанных картинок: {len(images)}.")
-
-
-if __name__ == "__main__":
-    async def main():
-        async with MacysParser(page_limit=4, start_page=2) as a:
-            await a.start()
-    asyncio.run(main())

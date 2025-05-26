@@ -1,23 +1,25 @@
 import os
 import random
 import asyncio
+from bs4 import BeautifulSoup
 from curl_cffi import AsyncSession
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
-from services.logs.logging import logger as lg
+from utils.guess_extension import get_extension_from_mimetype
+from services.logs.logging import LoggerFactory
 from services.csv_worker.csv_worker import CsvWorker
-
+from services.proxies import ProxyClient
 
 default_categories = {
     "men": [
-        # {
-        #     "name": "t-shirts-vests",
-        #     "id": 7616,
-        #     "url": "https://www.asos.com/api/product/search/v2/categories/7616?offset=0&includeNonPurchasableTypes"
-        #            "=restocking&store=COM&lang=en-GB&currency=GBP&rowlength=4&channel=desktop-web&country=GB"
-        #            "&customerLoyaltyTier=null&keyStoreDataversion=4i7nlxk-44&advertisementsPartnerId=100712"
-        #            "&advertisementsVisitorId=b7b32dff-e94c-4786-a755-d57c9b820cf4&advertisementsOptInConsent=true"
-        #            "&limit=200"
-        # },
+        {
+            "name": "t-shirts-vests",
+            "id": 7616,
+            "url": "https://www.asos.com/api/product/search/v2/categories/7616?offset=0&includeNonPurchasableTypes"
+                   "=restocking&store=COM&lang=en-GB&currency=GBP&rowlength=4&channel=desktop-web&country=GB"
+                   "&customerLoyaltyTier=null&keyStoreDataversion=4i7nlxk-44&advertisementsPartnerId=100712"
+                   "&advertisementsVisitorId=b7b32dff-e94c-4786-a755-d57c9b820cf4&advertisementsOptInConsent=true"
+                   "&limit=200"
+        },
         {
             "name": "hoodies-sweatshirts",
             "id": 5668,
@@ -430,7 +432,7 @@ default_categories = {
 
 
 class AsosParser:
-    def __init__(self, categories=None, logger=lg):
+    def __init__(self, proxy_client: ProxyClient, categories=None, logger=None):
         if categories is None:
             categories = default_categories
 
@@ -445,19 +447,15 @@ class AsosParser:
         self.images_folder_base = "files/asos/images"
         self.images_folder = None
 
-        self.client = None
+        self.client = proxy_client
 
         self.tasks = []
 
-        self.logger = logger
         self.csv_worker = CsvWorker(parser_name="asos")
-
-    async def __aenter__(self):
-        self.client = AsyncSession(impersonate="chrome")
-        return self
-
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
-        await self.client.close()
+        if logger is not None:
+            self.logger = logger
+        else:
+            self.logger = LoggerFactory(logfile="asos.log", logger_name="asos").get_logger()
 
     def _set_current_category(self, category: str):
         self.current_category = category
@@ -513,6 +511,7 @@ class AsosParser:
 
     async def start(self):
         try:
+            category_tasks = []
             self.csv_worker.create_table()
             for global_categories in self.categories.values():
                 for category_obj in global_categories:
@@ -522,11 +521,17 @@ class AsosParser:
 
                     self.logger.info(f"Начинаем парсить категорию {category}.")
 
-                    await self.parse_category(name=category, base_url=category_obj['url'])
+                    task = asyncio.create_task(
+                        self.parse_category(name=category, base_url=category_obj['url'])
+                    )
+                    category_tasks.append(task)
 
-                    delay = self._get_random_delay(left=30, right=40)
-                    self.logger.info(f"Задержка {delay} секунд.")
-                    await asyncio.sleep(delay)
+                    if self.client.iter_proxy():
+                        await asyncio.gather(*category_tasks)
+
+                    # delay = self._get_random_delay(left=30, right=40)
+                    # self.logger.info(f"Задержка {delay} секунд.")
+                    # await asyncio.sleep(delay)
             self.logger.info("Все категории успешно собраны.")
         except Exception as e:
             self.logger.error(f"Возникла ошибка при парсинге: {e}.")
@@ -548,24 +553,17 @@ class AsosParser:
 
                 self._set_products_limit(limit=max_amount)
 
-                difference = self.current_offset / self.products_limit * 100
+                difference = round(self.current_offset / self.products_limit * 100)
 
-                if round(difference, 1) == 0.1:
-                    self.logger.info(f"Собрано 10% в категории {name}.")
-                elif round(difference, 2) == 0.25:
-                    self.logger.info(f"Собрано 25% в категории {name}.")
-                elif round(difference, 1) == 0.5:
-                    self.logger.info(f"Собрано 50% в категории {name}.")
-                elif round(difference, 2) == 0.75:
-                    self.logger.info(f"Собрано 75% в категории {name}.")
-                elif round(difference, 1) == 0.9:
-                    self.logger.info(f"Собрано 90% в категории {name}.")
+                if self._get_random_delay(left=1, right=10) > 5:
+                    self.logger.info(f"Собрано {difference}% в категории {name}.")
 
                 delay = self._get_random_delay(left=6, right=10)
                 self.logger.info(f"Задержка {delay} секунд.")
                 await asyncio.sleep(delay)
 
             self.current_offset = 0
+            self._set_products_limit(0)
 
             await asyncio.gather(*self.tasks)
             self.tasks.clear()
@@ -580,11 +578,16 @@ class AsosParser:
             images_to_download = []
             for product in products:
                 try:
+                    if len(csv_rows) > 5:
+                        break
                     csv_row, images = await self.get_product_info(product=product, category=category)
 
                     if not csv_row or not images:
                         self.logger.warning(f"Не удалось спарсить товар: {product['id']}")
                         continue
+
+                    delay = self._get_random_delay(left=2, right=3)
+                    await asyncio.sleep(delay)
 
                     images_to_download.append(images)
                     csv_rows.append(csv_row)
@@ -635,7 +638,8 @@ class AsosParser:
             product_info = {
                 "id": product["id"],
                 "category": category,
-                "name": product["name"]
+                "name": product["name"],
+                "brand": product["brandName"]
             }
 
             """""""""""""""""""""
@@ -683,6 +687,56 @@ class AsosParser:
 
             product_info["url"] = self._get_product_url(sub_url=product["url"])
 
+            response = (await self.client.get(product_info["url"])).text
+            soup = BeautifulSoup(response, "html.parser")
+
+            """""""""""""""""""""
+            ""  Extract sizes  ""
+            """""""""""""""""""""
+
+            select_tag = soup.find("select", id="variantSelector")
+            sizes = []
+
+            if select_tag:
+                for option in select_tag.find_all("option")[1:]:  # skip "Please select"
+                    sizes.append(option.get_text(strip=True))
+
+            product_info["size"] = '|'.join(sizes)
+
+            """""""""""""""""""""
+            ""  Extract desc   ""
+            """""""""""""""""""""
+
+            description_block = soup.find("div", id="productDescriptionDetails")
+            items = []
+
+            if description_block:
+                for item in description_block.find_all("li"):
+                    items.append(item.get_text(strip=True))
+
+            product_info["description"] = '\n'.join(items)
+
+            items.clear()
+
+            size_fit_block = soup.find("div", id="productDescriptionSizeAndFit")
+            if size_fit_block:
+                fit_info = size_fit_block.find("div", class_="F_yfF")
+                if fit_info:
+                    items.append(fit_info.decode_contents().replace("<br>", "\n"))
+
+            product_info["description"] += '\n' + ''.join(items)
+
+            """""""""""""""""""""
+            ""  Extract promo  ""
+            """""""""""""""""""""
+
+            promo_box = soup.find("div", attrs={"data-testid": "promo-message-box"})
+            if promo_box:
+                text = [p.get_text(strip=True) for p in promo_box.find_all("p")]
+                product_info["promo"] = '\n'.join(text)
+            else:
+                product_info["promo"] = ""
+
             return product_info, images_for_downloading
         except Exception as e:
             self.logger.error(f"Возникла ошибка при получении информации о продукте: {e}.")
@@ -690,19 +744,23 @@ class AsosParser:
 
     async def download_images(self, images: list):
         try:
-            for image in images:
-                filepath = ""
-                try:
-                    response = await self.client.get(image)
-                    if response.status_code == 200:
-                        filename = os.path.basename(urlparse(image).path)
-                        filepath = os.path.join(self.images_folder, filename)
+            async with AsyncSession(impersonate="chrome") as client:
+                for image in images:
+                    filepath = ""
+                    try:
+                        response = await client.get(image)
+                        if response.status_code == 200:
+                            filename = image.split('/')[-1]
+                            filename = filename.split('.')[0]
 
-                        with open(f"{filepath}.avif", "wb") as file:
-                            file.write(response.content)
-                    else:
-                        self.logger.warning(f"Не удалось загрузить изображение, код: {response.status_code}.")
-                except Exception as e:
-                    self.logger.error(f"Возникла ошибка при скачивании изображения по пути {filepath}: {e}.")
+                            ext = get_extension_from_mimetype(response)
+                            filepath = os.path.join(self.images_folder, filename + ext)
+
+                            with open(filepath, "wb") as file:
+                                file.write(response.content)
+                        else:
+                            self.logger.warning(f"Не удалось загрузить изображение, код: {response.status_code}.")
+                    except Exception as e:
+                        self.logger.error(f"Возникла ошибка при скачивании изображения по пути {filepath}: {e}.")
         except Exception as e:
             self.logger.error(f"Возникла ошибка при скачивании изображений: {e}.")

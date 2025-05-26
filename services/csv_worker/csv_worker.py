@@ -12,14 +12,14 @@ class CsvWorker:
         if fieldnames is None:
             if self.parser_name == "macys":
                 self.fieldnames = [
-                    'id', 'category', 'name', 'description',
+                    'id', 'category', 'name', 'description', 'features'
                     'images', 'discounted_price', 'regular_price', 'rating',
                     'color', 'size', 'url'
                 ]
             elif self.parser_name == "asos":
                 self.fieldnames = [
-                    'id', 'category', 'name', 'images',
-                    'price', 'color', 'url'
+                    'id', 'category', 'name', 'description', 'promo',
+                    'brand', 'images', 'price', 'color', 'size', 'url'
                 ]
             elif self.parser_name == "iherb":
                 self.fieldnames = [

@@ -1,4 +1,5 @@
 import asyncio
+import random
 import json
 import time
 import os
@@ -6,16 +7,19 @@ from curl_cffi import AsyncSession
 from bs4 import BeautifulSoup
 from parsers.iherb.data import CATEGORIES
 from services.csv_worker.csv_worker import CsvWorker
-from services.logs.logging import logger as lg
+from services.logs.logging import LoggerFactory
+from utils.guess_extension import get_extension_from_mimetype
 
 
 class IHerbParser:
-    def __init__(self, api_key: str, parse_all: bool = False, images_enabled: bool = True, brands_limit: int = None, logger=lg):
+    def __init__(self, api_key: str, parse_all: bool = False, images_enabled: bool = True,
+                 limit: int = None, offset: int = 0,  logger=None):
         self.api_key = api_key
 
         self.parse_all = parse_all
         self.images_enabled = images_enabled
-        self.brands_limit = brands_limit
+        self.limit = limit
+        self.offset = offset
 
         self.brand_map = {}
         self.categories = CATEGORIES  # {name, url, category_id, brands}
@@ -40,7 +44,10 @@ class IHerbParser:
         self.images = []
 
         self.csv_worker = CsvWorker(parser_name="iherb")
-        self.logger = logger
+        if logger is not None:
+            self.logger = logger
+        else:
+            self.logger = LoggerFactory(logfile="iherb.log", logger_name="iherb").get_logger()
 
     async def __aenter__(self):
         self.client = AsyncSession(impersonate="chrome")
@@ -55,7 +62,7 @@ class IHerbParser:
     def _set_current_page(self, page: int):
         self.current_page = page
 
-    def _set_total_pages(self, amount: int):
+    def _set_total_pages(self, amount: int | None):
         self.total_pages = amount
 
     def _set_api_url(self):
@@ -93,16 +100,16 @@ class IHerbParser:
 
     async def _load_data(self):
         try:
-            if not os.path.exists("data/iherb/brand_map.json") or self.parse_all:
+            if not os.path.exists("files/iherb/brand_map.json") or self.parse_all:
                 await self.get_all_brands()
             else:
-                with open("data/iherb/brand_map.json", "r", encoding="utf-8") as f:
+                with open("files/iherb/brand_map.json", "r", encoding="utf-8") as f:
                     self.brand_map = json.load(f)
 
-            if not os.path.exists("data/iherb/categories.json") or self.parse_all:
+            if not os.path.exists("files/iherb/categories.json") or self.parse_all:
                 await self.get_brands_for_categories()
             else:
-                with open("data/iherb/categories.json", "r", encoding="utf-8") as f:
+                with open("files/iherb/categories.json", "r", encoding="utf-8") as f:
                     self.categories = json.load(f)
         except Exception as e:
             self.logger.error(f"Возникла ошибка при загрузке начальных данных: {e}.")
@@ -115,35 +122,26 @@ class IHerbParser:
 
             await self._load_data()
 
-            brands = self.brand_map.values()
+            brands = list(self.brand_map.values())[self.offset:]
             brands_len = len(brands)
             for brand in brands:
-                if self.brands_limit is not None:
-                    if c == self.brands_limit:
+                if self.limit is not None:
+                    if c == self.limit:
                         break
 
                 self.logger.debug(f"Начинаем парсить бренд {brand}.")
 
                 self._set_current_brand(brand=brand)
                 await self.parse_brand()
+                self._set_total_pages(amount=None)
+                self._set_current_page(page=1)
 
                 self.logger.debug(f"Бренд {brand} полностью спарсен.")
 
                 c += 1
-                if round((c / brands_len) * 100, 1) == 10:
-                    self.logger.info(f"Собрано 10% брендов.")
-
-                elif round((c / brands_len) * 100, 2) == 25:
-                    self.logger.info(f"Собрано 25% брендов.")
-
-                elif round((c / brands_len) * 100, 1) == 50:
-                    self.logger.info(f"Собрано 50% брендов.")
-
-                elif round((c / brands_len) * 100, 2) == 75:
-                    self.logger.info(f"Собрано 75% брендов.")
-
-                elif round((c / brands_len) * 100, 1) == 90:
-                    self.logger.info(f"Собрано 90% брендов.")
+                difference = round((c / brands_len) * 100)
+                if random.randint(1, 10) > 5:
+                    self.logger.info(f"Собрано {difference}% брендов.")
 
             self.logger.debug("Все бренды успешно собраны.")
             self.logger.info("Парсер завершает свою работу...")
@@ -164,11 +162,18 @@ class IHerbParser:
                 )
 
                 if response.status_code != 200:
-                    await asyncio.create_task(self.download_images())
+                    await self.download_images()
                     self._write_rows()
+                    if response.status_code == 400:
+                        self.logger.warning(f"Бренд {self.current_brand} не найден.")
+                        break
                     if response.status_code == 429:
-                        self.logger.warning(f"Словили флуд: {response.text}. Пауза - сутки.")
-                        await asyncio.sleep(86400)
+                        if "rate limit per minute" in response.text:
+                            self.logger.warning(f"Словили флуд: {response.text}. Пауза - минута.")
+                            await asyncio.sleep(61)
+                        else:
+                            self.logger.warning(f"Словили флуд: {response.text}. Пауза - сутки.")
+                            await asyncio.sleep(86400)
                     else:
                         self.logger.warning(f"Не смогли получить данные по бренду {self.current_brand}. Код: {response.status_code}.")
                     continue
@@ -180,7 +185,7 @@ class IHerbParser:
                 self._set_total_pages(resp_data["totalPages"])
 
                 if not isinstance(products, list):
-                    await asyncio.create_task(self.download_images())
+                    await self.download_images()
                     self._write_rows()
                     self.logger.warning("Не смогли получить продукты.")
                     return
@@ -229,8 +234,7 @@ class IHerbParser:
                                 csv_row["productImages"]) > 0 else img_path
                             self._set_image(image=img)
 
-                        # Дописываем пустые значения для всех недостающих полей
-                        for field in self.fieldnames:
+                        for field in self.csv_worker.fieldnames:
                             if field not in csv_row:
                                 csv_row[field] = ""
 
@@ -240,9 +244,9 @@ class IHerbParser:
 
                 self.logger.info(f"Страница {self.current_page} успешно собрана. Кол-во продуктов: {len(products)}.")
 
-                await asyncio.sleep(1)
+                await asyncio.sleep(0.7)
 
-            await asyncio.create_task(self.download_images())
+            await self.download_images()
             self._write_rows()
         except Exception as e:
             self.logger.error(f"Возникла ошибка при парсинге бренда {self.current_brand}: {e}.")
@@ -259,7 +263,10 @@ class IHerbParser:
                     response = await self.client.get(image)
                     if response.status_code == 200:
                         filename = image.split('/')[-1]
-                        filepath = os.path.join(self.images_folder, filename)
+                        filename = filename.split('.')[0]
+
+                        ext = get_extension_from_mimetype(response)
+                        filepath = os.path.join(self.images_folder, filename + ext)
 
                         with open(filepath, "wb") as file:
                             file.write(response.content)

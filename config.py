@@ -1,5 +1,5 @@
 
-PROXY_REFRESH_INTERVAL = 20 # seconds
+PROXY_REFRESH_INTERVAL = 20  # seconds
 
 class Config:
   def __init__(self, is_full_parse=False, reset_state=False):
