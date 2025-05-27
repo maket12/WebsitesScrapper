@@ -20,7 +20,7 @@ class FootlockerParser(Parser):
     self.images_queue = self.get_state("images_queue", [])
     self.categories_done = False
 
-  async def parse(self):
+  async def start(self):
     if not self.get_state("category_queries_done", False):
       self.logger.info("Scraping category queries...")
       for category in CATEGORIES:
@@ -48,6 +48,7 @@ class FootlockerParser(Parser):
     self.categories_done = True
     await worker_task
     await images_task
+    await self.wait_for_image_tasks()
     self.logger.info("Scraping completed.")
 
   async def product_queue_worker(self):
@@ -377,9 +378,13 @@ class FootlockerParser(Parser):
   async def scrap_product_images(self, sku):
     images = await self.get_product_images(sku)
     if images:
+      image_dict = {}
+      image_folder = self.get_images_folder(sku)
       for i, image_url in enumerate(images):
-        image_id = f"{i + 1}"
-        self.set_product_image(sku, image_id, image_url)
+        image_path = f"{image_folder}/{i + 1}"
+        image_dict[image_path] = image_url
+
+      self.track_image_task(image_dict)
       return True
 
     return False

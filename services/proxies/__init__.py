@@ -56,7 +56,7 @@ class ProxyClient:
             self.logger.info(f"ID: {proxy['id']} - {proxy['name']} = {proxy['template']}")
 
         if not self.only_proxy:
-            self.proxies.insert(0, None)
+            self.proxies.insert(0, {"template": None})
 
         self.refresh_worker = asyncio.create_task(self.proxy_refresh_worker())
         return True
@@ -93,7 +93,7 @@ class ProxyClient:
         while True:
             try:
                 proxy = self.get_random_proxy()
-                if proxy is None:
+                if proxy is None or not proxy.get("id"):
                     continue
                 await self.refresh_proxy(proxy)
                 await asyncio.sleep(self.refresh_timeout)
@@ -126,7 +126,7 @@ class ProxyClient:
                 proxy = self.get_random_proxy()["template"]
             else:
                 if self.proxies:
-                    proxy = self.proxies[self.current_proxy_ind]
+                    proxy = self.proxies[self.current_proxy_ind]["template"]
                 else:
                     proxy = None
             async with AsyncSession(impersonate="chrome") as session:

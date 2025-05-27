@@ -1,6 +1,6 @@
 import asyncio
 import atexit
-from config import Config
+from config import Config, AUTOSAVE_INTERVAL
 from parsers.footlocker import FootlockerParser
 from parsers.hnm import HNMParser
 from parsers.iherb import IHerbParser
@@ -115,28 +115,69 @@ async def init_hnm():
     except Exception as e:
         main_logger.error(f"Возникла ошибка при инициализации H&M: {e}.")
 
+async def init_footlocker():
+    try:
+        proxies_api_key = get_asocks_key()
+        if not proxies_api_key:
+            main_logger.critical("API-ключ для Asocks не передан.")
+            return
+
+        client = ProxyClient(
+            api_key=proxies_api_key,
+            randomization=True,
+            only_proxy=False,
+            logger=main_logger
+        )
+        if not await client.load():
+            main_logger.critical("Не удалось загрузить прокси, выход...")
+            return
+
+        logger = LoggerFactory(
+            logfile="files/footlocker/footlocker.log",
+            logger_name="footlocker"
+        ).get_logger()
+        config = Config(is_full_parse=True, reset_state=False)
+        parser = FootlockerParser(client=client, config=config, logger=logger)
+
+        return parser
+    except Exception as e:
+        main_logger.error(f"Возникла ошибка при инициализации Footlocker: {e}.")
+
 
 async def main():
-    macys = await init_macys()
-    await macys.start()
-    # hnm = await init_hnm()
-    # await hnm.start()
+    # macys = await init_macys()
+    # await macys.start()
+    hnm = await init_hnm()
+    if not hnm:
+        return
+    footlocker = await init_footlocker()
+    if not footlocker:
+        return
+    parsers = [footlocker]
 
-    # config = Config(is_full_parse=True, reset_state=False)
-    # hnm = HNMParser(client, logger, config)
-    # footlocker = FootlockerParser(client, logger, config)
-    #
+    async def autosave_task():
+        while True:
+            try:
+                await asyncio.sleep(AUTOSAVE_INTERVAL)
+                main_logger.info("Автосохранение...")
+                for parser in parsers:
+                    parser.save_all()
+            except asyncio.CancelledError:
+                return
+            except Exception as e:
+                main_logger.error(f"Ошибка при автосохранении: {e}")
+    
     def on_exit():
-        main_logger.info("Saving everything...")
-        hnm.save_all()
-        # footlocker.save_all()
+        main_logger.info("Сохраняю данные...")
+        for parser in parsers:
+            parser.save_all()
 
     atexit.register(on_exit)
-    #
-    # scrap_tasks = [footlocker.parse()]
-    #
-    # await asyncio.gather(*scrap_tasks)
-    # await client.shutdown()
+    
+    asyncio.create_task(autosave_task())
+    
+    tasks = [parser.start() for parser in parsers]
+    await asyncio.gather(*tasks)
 
 
 # async def iherb_test():
