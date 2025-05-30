@@ -223,38 +223,39 @@ class MacysParser:
         try:
             url_to_parse = base_url
 
+            current_page = 0
             pages_limit = 0  # default
             self._set_current_page(page=self.start_page)
-            while self.current_page <= pages_limit or pages_limit == 0:
+            while current_page <= pages_limit or pages_limit == 0:
                 if self.page_limit:
-                    if self.current_page > self.page_limit:
+                    if current_page > self.page_limit:
                         break
 
-                if self.current_page != self.start_page:
+                if current_page != self.start_page:
                     url_to_parse = await self._get_pagination(current_url=url_to_parse)
 
-                self._set_current_page(page=self.current_page)
+                self._set_current_page(page=current_page)
                 self._set_images_folder()
 
-                self.logger.debug(f"Парсим {self.current_page} страницу.")
+                self.logger.debug(f"Парсим {current_page} страницу.")
 
                 all_products, max_amount = await self.get_all_products(url=url_to_parse)
                 if all_products is None or max_amount is None:
-                    self.logger.error(f"Ошибка загрузки продуктов для {name}, страница {self.current_page}.")
-                    self._set_current_page(self.current_page + 1)
+                    self.logger.error(f"Ошибка загрузки продуктов для {name}, страница {current_page}.")
+                    current_page += 1
                     continue
 
                 res = await self.parse_products(all_products=all_products)
                 if not res:
-                    self.logger.critical(f"Не удалось корректно собрать {self.current_page} страницу.")
+                    self.logger.critical(f"Не удалось корректно собрать {current_page} страницу.")
 
                 if pages_limit > 0:
-                    difference = round(self.current_page / pages_limit)
+                    difference = round(current_page / pages_limit)
                     if self._get_random_delay(left=1, right=10) > 5:
                         self.logger.info(f"Собрано {difference}% в категории {name}.")
                         pages_limit = math.ceil(max_amount / 60)
 
-                self._set_current_page(self.current_page + 1)
+                current_page += 1
 
                 # delay = self._get_random_delay(left=8, right=15)
                 # self.logger.info(f"Задержка {delay} секунд.")

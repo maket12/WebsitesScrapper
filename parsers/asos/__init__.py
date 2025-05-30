@@ -451,7 +451,7 @@ class AsosParser:
 
         self.tasks = []
 
-        self.csv_worker = CsvWorker(parser_name="asos", logger=logger)
+        self.csv_worker = CsvWorker(parser_name="asos")
         if logger is not None:
             self.logger = logger
         else:
@@ -521,7 +521,7 @@ class AsosParser:
 
                     self.logger.info(f"Начинаем парсить категорию {category}.")
 
-                    task = asyncio.create_task(
+                    task = await asyncio.create_task(
                         self.parse_category(name=category, base_url=category_obj['url'])
                     )
                     category_tasks.append(task)
@@ -553,7 +553,7 @@ class AsosParser:
 
                 self._set_products_limit(limit=max_amount)
 
-                difference = round(self.current_offset / self.products_limit * 100)
+                difference = self.current_offset / self.products_limit * 100
 
                 if self._get_random_delay(left=1, right=10) > 5:
                     self.logger.info(f"Собрано {difference}% в категории {name}.")
