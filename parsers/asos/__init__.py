@@ -449,8 +449,6 @@ class AsosParser:
 
         self.client = proxy_client
 
-        self.tasks = []
-
         self.csv_worker = CsvWorker(parser_name="asos")
         if logger is not None:
             self.logger = logger
@@ -528,16 +526,13 @@ class AsosParser:
 
                     if self.client.iter_proxy():
                         await asyncio.gather(*category_tasks)
-
-                    # delay = self._get_random_delay(left=30, right=40)
-                    # self.logger.info(f"Задержка {delay} секунд.")
-                    # await asyncio.sleep(delay)
             self.logger.info("Все категории успешно собраны.")
         except Exception as e:
             self.logger.error(f"Возникла ошибка при парсинге: {e}.")
 
     async def parse_category(self, name: str, base_url: str):
         try:
+            images_tasks = []
             while self.current_offset < self.products_limit or self.products_limit == 0:
                 if self.current_offset != 0:
                     base_url = self._get_offset(current_url=base_url)  # offset += 200
@@ -549,7 +544,8 @@ class AsosParser:
                     self.logger.error(f"Ошибка загрузки товаров для категории {name}.")
                     continue
 
-                await self.parse_products(products=all_products, category=name)
+                tasks = await self.parse_products(products=all_products, category=name)
+                images_tasks.append(tasks)
 
                 self._set_products_limit(limit=max_amount)
 
@@ -565,8 +561,9 @@ class AsosParser:
             self.current_offset = 0
             self._set_products_limit(0)
 
-            await asyncio.gather(*self.tasks)
-            self.tasks.clear()
+            for tasks in images_tasks:
+                if tasks:
+                    await asyncio.gather(*tasks)
 
             self.logger.info(f"Категория {name} полностью собрана.")
         except Exception as e:
@@ -595,9 +592,10 @@ class AsosParser:
                     self.logger.error(f"Возникла ошибка при получении информации о продукте: {e}.")
 
             # Запускаем задачи на скачивание
+            images_tasks = []
             for imgs in images_to_download:
                 task = asyncio.create_task(self.download_images(images=imgs))
-                self.tasks.append(task)
+                images_tasks.append(task)
 
             self.logger.info(f"Распарсили {len(products)} товаров.")
 
@@ -606,10 +604,10 @@ class AsosParser:
             del csv_rows
             images_to_download.clear()
 
-            return True
+            return images_tasks
         except Exception as e:
             self.logger.error(f"Возникла ошибка при получении информации о продуктах: {e}.")
-            return False
+            return []
 
     async def get_all_products(self, url: str):
         try:

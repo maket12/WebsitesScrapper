@@ -145,15 +145,15 @@ async def init_footlocker():
 
 
 async def main():
-    # macys = await init_macys()
-    # await macys.start()
-    hnm = await init_hnm()
-    if not hnm:
-        return
-    footlocker = await init_footlocker()
-    if not footlocker:
-        return
-    parsers = [footlocker]
+    macys = await init_macys()
+    await macys.start()
+    # hnm = await init_hnm()
+    # if not hnm:
+    #     return
+    # footlocker = await init_footlocker()
+    # if not footlocker:
+    #     return
+    parsers = [macys]
 
     async def autosave_task():
         while True:
@@ -174,10 +174,17 @@ async def main():
 
     atexit.register(on_exit)
     
-    asyncio.create_task(autosave_task())
+    autosave_task = asyncio.create_task(autosave_task())
     
-    tasks = [parser.start() for parser in parsers]
-    await asyncio.gather(*tasks)
+    try:
+        tasks = [parser.start() for parser in parsers]
+        await asyncio.gather(*tasks)
+    finally:
+        autosave_task.cancel()
+        try:
+            await autosave_task
+        except asyncio.CancelledError:
+            pass
 
 
 # async def iherb_test():

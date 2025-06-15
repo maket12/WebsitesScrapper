@@ -137,8 +137,6 @@ class MacysParser:
         self.images_folder_base = "files/macys/images"
         self.images_folder = None
 
-        self.tasks = []
-
         self.client = proxy_client
 
         self.csv_worker = CsvWorker(parser_name="macys", logger=logger)
@@ -257,14 +255,6 @@ class MacysParser:
 
                 current_page += 1
 
-                # delay = self._get_random_delay(left=8, right=15)
-                # self.logger.info(f"Задержка {delay} секунд.")
-                # await asyncio.sleep(delay)
-
-            await asyncio.gather(*self.tasks)
-            self.tasks.clear()
-            self.logger.debug(f"Картинки успешно загружены.")
-
             self.logger.info(f"Категория {name} полностью собрана.")
         except Exception as e:
             self.logger.error(f"Возникла ошибка при парсинге категории {name}: {e}.")
@@ -291,13 +281,19 @@ class MacysParser:
                 except Exception as e:
                     self.logger.error(f"Возникла ошибка при получении информации о продукте: {e}.")
 
+            tasks = []
             for imgs in images_to_download:
                 task = asyncio.create_task(self.download_images(images=imgs))
-                self.tasks.append(task)
+                tasks.append(task)
+
+            if tasks:
+                await asyncio.gather(*tasks)
+            self.logger.debug(f"Картинки успешно загружены.")
 
             self.csv_worker.write_to_table(rows=csv_rows)
 
             del csv_rows
+            del tasks
             images_to_download.clear()
 
             return True
